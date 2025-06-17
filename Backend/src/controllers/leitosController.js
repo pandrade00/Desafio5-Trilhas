@@ -44,9 +44,29 @@ class LeitosController {
         return res.status(400).json({ success: false, error: "Parâmetro de busca ausente." });
       }
 
-      const resultados = await leito.find(
-        { Hospital: new RegExp("^" + termo, "i") } // começa com termo
-      ).select("Hospital Bairro Cidade -_id").limit(10); // retorna o nome, bairro e cidade
+      const resultados = await leito.aggregate([
+        {
+          $match: {
+            Hospital: { $regex: termo, $options: "i" }
+          }
+        },
+        {
+          $group: {
+            _id: { Hospital: "$Hospital", Bairro: "$Bairro", Cidade: "$Cidade" }
+          }
+        },
+        {
+          $limit: 10
+        },
+        {
+          $project: {
+            _id: 0,
+            Hospital: "$_id.Hospital",
+            Bairro: "$_id.Bairro",
+            Cidade: "$_id.Cidade"
+          }
+        }
+      ]);
 
       res.status(200).json({
         success: true,

@@ -3,11 +3,16 @@ import leito from "../routes/leitosRoutes.js";
 import search from "../routes/searchRoutes.js";
 
 const routes = (app) => {
-  app.use(express.json());
-  app.route("/").get((req, res) => res.status(200).send("Diagnostix"));
+  const router = express.Router();
 
-  app.use(leito);
-  app.use(search);
+  app.use(express.json());
+  
+  router.get("/", (req, res) => res.status(200).send("Diagnostix"));
+
+  router.use(leito);
+  router.use(search);
+
+  app.use(router);
 };
 
 export default routes;

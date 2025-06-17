@@ -38,8 +38,18 @@ const importarCSV = async () => {
     .on('end', async () => {
       try {
         console.log(`Lidos ${resultados.length} registros`);
+
+        // Remover duplicatas com base em Hospital + Cidade
+        const unicos = Array.from(
+          new Map(
+            resultados.map(item => [item.Hospital + item.Cidade, item])
+          ).values()
+        );
+
+        console.log(`Registros únicos após filtragem: ${unicos.length}`);
+
         await Leito.deleteMany();
-        const inserted = await Leito.insertMany(resultados);
+        const inserted = await Leito.insertMany(unicos);
         console.log(`Importados ${inserted.length} registros com sucesso!`);
         process.exit();
       } catch (err) {
