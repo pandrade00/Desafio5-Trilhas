@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diagnóstix - Cadastro</title>
+    <link rel="stylesheet" href="cadastro.css" />
+  </head>
+  <body>
+    <!-- Cabeçalho -->
+    <header class="cabecalho">
+      <div class="logo">
+        <img src="../assets/logo-diagnostix.png" alt="Logo Diagnóstix" />
+      </div>
+      <nav class="menu">
+        <a href="#">Home</a>
+        <a href="#">Dados Saúde</a>
+        <a href="#">Fale Conosco</a>
+        <a href="#">Login</a>
+      </nav>
+    </header>
+
+    <!-- Corpo -->
+    <section class="corpo">
+      <div class="card-login">
+        <h2>Cadastre-se</h2>
+
+        <label for="nome">Nome Completo</label>
+        <input type="text" id="nome" />
+
+        <label for="email">Celular ou e-mail</label>
+        <input type="email" id="email" />
+
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" />
+
+        <label>Data de Nascimento</label>
+        <div class="data-nascimento">
+          <select>
+            <option>Dia</option>
+          </select>
+          <select>
+            <option>Mês</option>
+          </select>
+          <select>
+            <option>Ano</option>
+          </select>
+        </div>
+
+        <label for="genero">Gênero</label>
+        <select id="genero">
+          <option value="">Selecione</option>
+          <option value="feminino">Feminino</option>
+          <option value="masculino">Masculino</option>
+          <option value="outro">Outro</option>
+        </select>
+
+        <button class="btn-entrar">Cadastrar</button>
+
+        <p class="link-menor">
+          Ao cadastrar, você aceita os <a href="#">Termos de Uso</a> e a
+          <a href="#">Política de Privacidade</a>.
+        </p>
+      </div>
+    </section>
+  </body>
+</html>
