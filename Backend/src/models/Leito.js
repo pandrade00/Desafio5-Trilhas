@@ -1,12 +1,16 @@
 import mongoose from "mongoose";
 
-const LeitoSchema = new mongoose.Schema({
-  hospital: String,
-  tipo: String,
-  andar: String,
-  numero: String,
-  disponivel: String
-});
+const leitoSchema = new mongoose.Schema({
+  Hospital: { type: String },
+  Tipo: { type: String },
+  Natureza: { type: String },
+  Numero: { type: String },
+  Disponivel: { type: String },
+  Logradouro: { type: String },
+  Bairro: { type: String },
+  Cidade: { type: String }
+}, { versionKey: false });
 
-export default mongoose.model("Leito", LeitoSchema);
- 
+const leito = mongoose.model("leitos", leitoSchema);
+
+export default leito;
