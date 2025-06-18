@@ -3,6 +3,7 @@ import leito from "../routes/leitosRoutes.js";
 import search from "../routes/searchRoutes.js";
 import usuario from "../routes/usuariosRoutes.js";
 import consultas from "../routes/consultasRoutes.js";
+import exame from "../routes/examesRoutes.js";
 
 const routes = (app) => {
   const router = express.Router();
@@ -15,6 +16,7 @@ const routes = (app) => {
   router.use(search);
   router.use(usuario);
   router.use(consultas);
+  router.use(exame);
 
   app.use(router);
 };
