@@ -15,9 +15,7 @@ async function conectaNaDatabase() {
       console.error("❌ Erro de conexão com o banco:", erro);
     });
 
-    db.once("open", () => {
-      console.log("✅ Conexão com o banco feita com sucesso");
-    });
+    console.log("✅ Conexão com o banco feita com sucesso");
 
     return db;
   } catch (erro) {
