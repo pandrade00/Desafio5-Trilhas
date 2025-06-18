@@ -21,17 +21,24 @@ const importarCSV = async () => {
       mapValues: ({ value }) => value.trim()
     }))
     .on('data', (data) => {
-      if (data.UF == 'MA') {
-      // Mapeia para o schema simplificado
+      if (data.UF === 'MA') {
+        // Mapeia para o schema simplificado
         resultados.push({
           Hospital: data.NOME_ESTABELECIMENTO,
           Tipo: data.DS_TIPO_UNIDADE,
           Natureza: data.DESC_NATUREZA_JURIDICA || '',
-          Numero: data.CNES,
-          Disponivel: data.LEITOS_SUS > 0 ? 'Sim' : 'Não',
-          Logradouro: data.UF || '',
-          Bairro: data.NO_BAIRRO || '',
-          Cidade: data.MUNICIPIO || ''
+          CadastroCNES: data.CNES,
+          Disponivel: data.LEITOS_SUS > 0 ? 'Sim' : 'No',
+          Email: data.NO_EMAIL || '',
+          Telefone: data.NU_TELEFONE || '',
+          Endereco: {
+            Estado: data.UF || '',
+            Cidade: data.MUNICIPIO || '',
+            Bairro: data.NO_BAIRRO || '',
+            Rua: data.NO_LOGRADOURO || '',
+            Numero: data.NO_ENDERECO || '',
+            Cep: data.CO_CEP || ''
+          }
         });
       }
     })
@@ -42,7 +49,7 @@ const importarCSV = async () => {
         // Remover duplicatas com base em Hospital + Cidade
         const unicos = Array.from(
           new Map(
-            resultados.map(item => [item.Hospital + item.Cidade, item])
+            resultados.map(item => [item.Hospital + item.Endereco.Cidade + item.Endereco.Bairro, item])
           ).values()
         );
 
@@ -59,4 +66,4 @@ const importarCSV = async () => {
     });
 };
 
-importarCSV();
+export default importarCSV;

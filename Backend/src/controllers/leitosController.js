@@ -1,76 +1,46 @@
 import leito from "../models/Leito.js";
 
 class LeitosController {
-  
+
+  //Troquei as duas funções de busca por uma só, que aceita parâmetros opcionais e da pra incluir mais se precisar
   static async buscarLeitos(req, res) {
     try {
-      const filtros = {};
+      const { hospital, cidade, bairro, rua, cep } = req.query;
 
-      if (req.query.hospital) {
-        filtros.Hospital = new RegExp(req.query.hospital, 'i'); // Busca case-insensitive
-      }
-      if (req.query.tipo) {
-        filtros.Tipo = new RegExp(req.query.tipo, 'i');
-      }
-      if (req.query.bairro) {
-        filtros.Bairro = new RegExp(req.query.bairro, 'i');
-      }
-      if (req.query.disponivel) {
-        filtros.Disponivel = req.query.disponivel;
-      } else {
-        filtros.Disponivel = "Sim"; // Valor padrão
+      if (!cidade && !bairro && !rua && !cep && !hospital) {
+        //lista todos os leitos se nenhum parâmetro for fornecido
+        const resultados = await leito.find({});
+        return res.status(200).json({ success: true, leitos: resultados.length, data: resultados });
       }
 
-      const resultados = await leito.find(filtros);
-      res.status(200).json({
-        success: true,
-        count: resultados.length,
-        data: resultados
-      });
-      
-    } catch (err) {
-      console.error('Erro na busca:', err);
-      res.status(500).json({ 
-        success: false,
-        error: "Erro ao buscar leitos no banco de dados" 
-      });
-    }
-  }
-
-  static async buscarHospitaisPorNome(req, res) {
-    try {
-      const termo = req.query.q;
-      if (!termo) {
-        return res.status(400).json({ success: false, error: "Parâmetro de busca ausente." });
-      }
+      const criarRegex = (valor) => new RegExp(valor, "i");
+      const match = {};
+      if (hospital) match["Hospital"] = criarRegex(hospital);
+      if (cidade) match["Endereco.Cidade"] = criarRegex(cidade);
+      if (bairro) match["Endereco.Bairro"] = criarRegex(bairro);
+      if (rua) match["Endereco.Rua"] = criarRegex(rua);
+      if (cep) match["Endereco.Cep"] = criarRegex(cep);
 
       const resultados = await leito.aggregate([
-        {
-          $match: {
-            Hospital: { $regex: termo, $options: "i" }
-          }
-        },
-        {
-          $group: {
-            _id: { Hospital: "$Hospital", Bairro: "$Bairro", Cidade: "$Cidade" }
-          }
-        },
-        {
-          $limit: 10
-        },
+        { $match: match },
         {
           $project: {
             _id: 0,
-            Hospital: "$_id.Hospital",
-            Bairro: "$_id.Bairro",
-            Cidade: "$_id.Cidade"
+            Hospital: 1,
+            Tipo: 1,
+            Natureza: 1,
+            CadastroCNES: 1,
+            Disponivel: 1,
+            Email: 1,
+            Telefone: 1,
+            Endereco: 1
           }
         }
       ]);
 
       res.status(200).json({
         success: true,
-        data: resultados,
+        data: resultados
       });
     } catch (err) {
       console.error("Erro na busca:", err);
