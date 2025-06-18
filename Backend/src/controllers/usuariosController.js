@@ -16,7 +16,6 @@ class UsuariosController {
     }
   }
 
-  //Troquei as duas funções de busca por uma só, que aceita parâmetros opcionais e da pra incluir mais se precisar
   static async buscarUsuarios(req, res) {
     try {
       const { nome, cpf, email, telefone } = req.query;

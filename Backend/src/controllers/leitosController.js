@@ -16,7 +16,6 @@ class LeitosController {
     }
   }
 
-  //Troquei as duas funções de busca por uma só, que aceita parâmetros opcionais e da pra incluir mais se precisar
   static async buscarLeitos(req, res) {
     try {
       const { hospital, cidade, bairro, rua, cep } = req.query;
