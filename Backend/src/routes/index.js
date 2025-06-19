@@ -1,24 +1,24 @@
 import express from "express";
-import leito from "../routes/leitosRoutes.js";
-import search from "../routes/searchRoutes.js";
-import usuario from "../routes/usuariosRoutes.js";
-import consultas from "../routes/consultasRoutes.js";
-import exame from "../routes/examesRoutes.js";
+import leitosRoutes from "./leitosRoutes.js";
+import usuariosRoutes from "./usuariosRoutes.js";
+import consultasRoutes from "./consultasRoutes.js";
+import examesRoutes from "./examesRoutes.js";
+import searchRoutes from "./searchRoutes.js";
 
 const routes = (app) => {
   const router = express.Router();
 
   app.use(express.json());
 
-  router.get("/", (req, res) => res.status(200).send("Diagnostix"));
+  router.get("/", (req, res) => res.status(200).send("API Diagnostix"));
 
-  router.use(leito);
-  router.use(search);
-  router.use(usuario);
-  router.use(consultas);
-  router.use(exame);
+  router.use("/leitos", leitosRoutes);
+  router.use("/usuarios", usuariosRoutes);
+  router.use("/consultas", consultasRoutes);
+  router.use("/exames", examesRoutes);
+  router.use("/search", searchRoutes);
 
-  app.use(router);
+  app.use("/", router);
 };
 
 export default routes;

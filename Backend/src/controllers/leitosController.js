@@ -59,6 +59,26 @@ class LeitosController {
     }
   }
 
+  static async buscarLeitoPorId(req, res) {
+    try {
+      const id = req.params.id;
+      const leitoEncontrado = await leito.findById(id);
+
+      if (!leitoEncontrado) {
+        return res.status(404).json({ success: false, error: "Leito não encontrado." });
+      }
+
+      res.status(200).json({
+        success: true,
+        data: leitoEncontrado
+      });
+
+    } catch (err) {
+      console.error("Erro ao buscar leito por ID:", err);
+      return res.status(500).json({ success: false, error: "Erro ao buscar leito." });
+    }
+  }
+
   static async cadastrarLeito(req, res) {
     try {
       const novoLeito = req.body;

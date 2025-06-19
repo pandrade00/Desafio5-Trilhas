@@ -43,6 +43,30 @@ class ConsultasController {
     }
   }
 
+  static async buscarConsultaPorId(req, res) {
+    try {
+      const id = req.params.id;
+
+      if (!id) {
+        return res.status(400).json({ success: false, error: "ID da consulta ausente." });
+      }
+
+      const consultaEncontrada = await consulta.findById(id).populate("usuarioId");
+
+      if (!consultaEncontrada) {
+        return res.status(404).json({ success: false, error: "Consulta não encontrada." });
+      }
+
+      res.status(200).json({
+        success: true,
+        data: consultaEncontrada
+      });
+    } catch (err) {
+      console.error("Erro ao buscar consulta por ID:", err);
+      return res.status(500).json({ success: false, error: "Erro ao buscar consulta." });
+    }
+  }
+  
   static async cadastrarConsulta(req, res) {
     try {
       const novaConsulta = req.body;

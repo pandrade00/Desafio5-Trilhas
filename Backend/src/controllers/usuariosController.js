@@ -16,6 +16,30 @@ class UsuariosController {
     }
   }
 
+  static async buscarUsuarioPorId(req, res) {
+    try {
+      const id = req.params.id;
+
+      if (!id) {
+        return res.status(400).json({ success: false, error: "ID do usuário ausente." });
+      }
+
+      const usuarioEncontrado = await usuario.findById(id);
+      
+      if (!usuarioEncontrado) {
+        return res.status(404).json({ success: false, error: "Usuário não encontrado." });
+      }
+
+      res.status(200).json({
+        success: true,
+        data: usuarioEncontrado
+      });
+    } catch (err) {
+      console.error("Erro ao buscar usuario por ID:", err);
+      return res.status(500).json({ success: false, error: "Erro ao buscar usuario." });
+    }
+  }
+
   static async buscarUsuarios(req, res) {
     try {
       const { nome, cpf, email, telefone } = req.query;

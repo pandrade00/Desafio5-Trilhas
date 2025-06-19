@@ -20,6 +20,30 @@ class ExamesController {
     }
   }
 
+  static async buscarExamePorId(req, res) {
+    try {
+      const id = req.params.id;
+
+      if (!id) {
+        return res.status(400).json({ success: false, error: "ID do exame ausente." });
+      }
+
+      const exameEncontrado = await exame.findById(id).populate("usuarioId");
+
+      if (!exameEncontrado) {
+        return res.status(404).json({ success: false, error: "Exame não encontrado." });
+      }
+
+      res.status(200).json({
+        success: true,
+        data: exameEncontrado
+      });
+    } catch (err) {
+      console.error("Erro ao buscar exame por ID:", err);
+      return res.status(500).json({ success: false, error: "Erro ao buscar exame." });
+    }
+  }
+
   static async buscarExamesDoUsuario(req, res) {
     try {
       const usuarioId = req.params.usuarioId;
