@@ -1,6 +1,6 @@
 import { endereco } from "../models/Endereco.js";
 import usuario from "../models/Usuario.js";
-import { cadastroUsuario } from "../services/usuarioService.js";
+import { cadastroUsuario, atualizarSenha } from "../services/usuarioService.js";
 
 class UsuariosController {
 
@@ -86,10 +86,13 @@ class UsuariosController {
   static async cadastrarUsuario(req, res) {
     try {
       const novoUsuario = await cadastroUsuario(req.body);
+      
+      const objUsuario = novoUsuario.toObject();
+      delete objUsuario.senha; // Remover senha do objeto de resposta
 
       res.status(201).json({
         success: true,
-        data: novoUsuario
+        data: objUsuario
       });
     } catch (err) {
       console.error("Erro ao cadastrar usuario:", err);
@@ -101,12 +104,12 @@ class UsuariosController {
     try {
       const id = req.params.id;
 
-      if(req.body.senha) {
-        const senhaHash = await gerarHash(req.body.senha);
-        req.body.senha = senhaHash;
+      if (req.body.senha) { 
+        await atualizarSenha(req.body.senha, id); 
+        delete req.body.senha;
       }
 
-      await usuario.findByIdAndUpdate(id, req.body);
+      await usuario.findByIdAndUpdate(id, req.body, { runValidators: true });
 
       res.status(200).json({
         success: true,

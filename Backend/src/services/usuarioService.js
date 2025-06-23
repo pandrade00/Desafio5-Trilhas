@@ -10,23 +10,16 @@ async function cadastroUsuario(dadosUsuario) {
   const senhaHash = await bcrypt.hash(novoUsuario.senha, 10);
   novoUsuario.senha = senhaHash;
 
-  const usuarioCriado = await usuario.create({ ...novoUsuario});
+  const usuarioCriado = await usuario.create({ ...novoUsuario });
   return usuarioCriado;
 }
 
-// async function loginUsuario(senha, hash) {
-//   const verify = await bcrypt.compare(senha, hash);
-//   //console.log(verify);
-//   return verify
-// }
+async function atualizarSenha(senha, usuarioId) {
+  const senhaHash = await bcrypt.hash(senha, 10);
+  const usuarioAtualizar = await usuario.findById(usuarioId);
 
-// async function fluxoUsuario() {
-//   const password = "1214";
-//   const hash = await cadastroUsuario(password);
+  usuarioAtualizar.senha = senhaHash;
+  return await usuarioAtualizar.save();
+}
 
-//   const loginCerto = await loginUsuario(password, hash);
-//   const loginErrado = await loginUsuario("batata", hash);
-//   console.log(loginCerto, loginErrado);
-// }
-
-export { cadastroUsuario };
+export { cadastroUsuario, atualizarSenha };
