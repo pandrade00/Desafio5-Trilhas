@@ -1,4 +1,6 @@
+import { endereco } from "../models/Endereco.js";
 import usuario from "../models/Usuario.js";
+import { cadastroUsuario } from "../services/usuarioService.js";
 
 class UsuariosController {
 
@@ -25,7 +27,7 @@ class UsuariosController {
       }
 
       const usuarioEncontrado = await usuario.findById(id);
-      
+
       if (!usuarioEncontrado) {
         return res.status(404).json({ success: false, error: "Usuário não encontrado." });
       }
@@ -63,9 +65,10 @@ class UsuariosController {
             nome: 1,
             cpf: 1,
             email: 1,
-            senha: 1,
-            telefone: 1,
-            dataNascimento: 1
+            senha: 0,
+            telefones: 1,
+            dataNascimento: 1,
+            endereco: 1
           }
         }
       ]);
@@ -82,27 +85,27 @@ class UsuariosController {
 
   static async cadastrarUsuario(req, res) {
     try {
-      const novoUsuario = req.body;
-      const usuarioExistente = await usuario.findOne({ cpf: novoUsuario.cpf });
+      const novoUsuario = await cadastroUsuario(req.body);
 
-      if (usuarioExistente) {
-        return res.status(400).json({ success: false, error: "Usuário já cadastrado com este CPF." });
-      }
-
-      const usuarioCriado = await usuario.create(novoUsuario);
       res.status(201).json({
         success: true,
-        data: usuarioCriado
+        data: novoUsuario
       });
     } catch (err) {
       console.error("Erro ao cadastrar usuario:", err);
-      return res.status(500).json({ success: false, error: "Erro ao cadastrar usuario." });
+      return res.status(500).json({ success: false, error: "Erro ao cadastrar usuario." || err.message });
     }
   }
 
   static async atualizarUsuario(req, res) {
     try {
       const id = req.params.id;
+
+      if(req.body.senha) {
+        const senhaHash = await gerarHash(req.body.senha);
+        req.body.senha = senhaHash;
+      }
+
       await usuario.findByIdAndUpdate(id, req.body);
 
       res.status(200).json({
@@ -119,7 +122,7 @@ class UsuariosController {
     try {
       const id = req.params.id;
       const usuarioDeletado = await usuario.findByIdAndDelete(id, {
-        projection: { nome: 1, cpf: 1, email: 1, telefone: 1 }
+        projection: { nome: 1, cpf: 1, email: 1, telefone: 1, endereco: 1 }
       });
 
       res.status(200).json({
