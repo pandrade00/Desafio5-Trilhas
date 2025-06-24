@@ -22,4 +22,17 @@ async function atualizarSenha(senha, usuarioId) {
   return await usuarioAtualizar.save();
 }
 
-export { cadastroUsuario, atualizarSenha };
+async function logarUsuario(email, senha) {
+  const usuarioLogar = await usuario.findOne({ email: email }).select("+senha");
+
+  if (!usuarioLogar) { throw new Error("Nenhum usuário encontrado para este email."); }
+
+  const senhaHash = usuarioLogar.senha;
+  const verificarSenhas = await bcrypt.compare(senha, senhaHash);
+
+  if (!verificarSenhas) { throw new Error("Senha incorreta."); }
+
+  return usuarioLogar;
+}
+
+export { cadastroUsuario, atualizarSenha, logarUsuario };

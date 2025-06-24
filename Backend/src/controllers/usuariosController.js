@@ -1,6 +1,6 @@
 import { endereco } from "../models/Endereco.js";
 import usuario from "../models/Usuario.js";
-import { cadastroUsuario, atualizarSenha } from "../services/usuarioService.js";
+import { cadastroUsuario, atualizarSenha, logarUsuario } from "../services/usuarioService.js";
 
 class UsuariosController {
 
@@ -86,6 +86,30 @@ class UsuariosController {
     } catch (err) {
       console.error("Erro ao cadastrar usuario:", err);
       return res.status(500).json({ success: false, error: "Erro ao cadastrar usuario." || err.message });
+    }
+  }
+
+  static async logarUsuario(req, res) {
+    try {
+      const { email, senha } = req.body;
+
+      if (!email || !senha) {
+        return res.status(400).json({ success: false, error: "Email e senha são obrigatórios." });
+      }
+
+      const usuario = await logarUsuario(email, senha);
+
+      res.status(201).json({
+        success: true,
+        usuario: {
+          id: usuario._id,
+          nome: usuario.nome,
+          email: usuario.email
+        }
+      });
+    } catch (err) {
+      console.error("Erro ao logar usuario:", err);
+      return res.status(500).json({ success: false, error: "Erro ao logar usuario: Credenciais inválidas" });
     }
   }
 
