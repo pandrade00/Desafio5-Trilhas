@@ -59,18 +59,7 @@ class UsuariosController {
 
       const resultados = await usuario.aggregate([
         { $match: match },
-        {
-          $project: {
-            _id: 1,
-            nome: 1,
-            cpf: 1,
-            email: 1,
-            senha: 0,
-            telefones: 1,
-            dataNascimento: 1,
-            endereco: 1
-          }
-        }
+        { $project: { senha: 0 } }
       ]);
 
       res.status(200).json({
@@ -86,7 +75,7 @@ class UsuariosController {
   static async cadastrarUsuario(req, res) {
     try {
       const novoUsuario = await cadastroUsuario(req.body);
-      
+
       const objUsuario = novoUsuario.toObject();
       delete objUsuario.senha; // Remover senha do objeto de resposta
 
@@ -104,8 +93,8 @@ class UsuariosController {
     try {
       const id = req.params.id;
 
-      if (req.body.senha) { 
-        await atualizarSenha(req.body.senha, id); 
+      if (req.body.senha) {
+        await atualizarSenha(req.body.senha, id);
         delete req.body.senha;
       }
 
