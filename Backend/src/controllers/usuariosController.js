@@ -1,6 +1,5 @@
-import { endereco } from "../models/Endereco.js";
 import usuario from "../models/Usuario.js";
-import { cadastroUsuario, atualizarSenha, logarUsuario } from "../services/usuarioService.js";
+import { cadastroUsuario, atualizarSenha, logarUsuario } from "./autenticarController.js";
 
 class UsuariosController {
 
@@ -76,12 +75,12 @@ class UsuariosController {
     try {
       const novoUsuario = await cadastroUsuario(req.body);
 
-      const objUsuario = novoUsuario.toObject();
-      delete objUsuario.senha; // Remover senha do objeto de resposta
+      const objtUsuario = novoUsuario.toObject();
+      delete objtUsuario.senha;
 
       res.status(201).json({
         success: true,
-        data: objUsuario
+        data: objtUsuario
       });
     } catch (err) {
       console.error("Erro ao cadastrar usuario:", err);
@@ -97,15 +96,17 @@ class UsuariosController {
         return res.status(400).json({ success: false, error: "Email e senha são obrigatórios." });
       }
 
-      const usuario = await logarUsuario(email, senha);
+      const { usuario, token } = await logarUsuario(email, senha);
 
       res.status(201).json({
         success: true,
         usuario: {
-          id: usuario._id,
+          id: usuario.id,
           nome: usuario.nome,
-          email: usuario.email
-        }
+          email: usuario.email,
+          role: usuario.role
+        },
+        acessToken: token
       });
     } catch (err) {
       console.error("Erro ao logar usuario:", err);

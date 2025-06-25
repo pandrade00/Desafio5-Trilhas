@@ -1,5 +1,6 @@
 import express from "express";
 import UsuariosController from "../controllers/usuariosController.js";
+import middlewares from "../middlewares/index.js";
 
 const routes = express.Router();
 

@@ -1,5 +1,6 @@
 import usuario from "../models/Usuario.js";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 async function cadastroUsuario(dadosUsuario) {
   const novoUsuario = dadosUsuario;
@@ -10,7 +11,11 @@ async function cadastroUsuario(dadosUsuario) {
   const senhaHash = await bcrypt.hash(novoUsuario.senha, 10);
   novoUsuario.senha = senhaHash;
 
-  const usuarioCriado = await usuario.create({ ...novoUsuario });
+  const usuarioCriado = await usuario.create(
+    {
+      ...novoUsuario,
+      role: "usuario"
+    });
   return usuarioCriado;
 }
 
@@ -32,7 +37,24 @@ async function logarUsuario(email, senha) {
 
   if (!verificarSenhas) { throw new Error("Senha incorreta."); }
 
-  return usuarioLogar;
+  delete usuarioLogar.senha;
+
+  const token = jwt.sign(
+    {
+      infoUsuario:
+      {
+        id: usuarioLogar._id,
+        role: usuarioLogar.role
+      }
+    },
+    process.env.JWT_SECRET,
+    { expiresIn: 300 }
+  );
+
+  return {
+    usuario: usuarioLogar,
+    token: token
+  };
 }
 
 export { cadastroUsuario, atualizarSenha, logarUsuario };
