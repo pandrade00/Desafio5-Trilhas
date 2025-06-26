@@ -1,0 +1,98 @@
+@font-face {
+  font-family: "ChampagneBold";
+  src: url("home/ChampagneLimousinesBold.ttf") format("truetype");
+  font-weight: bold;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Cabeçalho */
+.cabecalho {
+  background-color: #f0d859;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.logo img {
+  height: 78px;
+}
+
+.menu a {
+  margin-left: 30px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #000;
+  font-weight: 500;
+}
+
+/* Conteúdo principal */
+.conteudo {
+  background: linear-gradient(
+      to bottom,
+      rgba(27, 92, 165, 0.9),
+      rgba(77, 165, 216, 0.9)
+    ),
+    url("../assets/imagem-de-fundo.png");
+  background-size: cover;
+  background-position: center;
+  min-height: calc(100vh - 100px);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 60px 60px;
+}
+
+/* Bloco de informações */
+.infos {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  color: #f0d859;
+}
+
+.infos h1 {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.infos h2 {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+/* Botões */
+.btn {
+  padding: 12px 20px;
+  border-radius: 6px;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: left;
+  width: 220px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn.consulta {
+  background-color: #d9d9d9;
+}
+
+.btn.realizada {
+  background-color: #79c9bc;
+}
+
+.btn.atrasada {
+  background-color: #efd759;
+}
+
+/*OBS:VERIFICAR SE A ESTILIZAÇÃO FEITA ESTÁ CORRETA, CORES,FONTE E TAMANHOS. POSICIONAR OS ITENS CORRETAMENTE DE ACORDO COM FIGMA*/
