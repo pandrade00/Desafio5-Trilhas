@@ -4,7 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Diagnóstix - Login</title>
-    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="style_login.css" />
+    <style>
+      .erro {
+        color: red;
+        font-size: 14px;
+        margin-top: 4px;
+        display: none;
+      }
+    </style>
   </head>
   <body>
     <!-- Cabeçalho -->
@@ -31,7 +39,8 @@
         <h2>Login</h2>
 
         <label for="email">Celular ou e-mail</label>
-        <input type="text" id="email" />
+        <input type="email" id="email" required />
+        <p id="emailError" class="erro">Insira um email válido</p>
 
         <label for="senha">Senha</label>
         <input type="password" id="senha" />
@@ -40,10 +49,10 @@
 
         <button class="btn-entrar">Entrar</button>
 
-        <p class="link-menor">
-          Ainda não tem uma conta? <a href="#">Cadastre-se</a>
-        </p>
+        <p>Ainda não tem uma conta? <a href="../cadastro/cadastro.html">Cadastre-se</a></p>
+        
       </div>
     </section>
+    <script src="script_login.js"></script>
   </body>
 </html>
