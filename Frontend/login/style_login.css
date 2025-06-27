@@ -1,6 +1,10 @@
 @font-face {
   font-family: "ChampagneBold";
+<<<<<<< HEAD
   src: url("assets/Champagne_&_Limousines_Bold.ttf") format("truetype");
+=======
+  src: url("home/Champagne_&_Limousines_Bold.ttf") format("truetype");
+>>>>>>> e012403 (Correções de Layout)
   font-weight: bold;
 }
 
@@ -31,7 +35,7 @@ body {
 .menu a {
   margin-left: 30px;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 25px;
   color: #000;
   font-weight: 500;
 }
