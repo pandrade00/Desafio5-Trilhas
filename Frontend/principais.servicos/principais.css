@@ -1,8 +1,8 @@
-@font-face {
+/* @font-face {
   font-family: "ChampagneBold";
   src: url("home/ChampagneLimousinesBold.ttf") format("truetype");
   font-weight: bold;
-}
+} */
 
 * {
   margin: 0;
@@ -11,7 +11,7 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Raleway', sans-serif;
   background: linear-gradient(to bottom, #0074cc, #4aa9f3),
     url("assets/fundo.png");
   background-repeat: no-repeat;
@@ -77,9 +77,8 @@ nav a {
 .titulo {
   text-align: center;
   margin: 30px 0 20px;
-  font-size: 28px;
+  font-size: 36px;
   color: #f8dc27;
-  text-shadow: 2px 2px 0 #1a237e;
 }
 
 /* Notificação */
@@ -96,7 +95,7 @@ nav a {
 }
 
 .notificacao h3 {
-  color: #1a237e;
+  color: #1565c0;
   font-size: 18px;
   margin-bottom: 5px;
 }
@@ -165,6 +164,6 @@ nav a {
 
 .card p {
   margin-top: 10px;
+  color: #1565c0;
   font-weight: bold;
-  color: #1a237e;
 }
