@@ -95,6 +95,7 @@ nav a {
 }
 
 .notificacao h3 {
+  font-weight: normal;
   color: #1565c0;
   font-size: 18px;
   margin-bottom: 5px;
@@ -165,5 +166,4 @@ nav a {
 .card p {
   margin-top: 10px;
   color: #1565c0;
-  font-weight: bold;
 }

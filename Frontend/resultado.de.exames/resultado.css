@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   font-family: "Raleway", sans-serif;
@@ -74,8 +75,10 @@ h1 {
 }
 
 .card h2 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: normal;
   font-size: 18px;
-  color: #1565c0;
+  color: #1B5CA5;
   margin: 0 0 5px;
 }
 
@@ -99,15 +102,21 @@ h1 {
   font-size: 14px;
   font-weight: bold;
   cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+  font-weight: normal;
+  width: 120px;   
+  height: 40px;
+  border-radius: 13px;
   color: white;
 }
 
 .btn.disponivel {
-  background-color: #1e88e5;
+  background-color: #1B5CA5;
+  color: white;
 }
 
 .btn.aguardando {
-  background-color: #4fc3f7;
+  background-color: #4DA5D8;
 }
 
 .disponivel {
