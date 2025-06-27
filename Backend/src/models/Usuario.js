@@ -9,6 +9,7 @@ const usuarioSchema = new mongoose.Schema({
   senha: { type: String, required: true, select: false },
   telefones: { type: Array, default: [] },
   dataNascimento: { type: Date },
+  refreshTokenHash: { type: String },
   endereco: enderecoSchema
 }, { versionKey: false });
 

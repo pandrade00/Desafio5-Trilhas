@@ -5,6 +5,7 @@ import { autenticar, permitirRoles } from "../middlewares/index.js";
 const routes = express.Router();
 
 routes.post("/login", UsuariosController.logarUsuario);
+routes.post("/renovar", UsuariosController.renovarUsuario);
 
 routes.get("/", autenticar, permitirRoles("admin"), UsuariosController.listarUsuarios);
 routes.post("/", UsuariosController.cadastrarUsuario);

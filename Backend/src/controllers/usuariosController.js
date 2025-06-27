@@ -1,5 +1,5 @@
 import usuario from "../models/Usuario.js";
-import { cadastroUsuario, atualizarSenha, logarUsuario } from "./autenticarController.js";
+import { cadastroUsuario, atualizarSenha, logarUsuario, renovarToken } from "./autenticarController.js";
 
 class UsuariosController {
 
@@ -96,21 +96,47 @@ class UsuariosController {
         return res.status(400).json({ success: false, error: "Email e senha são obrigatórios." });
       }
 
-      const { usuario, token } = await logarUsuario(email, senha);
+      const { usuario, accessToken, refreshToken } = await logarUsuario(email, senha);
 
-      res.status(201).json({
+      res.status(200).json({
         success: true,
         usuario: {
-          id: usuario.id,
           nome: usuario.nome,
           email: usuario.email,
           role: usuario.role
         },
-        acessToken: token
+        accessToken,
+        refreshToken
       });
     } catch (err) {
       console.error("Erro ao logar usuario:", err);
       return res.status(500).json({ success: false, error: "Erro ao logar usuario: Credenciais inválidas" });
+    }
+  }
+
+  static async renovarUsuario(req, res) {
+    try {
+      const { refreshToken } = req.body;
+
+      if (!refreshToken) {
+        res.status(401).json({ success: false, error: "Refresh token não fornecido." });
+      }
+
+      const { usuario, accessToken, refreshToken: refreshTokenCriado } = await renovarToken(refreshToken);
+
+
+      res.status(200).json({
+        success: true,
+        usuario: {
+          nome: usuario.nome,
+          email: usuario.email,
+          role: usuario.role
+        },
+        accessToken,
+        refreshToken: refreshTokenCriado
+      });
+    } catch (err) {
+
     }
   }
 

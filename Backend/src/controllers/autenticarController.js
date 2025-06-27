@@ -37,24 +37,89 @@ async function logarUsuario(email, senha) {
 
   if (!verificarSenhas) { throw new Error("Senha incorreta."); }
 
-  delete usuarioLogar.senha;
+  const { accessToken, refreshToken } = await gerarTokens(usuarioLogar);
 
-  const token = jwt.sign(
-    {
-      infoUsuario:
-      {
-        id: usuarioLogar._id,
-        role: usuarioLogar.role
-      }
-    },
-    process.env.JWT_SECRET,
-    { expiresIn: 300 }
-  );
+  const usuarioSemSenha = usuarioLogar.toObject();
+  delete usuarioSemSenha.senha;
 
   return {
-    usuario: usuarioLogar,
-    token: token
+    usuario: {
+      role: usuarioSemSenha.role,
+      nome: usuarioSemSenha.nome,
+      email: usuarioSemSenha.email
+    },
+    accessToken,
+    refreshToken
   };
 }
 
-export { cadastroUsuario, atualizarSenha, logarUsuario };
+async function renovarToken(refreshToken) {
+  let payload;
+
+  try {
+    payload = jwt.verify(refreshToken, process.env.REFRESH_JWT_SECRET);
+  } catch (err) {
+    throw new Error("Token inválido ou expirado");
+  }
+
+  if (payload.type !== "refresh") {
+    throw new Error("Tipo de token inválido");
+  }
+
+  const usuarioEncontrado = await usuario.findById(payload.id);
+
+  if (!usuarioEncontrado || !usuarioEncontrado.refreshTokenHash) {
+    throw new Error("Usuario não encontrado ou não possui token registrado.");
+  }
+
+  const refreshTokenHash = usuarioEncontrado.refreshTokenHash;
+  const verificarTokens = await bcrypt.compare(refreshToken, refreshTokenHash)
+
+  if (!verificarTokens) {
+    throw new Error("Refresh token incorreto.");
+  }
+
+  const { accessToken, refreshToken: refreshTokenCriado } = await gerarTokens(usuarioEncontrado);
+
+  const usuarioSemSenha = usuarioEncontrado.toObject();
+  delete usuarioSemSenha.senha;
+
+  return {
+    usuario: {
+      role: usuarioSemSenha.role,
+      nome: usuarioSemSenha.nome,
+      email: usuarioSemSenha.email
+    },
+    accessToken,
+    refreshToken: refreshTokenCriado
+  };
+}
+
+async function gerarTokens(usuario) {
+  const payload = {
+    id: usuario._id,
+    email: usuario.email,
+    role: usuario.role
+  };
+
+  const accessToken = jwt.sign(
+    { ...payload, type: "access" },
+    process.env.JWT_SECRET,
+    { expiresIn: "5m" }
+  );
+
+  const refreshToken = jwt.sign(
+    { ...payload, type: "refresh" },
+    process.env.REFRESH_JWT_SECRET,
+    { expiresIn: "3d" }
+  );
+
+  const refreshTokenHash = await bcrypt.hash(refreshToken, 10);
+  usuario.refreshTokenHash = refreshTokenHash;
+  await usuario.save();
+
+  return { accessToken, refreshToken }
+}
+
+
+export { cadastroUsuario, atualizarSenha, logarUsuario, renovarToken };
