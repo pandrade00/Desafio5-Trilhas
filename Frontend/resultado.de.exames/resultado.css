@@ -1,0 +1,119 @@
+body {
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  background: #1976d2;
+  color: #333;
+}
+
+header {
+  background-color: #ffeb3b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.menu a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+.container {
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
+}
+
+h1 {
+  color: #ffeb3b;
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+.notification-icon {
+  position: absolute;
+  top: 110px;
+  right: 30px;
+  background-color: #ffeb3b;
+  border: 4px solid #1976d2;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.notification-icon img {
+  width: 24px;
+  height: 24px;
+}
+
+.card {
+  background: #ffee58;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 600px;
+  margin: 20px auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  position: relative;
+}
+
+.card .date {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.card h2 {
+  font-size: 18px;
+  color: #1565c0;
+  margin: 0 0 5px;
+}
+
+.card h2 span {
+  font-weight: normal;
+}
+
+.card p {
+  margin: 0 0 15px;
+  font-size: 14px;
+  color: #333;
+}
+
+.btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+}
+
+.btn.disponivel {
+  background-color: #1e88e5;
+}
+
+.btn.aguardando {
+  background-color: #4fc3f7;
+}
+
+.disponivel {
+  color: green;
+}
+
+.pendente {
+  color: red;
+}
