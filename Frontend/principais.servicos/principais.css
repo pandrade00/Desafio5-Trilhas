@@ -98,24 +98,13 @@ body {
 .icone-alerta {
   position: absolute;
   top: 40px;
-  right: 65px;
+  right: 95px;
   z-index: 2;
 }
 
-.circulo-amarelo {
-  width: 50px;
-  height: 50px;
-  background-color: #f0d859;
-  border-radius: 50%;
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  z-index: 0;
-}
-
 .icone-alerta img {
-  width: 30px;
   position: relative;
+  width: 50px;
   z-index: 1;
 }
 
