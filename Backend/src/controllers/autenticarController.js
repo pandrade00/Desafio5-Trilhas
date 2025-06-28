@@ -5,7 +5,7 @@ import jwt from "jsonwebtoken";
 async function cadastroUsuario(dadosUsuario) {
   const novoUsuario = dadosUsuario;
 
-  const usuarioExistente = await usuario.findOne({ cpf: novoUsuario.cpf });
+  const usuarioExistente = await usuario.findOne({ email: novoUsuario.email });
   if (usuarioExistente) { throw new Error("Usuário já cadastrado com este CPF"); }
 
   const senhaHash = await bcrypt.hash(novoUsuario.senha, 10);

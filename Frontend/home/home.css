@@ -13,24 +13,28 @@ body {
 /* Cabeçalho */
 .cabecalho {
   background-color: #f0d859;
-  height: 120px;
+  height: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 40px;
+  padding: 20px 100px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
 }
 
 .logo img {
   height: 78px;
 }
 
-/* Menu */
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
 .menu a {
-  margin-left: 30px;
   text-decoration: none;
-  font-size: 16px;
-  color: #000;
+  font-size: 20px;
+  color: #374a52;
   font-weight: 500;
 }
 
@@ -39,24 +43,6 @@ body {
 }
 
 /* Corpo */
-.corpo {
-  background: linear-gradient(
-      to bottom,
-      rgba(27, 92, 165, 0.7),
-      rgba(77, 165, 216, 0.7)
-    ),
-    url("/Frontend/assets/imagem-de-fundo.png");
-  background-size: cover;
-  background-position: center;
-  padding: 60px 20px;
-  min-height: calc(100vh - 120px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
-}
-
-/* APARECE A IMAGEM ATRÁS MAS ALTERA TODOS
 .corpo {
   background: linear-gradient(
       to bottom,
@@ -69,39 +55,37 @@ body {
   background-repeat: no-repeat;
   min-height: calc(100vh - 120px);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   padding: 40px 20px;
+  gap: 40px;
+  text-align: center;
 }
-
 
 /* Título */
 .box-titulo {
-  width: 984px;
   font-size: 48px;
   font-family: "ChampagneBold", sans-serif;
   color: #efd759;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-  text-align: left;
-  margin-left: 60px;
-}
-
-.box-titulo h2 {
-  margin: 0;
+  text-align: center;
+  width: 100%;
 }
 
 /* Cards */
 .cards {
   display: flex;
-  gap: 30px;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 1260px;
 }
 
 .card {
-  background-color: rgba(255, 255, 255, 0.8);
-  width: 240px;
-  height: 200px;
+  background-color: #f0d859;
+  width: 340px;
+  height: 320px;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -109,7 +93,6 @@ body {
   align-items: center;
   text-align: center;
   padding: 20px;
-  cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -119,42 +102,133 @@ body {
 }
 
 .card img {
-  width: 40px;
-  margin-bottom: 10px;
+  width: 64px;
+  margin-bottom: 30px;
 }
 
 .card h3 {
-  font-size: 18px;
+  font-size: 26px;
   color: #1d57a8;
-  margin: 8px 0;
+  margin-bottom: 10px;
 }
 
 .card p {
-  font-size: 12px;
+  font-size: 16px;
   color: #333;
   padding: 0 10px;
 }
 
-/* Card Sobre */
-.card-sobre {
-  background-color: rgba(255, 255, 255, 0.85);
-  max-width: 700px;
-  padding: 25px;
+/* Card Especial */
+/*.card-sobre {
+  width: 100%;
+  max-width: 1260px;
+  background-color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  text-align: center;
+  gap: 20px;
+  box-sizing: border-box;
+}*/
+
+/*.card-sobre img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  object-fit: contain;*/
 }
 
-.card-sobre h3 {
+.card-sobre-texto {
+  flex: 1;
+  min-width: 280px;
+  max-width: 600px;
+  text-align: left;
+}
+
+.card-sobre-texto h3 {
+  font-size: 28px;
   color: #1d57a8;
-  margin-bottom: 10px;
-  font-size: 20px;
+  margin: 0 0 15px;
 }
 
-.card-sobre p {
-  font-size: 15px;
+.card-sobre-texto p {
+  font-size: 16px;
   color: #333;
   line-height: 1.5;
 }
 
-/*OBS:VERIFICAR SE A ESTILIZAÇÃO FEITA ESTÁ CORRETA, CORES,FONTE E TAMANHOS. IMPLEMENTAR IMAGEM DE FUNDO E POSICIONAR OS ITENS CORRETAMENTE*/
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+.cabecalho {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+    gap: 10px;
+  }
+
+  .menu {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .box-titulo {
+    font-size: 36px;
+  }
+
+  .card {
+    width: 90%;
+    height: auto;
+  }
+
+  /*.card-sobre {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }*/
+
+  .card-sobre-texto {
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .card-sobre-texto h3 {
+    font-size: 24px;
+  }
+
+  .card-sobre-texto p {
+    font-size: 14px;
+  }
+
+  /* .card-sobre img {
+    max-width: 240px;
+  
+}*/
+
+@media (max-width: 480px) {
+  .box-titulo {
+    font-size: 28px;
+  }
+
+  .menu a {
+    font-size: 18px;
+  }
+
+  .card h3 {
+    font-size: 20px;
+  }
+
+  .card p {
+    font-size: 14px;
+  }
+
+  .card-sobre-texto h3 {
+    font-size: 20px;
+  }
+
+  .card-sobre-texto p {
+    font-size: 14px;
+  }
+}

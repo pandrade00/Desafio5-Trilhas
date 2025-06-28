@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'ChampagneBold';
+  src: url('../assets/fonts/Champagne_&_Limousines_Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   margin: 0;
   font-family: "Raleway", sans-serif;
@@ -6,38 +14,44 @@ body {
 }
 
 header {
-  background-color: #ffeb3b;
+  background-color: #F0D859;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
+  padding: 10px 80px;
 }
 
 .logo img {
-  height: 40px;
+  height: 78px;
 }
 
 .menu a {
   margin: 0 10px;
   text-decoration: none;
-  color: #000;
+  color: #374A52;
+  font-size: 30px;
+  font-family: 'ChampagneBold', sans-serif;
   font-weight: bold;
 }
 
 .container {
   padding: 60px 20px;
   text-align: center;
-  background: #1976d2;
   min-height: 100vh;
-  background-image: url("../assets/"); /*acrescentar imagem de fundo*/
+  background: #1976d2;
+  background: linear-gradient(to bottom,
+      rgba(27, 92, 165, 0.85),
+      rgba(77, 165, 216, 0.85)),
+    url("../assets/imagem-de-fundo.png");
   background-size: cover;
-  background-repeat: no-repeat;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 h1 {
-  color: #ffeb3b;
-  font-size: 36px;
+  color: #F0D859;
+  font-size: 70px;
+  font-family: 'ChampagneBold', sans-serif;
   margin-bottom: 40px;
 }
 
@@ -45,7 +59,8 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 500px;
+  max-width: 794px;
+  height: 98px;
   margin: 0 auto;
   background-color: #fffde7;
   border-radius: 10px;
@@ -57,7 +72,8 @@ h1 {
   flex: 1;
   border: none;
   padding: 12px;
-  font-size: 16px;
+  font-size: 32px;
+  font-family: 'ChampagneBold', sans-serif;
   border-radius: 10px;
   outline: none;
   background-color: transparent;
@@ -71,6 +87,48 @@ h1 {
 }
 
 .search-box img {
-  width: 24px;
-  height: 24px;
+  width: 59px;
+  height: 59px;
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  .logo img {
+    height: 60px;
+  }
+
+  .menu a {
+    font-size: 20px;
+    margin: 5px 5px;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  .search-box {
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+  }
+
+  .search-box input {
+    font-size: 20px;
+    padding: 8px;
+  }
+
+  .search-box img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .container {
+    padding: 40px 15px;
+  }
 }
