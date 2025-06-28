@@ -6,34 +6,47 @@ body {
 }
 
 header {
-  background-color: #ffeb3b;
+  background-color: #f0d859;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
+  flex-wrap: wrap;
 }
 
 .logo img {
-  height: 40px;
+  height: 60px;
+  max-width: 100%;
+}
+
+.menu {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .menu a {
-  margin: 0 10px;
   text-decoration: none;
-  color: #000;
+  color: #374a52;
   font-weight: bold;
+  font-size: 16px;
 }
 
 .container {
   padding: 60px 20px;
   text-align: center;
-  background: #1976d2 url("../assets/") no-repeat center; /*acrescentar imagem de fundo*/
+  background: linear-gradient(
+      rgba(25, 118, 210, 0.85),
+      rgba(25, 118, 210, 0.85)
+    ),
+    url("../assets/imagem-de-fundo.png") no-repeat center;
   background-size: cover;
   min-height: 100vh;
+  box-sizing: border-box;
 }
 
 h1 {
-  color: #ffeb3b;
+  color: #f0d859;
   font-size: 36px;
   margin-bottom: 40px;
 }
@@ -46,7 +59,7 @@ h1 {
 
 select {
   padding: 12px 20px;
-  font-size: 16px;
+  font-size: 18px;
   border: none;
   border-radius: 10px;
   width: 90%;
@@ -57,6 +70,58 @@ select {
   background-image: url("../assets/icone-seta-baixo.png");
   background-repeat: no-repeat;
   background-position: right 15px center;
-  background-size: 16px;
+  background-size: 18px;
+  color: #1b5ca5;
+  font-weight: bold;
   cursor: pointer;
+  padding-right: 45px;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 5px;
+    margin-top: 10px;
+  }
+
+  .menu a {
+    font-size: 16px;
+    padding: 5px 0;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  select {
+    font-size: 16px;
+    padding: 10px 16px;
+    background-size: 16px;
+    padding-right: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  select {
+    font-size: 15px;
+    padding: 8px 14px;
+    background-size: 14px;
+    padding-right: 35px;
+  }
 }
