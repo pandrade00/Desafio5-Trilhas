@@ -17,7 +17,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 40px;
+  padding: 0 100px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -29,7 +29,7 @@ body {
 .menu a {
   margin-left: 30px;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 20px;
   color: #000;
   font-weight: 500;
 }
@@ -56,7 +56,7 @@ body {
   gap: 40px;
 }
 
-/* APARECE A IMAGEM ATRÁS MAS ALTERA TODOS
+/*APARECE A IMAGEM ATRÁS MAS ALTERA TODOS*/
 .corpo {
   background: linear-gradient(
       to bottom,
@@ -93,15 +93,15 @@ body {
 /* Cards */
 .cards {
   display: flex;
-  gap: 30px;
+  gap: 78px;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .card {
-  background-color: rgba(255, 255, 255, 0.8);
-  width: 240px;
-  height: 200px;
+  background-color: #f0d859;
+  width: 372px;
+  height: 357px;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -119,26 +119,27 @@ body {
 }
 
 .card img {
-  width: 40px;
-  margin-bottom: 10px;
+  width: 82px;
+  margin-bottom: 50px;
 }
 
 .card h3 {
-  font-size: 18px;
+  font-size: 32px;
   color: #1d57a8;
-  margin: 8px 0;
+  margin: 0px 0;
 }
 
 .card p {
-  font-size: 12px;
+  font-size: 20px;
   color: #333;
-  padding: 0 10px;
+  padding: 0px 10px;
 }
 
 /* Card Sobre */
 .card-sobre {
-  background-color: rgba(255, 255, 255, 0.85);
-  max-width: 700px;
+  background-color: #f0d859;
+  width: 1274px;
+  height: 267px;
   padding: 25px;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -147,12 +148,13 @@ body {
 
 .card-sobre h3 {
   color: #1d57a8;
-  margin-bottom: 10px;
-  font-size: 20px;
+  margin-bottom: 40px;
+  font-size: 50px;
+  margin-top: 5px;
 }
 
 .card-sobre p {
-  font-size: 15px;
+  font-size: 20px;
   color: #333;
   line-height: 1.5;
 }

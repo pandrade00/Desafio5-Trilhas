@@ -1,8 +1,15 @@
+@font-face {
+  font-family: 'ChampagneBold';
+  src: url('../assets/fonts/Champagne_&_Limousines_Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   margin: 0;
-  font-family: 'Raleway', sans-serif;
-  background: #1976d2 url('../assets/bg-saude.png') no-repeat center;
-  background-size: cover;
+  font-family: 'ChampagneBold', 'Raleway', sans-serif;
+  background: #1976d2;
   color: #333;
 }
 
@@ -11,42 +18,51 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
+  padding: 10px 80px;
 }
 
 .logo img {
-  height: 40px;
+  padding-left: 20px;
+  height: 78, 14px;
+  width: 279px;
 }
 
 .menu a {
   margin: 0 10px;
   text-decoration: none;
   color: #000;
+  font-size: 30px;
+  font-family: 'ChampagneBold', sans-serif;
   font-weight: bold;
 }
 
 .container {
   padding: 40px 20px;
   text-align: center;
+  background: linear-gradient(to bottom,
+      rgba(27, 92, 165, 0.85),
+      rgba(77, 165, 216, 0.85)),
+    url("../assets/imagem-de-fundo.png") no-repeat center;
+  background-size: cover;
   min-height: 100vh;
   position: relative;
 }
 
 h1 {
   color: #ffeb3b;
-  font-size: 36px;
+  font-size: 70px;
   margin-bottom: 40px;
 }
 
 .notification-icon {
   position: absolute;
-  top: 40px;
-  right: 30px;
+  top: 48px;
+  right: 72px;
   background-color: #ffeb3b;
   border: 4px solid #1976d2;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 93px;
+  height: 93px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,66 +70,93 @@ h1 {
 }
 
 .notification-icon img {
-  width: 24px;
-  height: 24px;
+  width: 61px;
+  height: 61px;
 }
 
 .card {
   background-color: #ffeb3b;
+  position: relative;
+  padding-bottom: 100px;
+  min-height: 567px;
   border-radius: 8px;
   padding: 30px 20px;
-  max-width: 600px;
+  width: 1089px;
+  height: 567px;
   margin: 0 auto;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: left;
+
+  box-sizing: border-box;
+  overflow: auto;
 }
 
 label {
   display: block;
   font-weight: bold;
+  font-size: 40px;
+  font-family: 'ChampagneBold', sans-serif;
   color: #1565c0;
   margin-bottom: 10px;
+  padding-left: 45px;
 }
+
 
 .input-wrapper {
   display: flex;
   align-items: center;
   background: #fffde7;
-  border-radius: 10px;
+  width: 794px;
+  height: 80px;
+  border-radius: 20px;
   padding: 10px 15px;
-  box-shadow: 0 4px 4px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
 }
 
 .input-wrapper input {
   border: none;
   flex: 1;
-  font-size: 16px;
+  font-size: 32px;
+  font-family: 'ChampagneBold', sans-serif;
   background: transparent;
   outline: none;
-  color: #333;
+  color: #535353;
+  padding-left: 44px;
 }
 
 .input-wrapper img {
-  width: 20px;
-  height: 20px;
+  width: 59px;
+  height: 59px;
+  padding-right: 31px;
   cursor: pointer;
 }
 
 .buttons {
-  margin-top: 20px;
-  text-align: right;
+  position: absolute;
+  bottom: 62px;
+  right: 71px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 34px;
 }
 
 .btn {
   padding: 10px 25px;
   font-size: 15px;
   border: none;
-  border-radius: 10px;
+  border-radius: 20px;
   cursor: pointer;
   font-weight: bold;
   color: white;
+  width: 251px;       
+  height: 76px;      
+  display: inline-block;
+  box-sizing: border-box;
 }
 
 .btn.continuar {
   background-color: #0d47a1;
+  font-size: 40px;
+  font-family: 'ChampagneBold', sans-serif;
 }
