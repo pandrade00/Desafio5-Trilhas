@@ -1,121 +1,211 @@
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: "Raleway", sans-serif;
-  background: #1976d2;
-  color: #333;
 }
 
-header {
-  background-color: #ffeb3b;
+/* Cabeçalho */
+.cabecalho {
+  background-color: #f0d859;
+  height: 120px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
-}
-
-.logo {
-  display: flex;
   align-items: center;
+  padding: 0 40px;
 }
 
 .logo img {
-  height: 40px;
-  margin-right: 10px;
+  height: 78px;
+}
+
+.menu {
+  display: flex;
+  gap: 30px;
 }
 
 .menu a {
-  margin: 0 10px;
   text-decoration: none;
-  color: #000;
-  font-weight: bold;
+  font-size: 20px;
+  color: #374a52;
+  font-weight: 500;
 }
 
-.container {
+.menu a:hover {
+  color: #1d57a8;
+}
+
+/* Corpo */
+.corpo {
+  background: linear-gradient(
+      to bottom,
+      rgba(27, 92, 165, 0.85),
+      rgba(77, 165, 216, 0.85)
+    ),
+    url("../assets/imagem-de-fundo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 120px);
   padding: 40px 20px;
-  text-align: center;
-  background: #1976d2;
-  min-height: 100vh;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
-h1 {
-  color: #ffeb3b;
-  font-size: 36px;
-  margin-bottom: 40px;
+/* Título */
+.corpo h1 {
+  font-size: 48px;
+  font-weight: bold;
+  color: #efd759;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
 }
 
+/* Ícone de notificação */
 .notification-icon {
   position: absolute;
-  top: 110px;
+  top: 20px;
   right: 30px;
-  background-color: #ffeb3b;
-  border: 4px solid #1976d2;
+  background-color: #f0d859;
   border-radius: 50%;
-  width: 93px;
-  height: 93px;
+  width: 75px;
+  height: 75px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
-  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
+.notification-icon img {
+  width: 36px;
+  height: 36px;
+}
+
+/* Cartões */
 .card {
-  background: #ffee58;
-  border-radius: 8px;
-  padding: 20px;
-  max-width: 600px;
-  margin: 20px auto;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: left;
+  background-color: #f0d859;
+  width: 100%;
+  max-width: 800px;
+  padding: 25px;
+  border-radius: 10px;
   position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .card .date {
+  font-size: 16px;
   font-weight: bold;
   margin-bottom: 10px;
-  font-size: 14px;
 }
 
 .card h2 {
-  font-size: 18px;
-  color: #1565c0;
-  margin: 0;
+  font-size: 20px;
+  color: #1d57a8;
+  margin-bottom: 6px;
 }
 
 .card p {
-  margin: 5px 0 0;
-  font-size: 14px;
+  font-size: 16px;
   color: #333;
 }
 
+/* Status */
 .status {
   position: absolute;
   top: 20px;
   right: 20px;
-  padding: 5px 15px;
-  /* border-radius: 20px; */
+  padding: 6px 16px;
+  border-radius: 14px;
   color: #fff;
-  font-size: 16px;
-  width: 99px;   
-  height: 30px;
-  border-radius: 13px;
+  font-weight: bold;
+  font-size: 14px;
   font-family: "Raleway", sans-serif;
-  font-weight: 600;
-
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: 100px;
+  height: 32px;
 }
 
 .cancelada {
-  background-color: #ef5350;
+  background-color: #e57373;
 }
 
 .realizada {
-  background-color: #1e88e5;
+  background-color: #1B5CA5;
 }
 
 .ausente {
-  background-color: #374A52;
+  background-color: #374a52;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .cabecalho {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+    gap: 10px;
+  }
+
+  .menu {
+    justify-content: center;
+  }
+
+  .corpo h1 {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .notification-icon {
+    top: 140px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .notification-icon img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .card h2 {
+    font-size: 18px;
+  }
+
+  .card p {
+    font-size: 14px;
+  }
+
+  .status {
+    font-size: 13px;
+    padding: 5px 12px;
+    height: 28px;
+    min-width: 90px;
+  }
+}
+
+@media (max-width: 480px) {
+  .corpo h1 {
+    font-size: 28px;
+  }
+
+  .menu a {
+    font-size: 16px;
+  }
+
+  .status {
+    font-size: 12px;
+    min-width: 80px;
+    height: 26px;
+  }
 }

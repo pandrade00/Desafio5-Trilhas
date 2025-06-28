@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Diagnóstix</title>
     <link rel="stylesheet" href="principais.css" />
+    <link
+    />
   </head>
   <body>
     <header class="top-bar">
@@ -15,45 +17,50 @@
           <p>Entender para cuidar</p>
         </div>
       </div>
-      <nav>
+      <nav class="menu">
         <a href="#">Home</a>
         <a href="#">Fale Conosco</a>
         <a href="#">Login</a>
       </nav>
     </header>
 
-    <h2 class="titulo">Principais Serviços</h2>
+    <main class="conteudo">
+      <h2 class="titulo">Principais Serviços</h2>
 
-    <div class="notificacao">
-      <div>
-        <h3>Última Atualização</h3>
-        <p>Informações sobre seus último agendamentos apareceram aqui</p>
+      <div class="icone-alerta">
+        <div class="circulo-amarelo"></div>
+        <img src="../assets/sino-de-notificacao.png" alt="Alerta" />
       </div>
-      <button>Visualizar</button>
-    </div>
 
-    <div class="icone-alerta">
-      <div class="circulo-amarelo"></div>
-      <img src="../assets/sino-de-notificacao.png" alt="alerta" />
-    </div>
+      <section class="notificacao">
+        <div>
+          <h3>Última Atualização</h3>
+          <p>Informações sobre seus último agendamentos apareceram aqui</p>
+        </div>
+        <button>Visualizar</button>
+      </section>
 
-    <div class="servicos">
-      <div class="card">
-        <img src="../assets/agendar-consulta.png" alt="Agendar Consulta" />
-        <p>Agendar Consulta</p>
-      </div>
-      <div class="card">
-        <img src="../assets/meus-agendamentos.png" alt="Meus Agendamentos" />
-        <p>Meus Agendamentos</p>
-      </div>
-      <div class="card">
-        <img src="../assets/agendar-exames.png" alt="Agendar Exames" />
-        <p>Agendar Exames</p>
-      </div>
-      <div class="card">
-        <img src="../assets/resultado-de-exames.png" alt="Resultados de Exames" />
-        <p>Resultados de Exames</p>
-      </div>
-    </div>
+      <section class="servicos">
+        <div class="card">
+          <img src="../assets/agendar-consulta.png" alt="Agendar Consulta" />
+          <p>Agendar Consulta</p>
+        </div>
+        <div class="card">
+          <img src="../assets/meus-agendamentos.png" alt="Meus Agendamentos" />
+          <p>Meus Agendamentos</p>
+        </div>
+        <div class="card">
+          <img src="../assets/agendar-exames.png" alt="Agendar Exames" />
+          <p>Agendar Exames</p>
+        </div>
+        <div class="card">
+          <img
+            src="../assets/resultado-de-exames.png"
+            alt="Resultados de Exames"
+          />
+          <p>Resultados de Exames</p>
+        </div>
+      </section>
+    </main>
   </body>
 </html>

@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'ChampagneBold';
-  src: url('../assets/fonts/Champagne_&_Limousines_Bold.ttf') format('truetype');
+  font-family: "ChampagneBold";
+  src: url("../assets/fonts/Champagne_&_Limousines_Bold.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -8,40 +8,47 @@
 
 body {
   margin: 0;
-  font-family: 'ChampagneBold', 'Raleway', sans-serif;
+  font-family: "ChampagneBold", "Raleway", sans-serif;
   background: #1976d2;
   color: #333;
 }
 
 header {
-  background-color: #ffeb3b;
+  background-color: #f0d859;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 80px;
+  padding: 10px 40px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
 }
 
 .logo img {
-  padding-left: 20px;
-  height: 78, 14px;
-  width: 279px;
+  height: 60px;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .menu a {
-  margin: 0 10px;
   text-decoration: none;
-  color: #000;
-  font-size: 30px;
-  font-family: 'ChampagneBold', sans-serif;
+  color: #374a52;
+  font-size: 20px;
   font-weight: bold;
 }
 
 .container {
   padding: 40px 20px;
   text-align: center;
-  background: linear-gradient(to bottom,
+  background: linear-gradient(
+      to bottom,
       rgba(27, 92, 165, 0.85),
-      rgba(77, 165, 216, 0.85)),
+      rgba(77, 165, 216, 0.85)
+    ),
     url("../assets/imagem-de-fundo.png") no-repeat center;
   background-size: cover;
   min-height: 100vh;
@@ -49,100 +56,157 @@ header {
 }
 
 h1 {
-  color: #ffeb3b;
-  font-size: 70px;
-  margin-bottom: 40px;
+  color: #f0d859;
+  font-size: 50px;
+  margin-bottom: 30px;
 }
 
 .notification-icon {
   position: absolute;
-  top: 48px;
-  right: 72px;
-  background-color: #ffeb3b;
+  top: 10px;
+  right: 20px;
+  background-color: #f0d859;
   border: 4px solid #1976d2;
   border-radius: 50%;
-  width: 93px;
-  height: 93px;
+  width: 60px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  z-index: 3;
 }
 
 .notification-icon img {
-  width: 61px;
-  height: 61px;
+  width: 30px;
+  height: 30px;
 }
 
 .card {
-  background-color: #ffeb3b;
-  position: relative;
-  padding-bottom: 100px;
-  min-height: 567px;
-  border-radius: 8px;
+  background-color: #f0d859;
+  border-radius: 10px;
   padding: 30px 20px;
-  width: 1089px;
-  height: 567px;
+  max-width: 700px;
   margin: 0 auto;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: left;
-
   box-sizing: border-box;
-  overflow: auto;
+  position: relative;
+  z-index: 1;
 }
 
-.card h2 {
+label {
+  display: block;
+  font-size: 22px;
+  font-weight: bold;
   color: #1565c0;
-  margin-top: 98px;
-  margin-bottom: 27px; 
-  font-size: 40px;
-  font-family: 'ChampagneBold', sans-serif;
-  padding-left: 74px;
+  margin-bottom: 15px;
 }
 
-.card p {
-  margin: 0; 
-  font-family: 'ChampagneBold', sans-serif;
-  font-size: 32px;
-  padding-left: 98px;
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #fffde7;
+  border-radius: 10px;
+  padding: 10px 15px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+  width: 100%;
+  box-sizing: border-box;
+}
 
-  & + p {
-    margin-top: 8px; 
-  }
+.search-box input {
+  border: none;
+  flex: 1;
+  font-size: 18px;
+  background: transparent;
+  outline: none;
+  padding-left: 10px;
+  color: #333;
+}
+
+.search-box button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.search-box img {
+  width: 25px;
+  height: 25px;
+  padding-left: 10px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .btn {
   padding: 10px 25px;
-  font-size: 15px;
+  font-size: 20px;
   border: none;
-  border-radius: 20px;
+  border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
   color: white;
-  width: 251px;       
-  height: 76px;      
-  display: inline-block;
-  box-sizing: border-box;
+  width: 150px;
+  height: 55px;
+  font-family: "ChampagneBold", sans-serif;
 }
-
 
 .btn.editar {
   background-color: #4fc3f7;
-  font-size: 40px;
-  font-family: 'ChampagneBold', sans-serif;
 }
 
 .btn.continuar {
   background-color: #0d47a1;
-  font-size: 40px;
-  font-family: 'ChampagneBold', sans-serif;
 }
 
-.buttons {
-  position: absolute;
-  bottom: 48px;
-  right: 63px;
-  display: flex;
-  justify-content: flex-end;
-  gap: 34px;
+@media (max-width: 768px) {
+  h1 {
+    font-size: 36px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .search-box {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .buttons {
+    justify-content: center;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 250px;
+    font-size: 20px;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .menu {
+    justify-content: flex-start;
+  }
+
+  .notification-icon {
+    top: 5px;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .notification-icon img {
+    width: 24px;
+    height: 24px;
+  }
 }

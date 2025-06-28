@@ -21,7 +21,7 @@ body {
 
 /* Cabeçalho */
 .cabecalho {
-  background-color: #ffeb3b;
+  background-color: #F0D859;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -35,7 +35,7 @@ body {
 .menu a {
   margin: 0 10px;
   text-decoration: none;
-  color: #000;
+  color: #374A52;
   font-size: 30px;
   font-family: 'ChampagneBold', sans-serif;
   font-weight: bold;
@@ -186,4 +186,73 @@ body {
 
 .link-menor a:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .cabecalho {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  .logo img {
+    height: 60px;
+  }
+
+  .menu {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .menu a {
+    font-size: 20px;
+  }
+
+  .corpo {
+    padding: 20px 10px;
+    align-items: flex-start;
+  }
+
+  .card-login {
+    padding: 30px 20px;
+    height: auto;
+  }
+
+  .card-login h2 {
+    font-size: 42px;
+  }
+
+  .card-login label {
+    font-size: 20px;
+  }
+
+  .card-login input,
+  .card-login select,
+  .data-nascimento {
+    max-width: 100%;
+  }
+
+  .data-nascimento {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .data-nascimento select {
+    width: 100% !important;
+    flex: 1 !important;
+  }
+
+  .btn-entrar {
+    font-size: 30px;
+    max-width: 100%;
+    height: 60px;
+  }
+
+  .link-menor {
+    font-size: 16px;
+  }
 }

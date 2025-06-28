@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -6,25 +5,29 @@
 }
 
 body {
-  font-family: 'Raleway', sans-serif;
-  background: linear-gradient(to bottom, #0074cc, #4aa9f3),
-    url("assets/fundo.png");
+  font-family: "Raleway", sans-serif;
+  background: linear-gradient(
+      to bottom,
+      rgba(27, 92, 165, 0.75),  /* #1B5CA5 com menos opacidade */
+      rgba(77, 165, 216, 0.75)  /* #4DA5D8 com menos opacidade */
+    ),
+    url("../assets/imagem-de-fundo.png");  /* Altere o caminho se necessário */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   min-height: 100vh;
 }
 
-/* Topo */
+/* Cabeçalho */
 .top-bar {
-  background-color: #f8dc27;
+  background-color: #f0d859;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 40px;
+  flex-wrap: wrap;
 }
 
-/* Logo */
 .logo {
   display: flex;
   align-items: center;
@@ -39,95 +42,53 @@ body {
   border-radius: 8px;
 }
 
-.logo-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
-}
-
 .logo-text h1 {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
   color: #0074cc;
-}
-
-.logo-text h1 span {
-  color: #0074cc;
+  line-height: 1;
 }
 
 .logo-text p {
   font-size: 12px;
-  color: #1a237e;
+  color: #374a52;
 }
 
-/* Menu */
-nav a {
+.menu a {
   margin-left: 25px;
   text-decoration: none;
-  color: #1a237e;
+  color: #374a52;
   font-weight: bold;
+  font-size: 16px;
 }
 
-/* Título */
+/* Conteúdo principal */
+.conteudo {
+  position: relative;
+  padding: 30px 20px 60px;
+}
+
 .titulo {
   text-align: center;
-  margin: 30px 0 20px;
   font-size: 36px;
-  color: #f8dc27;
+  color: #f0d859;
+  margin-bottom: 30px;
 }
 
-/* Notificação */
-.notificacao {
-  background-color: #f8dc27;
-  width: 90%;
-  height: 100px;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 20px;
-  border-radius: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.notificacao h3 {
-  font-weight: 600;
-  color: #1565c0;
-  font-size: 18px;
-  margin-bottom: 5px;
-  margin-left: 10px;
-}
-
-.notificacao p {
-  font-size: 14px;
-  margin-top: 10px;
-  margin-left: 10px;
-  color: black;
-}
-
-.notificacao button {
-  background-color: #003399;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-/* Ícone de Alerta com círculo */
+/* Ícone de notificação flutuante */
 .icone-alerta {
   position: absolute;
-  top: 100px;
-  right: 60px;
+  top: 40px;
+  right: 40px;
+  z-index: 2;
 }
 
 .circulo-amarelo {
-  position: absolute;
   width: 50px;
   height: 50px;
-  background-color: #f8dc27;
+  background-color: #f0d859;
   border-radius: 50%;
+  position: absolute;
   top: -10px;
   left: -10px;
   z-index: 0;
@@ -139,33 +100,114 @@ nav a {
   z-index: 1;
 }
 
+/* Notificação */
+.notificacao {
+  background-color: #f0d859;
+  width: 90%;
+  max-width: 1100px;
+  height: 100px;
+  margin: 0 auto 40px;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.notificacao h3 {
+  font-weight: 600;
+  color: #1565c0;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.notificacao p {
+  font-size: 14px;
+  color: black;
+}
+
+.notificacao button {
+  background-color: #003399;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 14px;
+}
+
 /* Cartões de serviços */
 .servicos {
   display: flex;
   justify-content: center;
   gap: 25px;
-  margin-top: 40px;
   flex-wrap: wrap;
 }
 
 .card {
-  background-color: #f8dc27;
+  background-color: #f0d859;
   padding: 20px;
   border-radius: 10px;
   width: 256px;
   height: 185px;
   text-align: center;
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .card img {
   width: 40px;
   height: 40px;
-  margin-top: 20px;
+  margin: 0 auto 15px;
 }
 
 .card p {
   font-weight: 600;
-  margin-top: 10px;
   color: #1565c0;
+  font-size: 16px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .menu {
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .icone-alerta {
+    top: 100px;
+    right: 20px;
+  }
+
+  .notificacao {
+    flex-direction: column;
+    height: auto;
+    align-items: flex-start;
+  }
+
+  .notificacao button {
+    align-self: flex-end;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .titulo {
+    font-size: 28px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .menu a {
+    font-size: 14px;
+    margin-left: 15px;
+  }
 }

@@ -14,7 +14,7 @@ body {
 }
 
 header {
-  background-color: #ffeb3b;
+  background-color: #F0D859;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -30,7 +30,7 @@ header {
 .menu a {
   margin: 0 10px;
   text-decoration: none;
-  color: #000;
+  color: #374A52;
   font-size: 30px;
   font-family: 'ChampagneBold', sans-serif;
   font-weight: bold;
@@ -49,7 +49,7 @@ header {
 }
 
 h1 {
-  color: #ffeb3b;
+  color: #F0D859;
   font-size: 70px;
   margin-bottom: 40px;
 }
@@ -58,7 +58,7 @@ h1 {
   position: absolute;
   top: 48px;
   right: 72px;
-  background-color: #ffeb3b;
+  background-color: #F0D859;
   border: 4px solid #1976d2;
   border-radius: 50%;
   width: 93px;
@@ -75,7 +75,7 @@ h1 {
 }
 
 .card {
-  background-color: #ffeb3b;
+  background-color: #F0D859;
   position: relative;
   padding-bottom: 100px;
   min-height: 567px;
@@ -145,4 +145,79 @@ h1 {
   display: flex;
   justify-content: flex-end;
   gap: 34px;
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  .logo img {
+    padding-left: 0;
+    width: 180px;
+    height: auto;
+  }
+
+  .menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .menu a {
+    font-size: 20px;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  .notification-icon {
+    top: 20px;
+    right: 20px;
+    width: 65px;
+    height: 65px;
+  }
+
+  .notification-icon img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .card {
+    width: 100%;
+    height: auto;
+    padding: 20px 15px;
+    min-height: auto;
+  }
+
+  .card h2 {
+    font-size: 28px;
+    padding-left: 20px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+
+  .card p {
+    font-size: 20px;
+    padding-left: 30px;
+  }
+
+  .buttons {
+    position: static;
+    margin-top: 30px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 250px;
+    height: 60px;
+    font-size: 24px;
+  }
 }

@@ -1,4 +1,3 @@
-
 body {
   margin: 0;
   padding: 0;
@@ -14,18 +13,18 @@ body {
   align-items: center;
   padding: 0 40px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
 }
 
 .logo img {
   height: 78px;
 }
 
-/* Menu */
 .menu a {
   margin-left: 30px;
   text-decoration: none;
   font-size: 16px;
-  color: #000;
+  color: #374A52;
   font-weight: 500;
 }
 
@@ -33,16 +32,17 @@ body {
   color: #1d57a8;
 }
 
-/* Corpo */
+/* Corpo com imagem de fundo estampada + azul sobreposto */
 .corpo {
   background: linear-gradient(
       to bottom,
-      rgba(27, 92, 165, 0.7),
-      rgba(77, 165, 216, 0.7)
+      rgba(27, 92, 165, 0.8),
+      rgba(77, 165, 216, 0.8)
     ),
-    url("/Frontend/assets/imagem-de-fundo.png");
+    url("../assets/imagem-de-fundo.png");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   padding: 60px 20px;
   min-height: calc(100vh - 120px);
   display: flex;
@@ -55,8 +55,7 @@ body {
 .box-titulo {
   width: 984px;
   font-size: 48px;
-  font-family: "Raleway", sans-serif;
-  color: #efd759;
+  color: #f0d859;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
   text-align: left;
   margin-left: 60px;
@@ -75,7 +74,7 @@ body {
 }
 
 .card {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: #efd75a;
   width: 240px;
   height: 200px;
   border-radius: 16px;
@@ -111,17 +110,34 @@ body {
   padding: 0 10px;
 }
 
-/* Card banner diagnostix */
+/* Banner Diagnóstix (imagem horizontal abaixo dos cards) */
 .card-banner {
   max-width: 920px;
   border-radius: 16px;
-  overflow: hidden; 
-  padding: 0; 
+  overflow: hidden;
+  /*box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);*/
 }
 
 .card-banner img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .box-titulo {
+    font-size: 32px;
+    margin-left: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  .card-banner {
+    max-width: 100%;
+  }
 }

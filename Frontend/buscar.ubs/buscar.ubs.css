@@ -14,7 +14,7 @@ body {
 }
 
 header {
-  background-color: #ffeb3b;
+  background-color: #F0D859;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -28,7 +28,7 @@ header {
 .menu a {
   margin: 0 10px;
   text-decoration: none;
-  color: #000;
+  color: #374A52;
   font-size: 30px;
   font-family: 'ChampagneBold', sans-serif;
   font-weight: bold;
@@ -49,7 +49,7 @@ header {
 }
 
 h1 {
-  color: #ffeb3b;
+  color: #F0D859;
   font-size: 70px;
   font-family: 'ChampagneBold', sans-serif;
   margin-bottom: 40px;
@@ -89,4 +89,46 @@ h1 {
 .search-box img {
   width: 59px;
   height: 59px;
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  .logo img {
+    height: 60px;
+  }
+
+  .menu a {
+    font-size: 20px;
+    margin: 5px 5px;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  .search-box {
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+  }
+
+  .search-box input {
+    font-size: 20px;
+    padding: 8px;
+  }
+
+  .search-box img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .container {
+    padding: 40px 15px;
+  }
 }
