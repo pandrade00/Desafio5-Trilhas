@@ -1,0 +1,108 @@
+body {
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  background: #1976d2;
+  color: #333;
+}
+
+header {
+  background-color: #F0D859;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.menu a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+.container {
+  padding: 40px 20px;
+  text-align: center;
+  background: #1976d2 url('../assets/') no-repeat center; /*colocar imagem de fundo*/
+  background-size: cover;
+  min-height: 100vh;
+}
+
+h1 {
+  color: #F0D859;
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+  margin: 0 auto 40px;
+  background-color: #fffde7;
+  border-radius: 10px;
+  padding: 5px 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.search-box input {
+  flex: 1;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  outline: none;
+  background-color: transparent;
+  color: #333;
+}
+
+.search-box button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.search-box img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Cards de UBS */
+
+.ubs-card {
+  background-color: #F0D859;
+  border-radius: 8px;
+  padding: 25px;
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: left;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.ubs-card h2 {
+  color: #1565c0;
+  font-size: 18px;
+  margin: 0 0 10px;
+  white-space: nowrap;
+}
+
+.ubs-card p {
+  font-size: 14px;
+  margin: 20px 0 15px;
+}
+
+.btn-saiba-mais {
+  background-color: #1e88e5;
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin-top: 5px;
+  cursor: pointer;
+}

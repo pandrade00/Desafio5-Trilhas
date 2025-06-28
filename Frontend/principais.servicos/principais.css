@@ -1,0 +1,171 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background: linear-gradient(to bottom, #0074cc, #4aa9f3),
+    url("assets/fundo.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}
+
+/* Topo */
+.top-bar {
+  background-color: #f8dc27;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 45px;
+  height: 45px;
+  background-color: #0074cc;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.logo-text h1 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #0074cc;
+}
+
+.logo-text h1 span {
+  color: #0074cc;
+}
+
+.logo-text p {
+  font-size: 12px;
+  color: #1a237e;
+}
+
+/* Menu */
+nav a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: #1a237e;
+  font-weight: bold;
+}
+
+/* Título */
+.titulo {
+  text-align: center;
+  margin: 30px 0 20px;
+  font-size: 36px;
+  color: #f8dc27;
+}
+
+/* Notificação */
+.notificacao {
+  background-color: #f8dc27;
+  width: 90%;
+  height: 100px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notificacao h3 {
+  font-weight: 600;
+  color: #1565c0;
+  font-size: 18px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+
+.notificacao p {
+  font-size: 14px;
+  margin-top: 10px;
+  margin-left: 10px;
+  color: black;
+}
+
+.notificacao button {
+  background-color: #003399;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Ícone de Alerta com círculo */
+.icone-alerta {
+  position: absolute;
+  top: 100px;
+  right: 60px;
+}
+
+.circulo-amarelo {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: #f8dc27;
+  border-radius: 50%;
+  top: -10px;
+  left: -10px;
+  z-index: 0;
+}
+
+.icone-alerta img {
+  width: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Cartões de serviços */
+.servicos {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: #f8dc27;
+  padding: 20px;
+  border-radius: 10px;
+  width: 256px;
+  height: 185px;
+  text-align: center;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+.card img {
+  width: 40px;
+  height: 40px;
+  margin-top: 20px;
+}
+
+.card p {
+  font-weight: 600;
+  margin-top: 10px;
+  color: #1565c0;
+}

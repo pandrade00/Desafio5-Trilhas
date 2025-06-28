@@ -1,0 +1,76 @@
+body {
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  background: #1976d2;
+  color: #333;
+}
+
+header {
+  background-color: #ffeb3b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.menu a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+.container {
+  padding: 60px 20px;
+  text-align: center;
+  background: #1976d2;
+  min-height: 100vh;
+  background-image: url("../assets/"); /*acrescentar imagem de fundo*/
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+h1 {
+  color: #ffeb3b;
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #fffde7;
+  border-radius: 10px;
+  padding: 5px 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-box input {
+  flex: 1;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  outline: none;
+  background-color: transparent;
+  color: #333;
+}
+
+.search-box button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.search-box img {
+  width: 24px;
+  height: 24px;
+}

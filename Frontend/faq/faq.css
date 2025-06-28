@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  background: #1976d2;
+  color: #333;
+}
+
+header {
+  background-color: #ffeb3b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.menu a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+.container {
+  padding: 60px 20px;
+  text-align: center;
+  background: #1976d2 url("../assets/") no-repeat center; /*acrescentar imagem de fundo*/
+  background-size: cover;
+  min-height: 100vh;
+}
+
+h1 {
+  color: #ffeb3b;
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+.select-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+select {
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  background-color: #fffde7;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  appearance: none;
+  background-image: url("../assets/icone-seta-baixo.png");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 16px;
+  cursor: pointer;
+}
