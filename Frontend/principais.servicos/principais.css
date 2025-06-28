@@ -1,3 +1,12 @@
+
+@font-face {
+  font-family: 'ChampagneBold';
+  src: url('../assets/fonts/Champagne_&_Limousines_Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +14,7 @@
 }
 
 body {
-  font-family: "Raleway", sans-serif;
+  font-family: 'ChampagneBold', 'Raleway', sans-serif;
   background: linear-gradient(
       to bottom,
       rgba(27, 92, 165, 0.75),  /* #1B5CA5 com menos opacidade */
@@ -20,7 +29,7 @@ body {
 
 /* Cabeçalho */
 .top-bar {
-  background-color: #f0d859;
+  background-color: #2196F3;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,30 +43,39 @@ body {
   gap: 10px;
 }
 
-.logo img {
-  width: 45px;
-  height: 45px;
-  background-color: #0074cc;
-  padding: 5px;
+.logo-icon {
+  background-color: #F0D859; /* amarelo claro */
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 8px;
+}
+
+.logo-icon img {
+  width: 62px;
+  height: 43px;
+  margin-top: 12px;
+  margin-left: 15px;
 }
 
 .logo-text h1 {
   font-size: 22px;
   font-weight: bold;
-  color: #0074cc;
+  color: #EFD759;
   line-height: 1;
 }
 
 .logo-text p {
   font-size: 12px;
-  color: #374a52;
+  color: #FFFFFF;
 }
 
 .menu a {
   margin-left: 25px;
   text-decoration: none;
-  color: #374a52;
+  color: #FFFFFF;
   font-weight: bold;
   font-size: 16px;
 }
@@ -71,7 +89,8 @@ body {
 .titulo {
   text-align: center;
   font-size: 36px;
-  color: #f0d859;
+  color: white;
+  font-weight: bold;
   margin-bottom: 30px;
 }
 
@@ -102,7 +121,7 @@ body {
 
 /* Notificação */
 .notificacao {
-  background-color: #f0d859;
+  background-color: #f5f0c0;
   width: 90%;
   max-width: 1100px;
   height: 100px;
@@ -113,22 +132,23 @@ body {
   justify-content: space-between;
   align-items: center;
   gap: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .notificacao h3 {
-  font-weight: 600;
   color: #1565c0;
   font-size: 18px;
+  font-weight: bold;
   margin-bottom: 5px;
 }
 
 .notificacao p {
   font-size: 14px;
-  color: black;
+  color: #424242;
 }
 
 .notificacao button {
-  background-color: #003399;
+  background-color: #43A047;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -136,6 +156,11 @@ body {
   font-weight: bold;
   cursor: pointer;
   font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.notificacao button:hover {
+  background-color: #236b27;
 }
 
 /* Cartões de serviços */
@@ -147,16 +172,22 @@ body {
 }
 
 .card {
-  background-color: #f0d859;
+  background-color: white;
   padding: 20px;
   border-radius: 10px;
   width: 256px;
   height: 185px;
   text-align: center;
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .card img {
@@ -166,8 +197,8 @@ body {
 }
 
 .card p {
-  font-weight: 600;
-  color: #1565c0;
+  font-weight: 900;
+  color: #0D47A1;
   font-size: 16px;
 }
 
