@@ -77,7 +77,7 @@ h1 {
 .ubs-card {
   background-color: #F0D859;
   border-radius: 8px;
-  padding: 20px;
+  padding: 25px;
   max-width: 600px;
   margin: 20px auto;
   text-align: left;
@@ -88,11 +88,12 @@ h1 {
   color: #1565c0;
   font-size: 18px;
   margin: 0 0 10px;
+  white-space: nowrap;
 }
 
 .ubs-card p {
   font-size: 14px;
-  margin: 0 0 15px;
+  margin: 20px 0 15px;
 }
 
 .btn-saiba-mais {
@@ -102,5 +103,6 @@ h1 {
   padding: 8px 20px;
   border-radius: 20px;
   font-size: 14px;
+  margin-top: 5px;
   cursor: pointer;
 }
