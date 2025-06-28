@@ -3,8 +3,8 @@ import leitosRoutes from "./leitosRoutes.js";
 import usuariosRoutes from "./usuariosRoutes.js";
 import consultasRoutes from "./consultasRoutes.js";
 import examesRoutes from "./examesRoutes.js";
-import searchRoutes from "./searchRoutes.js";
-import { autenticar } from "../middlewares/index.js";
+import adminsRoutes from "./adminsRoutes.js";
+import { autenticar, permitirRoles } from "../middlewares/index.js";
 
 const routes = (app) => {
   const router = express.Router();
@@ -17,7 +17,7 @@ const routes = (app) => {
   router.use("/leitos", autenticar, leitosRoutes);
   router.use("/consultas", autenticar, consultasRoutes);
   router.use("/exames", autenticar, examesRoutes);
-  router.use("/search", autenticar, searchRoutes);
+  router.use("/admins", autenticar, permitirRoles("admin"), adminsRoutes);
 
   app.use("/", router);
 };

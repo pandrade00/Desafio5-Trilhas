@@ -19,7 +19,7 @@ class UsuariosController {
 
   static async buscarUsuarioPorId(req, res) {
     try {
-      const id = req.params.id;
+      const id = req.usuario.id;
 
       if (!id) {
         return res.status(400).json({ success: false, error: "ID do usuário ausente." });
@@ -142,7 +142,7 @@ class UsuariosController {
 
   static async atualizarUsuario(req, res) {
     try {
-      const id = req.params.id;
+      const id = req.usuario.id;
 
       if (req.body.senha) {
         await atualizarSenha(req.body.senha, id);
@@ -163,7 +163,7 @@ class UsuariosController {
 
   static async deletarUsuario(req, res) {
     try {
-      const id = req.params.id;
+      const id = req.usuario.id;
       const usuarioDeletado = await usuario.findByIdAndDelete(id, {
         projection: { nome: 1, cpf: 1, email: 1, telefone: 1, endereco: 1 }
       });
