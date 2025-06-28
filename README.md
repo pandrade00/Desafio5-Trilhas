@@ -20,15 +20,16 @@ O **Diagnóstix** é um sistema que tem como objetivo oferecer **acesso rápido 
 - Node.js + Express – Backend da aplicação
 - MongoDB + Mongoose – Banco de dados NoSQL
 - JWT + bcrypt – Autenticação e segurança
-- dotenv – Variáveis de ambiente
+- dotenv – Gerenciamento de variáveis de ambiente
 - CORS + body-parser – Comunicação entre frontend e backend
-- csv-parser – Leitura de arquivos CNES
-- nodemon – Desenvolvimento local
-- Railway – Deploy contínuo da API com integração GitHub
+- csv-parser – Leitura e processamento de arquivos CNES
+- nodemon – Ferramenta para desenvolvimento local
+- Railway – Deploy da API integrado com GitHub
 
 **Front End:**
-*(Em breve — informações )*
-
+- HTML – Estrutura da página
+- CSS – Estilização da interface
+- JavaScript – Funcionalidades e interatividade
 
 ## 💻 Como Executar o Projeto
 *(Em breve — informações de instalação e execução ainda serão definidas.)*
