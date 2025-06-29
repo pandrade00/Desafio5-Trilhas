@@ -1,9 +1,15 @@
 @font-face {
-  font-family: "ChampagneBold";
-  src: url("../assets/fonts/Champagne_&_Limousines_Bold.ttf") format("truetype");
+  font-family: 'ChampagneBold';
+  src: url('../assets/fonts/Champagne_&_Limousines_Bold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -13,29 +19,62 @@ body {
   color: #333;
 }
 
-header {
-  background-color: #f0d859;
+.cabecalho {
+  background-color: #2196F3;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 10px 80px;
+  align-items: center;
+  padding: 10px 40px;
+  flex-wrap: wrap;
 }
 
-.logo img {
-  padding-left: 20px;
-  height: 78, 14px;
-  width: 279px;
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  background-color: #F0D859; 
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.logo-icon img {
+  width: 50px;
+  height: 44px;
+  margin-top: 12px;
+  margin-left: 15px;
+}
+
+.logo-text h1 {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0; 
+  line-height: 1.4; 
+  color: #EFD759;
+}
+
+.logo-text p {
+  font-size: 12px;
+  color: #FFFFFF;
 }
 
 .menu a {
-  margin: 0 10px;
+  margin-left: 25px;
   text-decoration: none;
-  color: #374a52;
-  font-size: 30px;
-  font-family: "ChampagneBold", sans-serif;
+  color: #FFFFFF;
   font-weight: bold;
+  font-size: 16px;
 }
 
+.menu a:hover {
+  color: #1d57a8;
+}
 .container {
   padding: 40px 20px;
   text-align: center;
@@ -49,116 +88,109 @@ header {
 }
 
 h1 {
-  color: #f0d859;
-  font-size: 70px;
+  color: white;
+  font-size: 50px;
   margin-bottom: 40px;
 }
 
-.notification-icon {
+.icone-alerta {
   position: absolute;
-  top: 48px;
-  right: 72px;
-  background-color: #f0d859;
-  border: 4px solid #1976d2;
-  border-radius: 50%;
-  width: 93px;
-  height: 93px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
+  top: 40px;
+  right: 95px;
+  z-index: 2;
 }
 
-.notification-icon img {
-  width: 61px;
-  height: 61px;
+.icone-alerta img {
+  position: absolute;
+  width: 50px;
+  z-index: 1;
 }
 
 .card {
-  background-color: #f0d859;
-  position: relative;
-  padding-bottom: 100px;
-  min-height: 700px;
-  border-radius: 8px;
-  padding: 30px 20px;
-  width: 1089px;
-  height: 672px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 30px 20px 100px;
+  max-width: 800px;
+  padding-bottom: 40px;
   margin: 0 auto;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: left;
-
   box-sizing: border-box;
-  overflow: auto;
+  border: 1px solid #dce3ec;
 }
 
-.label {
-  color: #1565c0;
+label {
+  color: #1c3f60;
   margin-top: 20px;
-  margin-bottom: 27px;
-  font-size: 40px;
-  font-family: "ChampagneBold", sans-serif;
-  padding-left: 74px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  padding-left: 10px;
+  display: block;
 }
 
 .dia-bloco {
-  background-color: #fff;
+  background-color: #f9fbfe;
   padding: 15px;
   border-radius: 10px;
-  margin-top: 15px;
+  margin-top: 20px;
+  border: 1px solid #dbe6f1;
 }
 
 .dia-bloco strong {
-  color: #0d47a1;
-  font-size: 32px;
+  color: #2a4e75;
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
 .horarios {
-  margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
-  gap: 32px;
+  gap: 16px;
 }
 
 .horarios button {
   background-color: #fff;
-  border: 2px solid #1976d2;
+  border: 2px solid #3e78b2;
   border-radius: 6px;
-  width: 119px;
-  height: 57px;
-  padding: 8px 12px;
-  font-size: 25px;
-  color: #0d47a1;
+  padding: 10px 20px;
+  font-size: 18px;
+  color: #2a4e75;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.horarios button.selecionado {
-  background-color: #d3d3d3;
+.horarios button:hover {
+  background-color: #e1ecf4;
+}
+
+.horarios button.selected {
+  background-color: #3e78b2 !important;
+  color: white !important;
 }
 
 .buttons {
-  position: absolute;
-  bottom: 92px;
-  right: 63px;
+  margin-top: 20px;
   display: flex;
-  justify-content: flex-end;
-  gap: 34px;
+  justify-content: right;
+  margin-top: 70px;
 }
 
 .btn.continuar {
   background-color: #0d47a1;
   color: white;
-  padding: 10px 25px;
-  font-size: 15px;
+  padding: 16px 32px;
+  font-size: 18px;
   border: none;
   border-radius: 20px;
   cursor: pointer;
   font-weight: bold;
-  width: 251px;
-  height: 76px;
-  display: inline-block;
-  box-sizing: border-box;
-  font-size: 40px;
   font-family: "ChampagneBold", sans-serif;
+  width: 150px;
+  transition: all 0.3s ease;
+}
+
+.btn.continuar:hover {
+  background-color: #236cb1;
 }
 
 @media (max-width: 1024px) {
@@ -189,14 +221,14 @@ h1 {
     font-size: 40px;
   }
 
-  .notification-icon {
+  .icone-alerta {
     top: 20px;
     right: 20px;
     width: 65px;
     height: 65px;
   }
 
-  .notification-icon img {
+  .icone-alerta img {
     width: 40px;
     height: 40px;
   }
