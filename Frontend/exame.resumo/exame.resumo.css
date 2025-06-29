@@ -6,34 +6,74 @@
   font-display: swap;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: 'ChampagneBold', 'Raleway', sans-serif;
+  font-family: "ChampagneBold", "Raleway", sans-serif;
   background: #1976d2;
   color: #333;
 }
 
-header {
-  background-color: #F0D859;
+.cabecalho {
+  background-color: #2196F3;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 10px 80px;
+  align-items: center;
+  padding: 10px 40px;
+  flex-wrap: wrap;
 }
 
-.logo img {
-  padding-left: 20px;
-  height: 78,14px;
-  width: 279px;
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  background-color: #F0D859; 
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.logo-icon img {
+  width: 50px;
+  height: 44px;
+  margin-top: 12px;
+  margin-left: 15px;
+}
+
+.logo-text h1 {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0; 
+  line-height: 1.4; 
+  color: #EFD759;
+}
+
+.logo-text p {
+  font-size: 12px;
+  color: #FFFFFF;
 }
 
 .menu a {
-  margin: 0 10px;
+  margin-left: 25px;
   text-decoration: none;
-  color: #374A52;
-  font-size: 30px;
-  font-family: 'ChampagneBold', sans-serif;
+  color: #FFFFFF;
   font-weight: bold;
+  font-size: 16px;
+}
+
+.menu a:hover {
+  color: #1d57a8;
 }
 
 .container {
@@ -49,101 +89,104 @@ header {
 }
 
 h1 {
-  color: #F0D859;
-  font-size: 70px;
+  color: white;
+  font-size: 50px;
   margin-bottom: 40px;
 }
 
-.notification-icon {
+.icone-alerta {
   position: absolute;
-  top: 48px;
-  right: 72px;
-  background-color: #F0D859;
-  border: 4px solid #1976d2;
-  border-radius: 50%;
-  width: 93px;
-  height: 93px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
+  top: 40px;
+  right: 95px;
+  z-index: 2;
 }
 
-.notification-icon img {
-  width: 61px;
-  height: 61px;
+.icone-alerta img {
+  position: relative;
+  width: 50px;
+  z-index: 1;
 }
 
 .card {
-  background-color: #F0D859;
-  position: relative;
-  padding-bottom: 100px;
-  min-height: 567px;
-  border-radius: 8px;
-  padding: 30px 20px;
-  width: 1089px;
-  height: 567px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 40px 30px 100px;
+  max-width: 800px;
   margin: 0 auto;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: left;
-
   box-sizing: border-box;
-  overflow: auto;
+  position: relative;
+}
+
+.card h2 {
+  font-size: 24px;
+  margin-left: 19px;
+  margin-bottom: 20px;
 }
 
 .label {
-  color: #1565c0;
-  margin-top: 98px;
-  margin-bottom: 27px; 
-  font-size: 40px;
-  font-family: 'ChampagneBold', sans-serif;
-  padding-left: 74px;
+  display: block;
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  margin-left: 20px;
 }
 
 .info p {
-  margin: 0; 
-  font-family: 'ChampagneBold', sans-serif;
-  font-size: 32px;
-  padding-left: 98px;
-
-  & + p {
-    margin-top: 8px; 
-  }
+  font-size: 18px;
+  margin-left: 20px;
+  margin-top: 2px;
 }
 
 .buttons {
   position: absolute;
-  bottom: 48px;
-  right: 63px;
+  bottom: 30px;
+  right: 30px;
   display: flex;
-  justify-content: flex-end;
-  gap: 34px;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .btn {
   padding: 10px 25px;
-  font-size: 15px;
+  font-size: 20px;
   border: none;
-  border-radius: 20px;
+  border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
   color: white;
-  width: 251px;       
-  height: 76px;      
-  display: inline-block;
-  box-sizing: border-box;
+  width: 150px;
+  height: 45px;
+  margin-top: 50px;
+  font-family: "ChampagneBold", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .btn.voltar {
-  background-color: #4fc3f7;
-  font-size: 40px;
-  font-family: 'ChampagneBold', sans-serif;
+  background-color: #3e78b2;
+}
+
+.btn.voltar:hover {
+  background-color: #33649a;
 }
 
 .btn.confirmar {
-  background-color: #0d47a1;
-  font-size: 40px;
-  font-family: 'ChampagneBold', sans-serif;
+  background-color: #1c3f60;
+}
+
+.btn.confirmar:hover {
+  background-color: #142f4a;
 }
 
 @media (max-width: 1024px) {
@@ -174,14 +217,14 @@ h1 {
     font-size: 42px;
   }
 
-  .notification-icon {
+  .icone-alerta {
     top: 20px;
     right: 20px;
     width: 70px;
     height: 70px;
   }
 
-  .notification-icon img {
+  .icone-alerta img {
     width: 45px;
     height: 45px;
   }
