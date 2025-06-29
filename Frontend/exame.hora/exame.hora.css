@@ -39,11 +39,9 @@ header {
 .container {
   padding: 40px 20px;
   text-align: center;
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       rgba(27, 92, 165, 0.85),
-      rgba(77, 165, 216, 0.85)
-    ),
+      rgba(77, 165, 216, 0.85)),
     url("../assets/imagem-de-fundo.png") no-repeat center;
   background-size: cover;
   min-height: 100vh;
@@ -245,4 +243,32 @@ h1 {
     height: 60px;
     font-size: 28px;
   }
+}
+
+/* Adicione ao final do arquivo */
+.horarios button {
+  transition: all 0.3s ease;
+}
+
+.horarios button:hover {
+  background-color: #e3f2fd;
+}
+
+.horarios button.selecionado {
+  background-color: #0d47a1 !important;
+  color: white !important;
+  border-color: #0d47a1 !important;
+}
+
+.horarios button:active {
+  transform: scale(0.98);
+}
+
+.btn.continuar {
+  transition: all 0.3s ease;
+}
+
+.btn.continuar:active {
+  transform: translateY(1px) !important;
+  box-shadow: none !important;
 }

@@ -149,8 +149,8 @@ label {
   cursor: pointer;
   font-weight: bold;
   color: white;
-  width: 251px;       
-  height: 76px;      
+  width: 251px;
+  height: 76px;
   display: inline-block;
   box-sizing: border-box;
 }
@@ -243,4 +243,36 @@ label {
     height: 60px;
     font-size: 24px;
   }
+}
+
+.input-wrapper {
+  transition: all 0.3s ease;
+}
+
+.input-wrapper:focus-within {
+  box-shadow: 0 0 0 2px rgba(13, 71, 161, 0.3);
+  background: #fff;
+}
+
+.input-wrapper input:focus {
+  outline: none;
+}
+
+.btn.continuar {
+  transition: all 0.3s ease;
+}
+
+.btn.continuar:active {
+  transform: translateY(1px) !important;
+  box-shadow: none !important;
+}
+
+.input-wrapper input:placeholder-shown {
+  color: #535353;
+  font-style: italic;
+}
+
+.input-wrapper input:not(:placeholder-shown) {
+  color: #0d47a1;
+  font-weight: bold;
 }
