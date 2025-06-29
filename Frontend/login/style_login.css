@@ -9,26 +9,56 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
-  font-family: "Segoe UI", sans-serif;
+  font-family: 'ChampagneBold', 'Raleway', sans-serif;
 }
 
 /* Cabeçalho */
 .cabecalho {
-  background-color: #f0d859;
-  height: 120px;
+  background-color: #2196F3;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 40px;
+  padding: 10px 40px;
   flex-wrap: wrap;
 }
 
-.logo img {
-  height: 78px;
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  background-color: #F0D859; 
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.logo-icon img {
+  width: 50px;
+  height: 44px;
+  margin-top: 12px;
+  margin-left: 15px;
+}
+
+.logo-text h1 {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0; 
+  line-height: 1.4; 
+  color: #EFD759;
+}
+
+.logo-text p {
+  font-size: 12px;
+  color: #FFFFFF;
 }
 
 .menu {
@@ -38,11 +68,11 @@ body {
 }
 
 .menu a {
+  margin-left: 25px;
   text-decoration: none;
-  font-family: "ChampagneBold", sans-serif;
-  font-size: 25px;
-  color: #374a52;
-  font-weight: 500;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .menu a:hover {
@@ -69,12 +99,12 @@ body {
 
 /* Card Login */
 .card-login {
-  background-color: #f0d859;
+  background-color: #f1dd77;
   border-radius: 10px;
   padding: 40px 30px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  max-width: 655px;
-  width: 100%;
+  max-width: 400px;
+  width: 50%;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -82,27 +112,27 @@ body {
 }
 
 .card-login h2 {
-  font-size: 70px;
-  color: #1d57a8;
+  font-size: 35px;
+  color: #424242;
   font-family: "ChampagneBold", sans-serif;
   margin-bottom: 10px;
   text-align: center;
 }
 
 .card-login label {
-  font-size: 32px;
-  font-family: "ChampagneBold", sans-serif;
-  color: #333;
-  width: 100%;
+  font-size: 16px;
+  font-family: 'ChampagneBold', sans-serif;
+  color: #424242;
+  width: 95%;
   max-width: 521px;
 }
 
 .card-login input {
-  padding: 10px;
-  width: 100%;
-  max-width: 521px;
-  height: 76px;
-  border-radius: 20px;
+  padding: 5px;
+  width: 95%;
+  max-width: 400px;
+  height: 40px;
+  border-radius: 10px;
   border: none;
   font-size: 18px;
   box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
@@ -113,7 +143,7 @@ body {
   width: 100%;
   max-width: 521px;
   margin-top: 10px;
-  font-size: 25px;
+  font-size: 14px;
   font-family: "ChampagneBold", sans-serif;
 }
 
@@ -123,13 +153,13 @@ body {
   color: #fff;
   padding: 12px;
   border: none;
-  border-radius: 20px;
-  font-size: 32px;
+  border-radius: 15px;
+  font-size: 20px;
   font-family: "ChampagneBold", sans-serif;
   cursor: pointer;
   width: 100%;
-  max-width: 251px;
-  height: 76px;
+  max-width: 110px;
+  height: 50px;
 }
 
 .btn-entrar:hover {
@@ -137,12 +167,12 @@ body {
 }
 
 .link-menor {
-  font-size: 20px;
+  font-size: 12px;
   font-family: "ChampagneBold", sans-serif;
   color: #1d57a8;
   text-align: right;
-  width: 100%;
-  max-width: 521px;
+  width: 95%;
+  max-width: 500px;
   margin-top: -10px;
 }
 
@@ -164,17 +194,17 @@ body {
   }
 
   .card-login h2 {
-    font-size: 48px;
+    font-size: 32px;
   }
 
   .card-login label,
   .card-login p,
   .link-menor {
-    font-size: 22px;
+    font-size: 14px;
   }
 
   .btn-entrar {
-    font-size: 28px;
+    font-size: 18px;
   }
 }
 
