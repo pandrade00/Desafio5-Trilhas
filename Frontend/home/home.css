@@ -67,9 +67,9 @@ body {
 .menu a {
   margin-left: 25px;
   text-decoration: none;
-  font-size: 20px;
-  color: #374a52;
-  font-weight: 500;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .menu a:hover {
@@ -142,7 +142,7 @@ body {
 
 .card img {
   width: 64px;
-  margin-bottom: 30px;
+  margin-top: 25px;
 }
 
 .card h3 {
@@ -153,31 +153,9 @@ body {
 
 .card p {
   font-size: 16px;
-  color: #333;
+  color: #424242;
   padding: 0 10px;
 }
-
-/* Card Especial */
-/*.card-sobre {
-  width: 100%;
-  max-width: 1260px;
-  background-color: #fff;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  gap: 20px;
-  box-sizing: border-box;
-}*/
-
-/*.card-sobre img {
-  width: 100%;
-  max-width: 320px;
-  height: auto;
-  object-fit: contain;*/
 
 
 .card-sobre-texto {
@@ -235,11 +213,6 @@ body {
     height: auto;
   }
 
-  /*.card-sobre {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }*/
 
   .card-sobre-texto {
     text-align: center;
