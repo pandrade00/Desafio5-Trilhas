@@ -29,6 +29,7 @@ body {
   color: #333;
 }
 
+/* Cabeçalho */
 .cabecalho {
   background-color: #2196F3;
   display: flex;
@@ -64,9 +65,10 @@ body {
 .logo-text h1 {
   font-size: 22px;
   font-weight: bold;
+  margin: 0; 
   line-height: 1.4; 
   color: #EFD759;
-  margin: 0; 
+  margin-left: -12px;
 }
 
 .logo-text p {
@@ -136,29 +138,35 @@ h1 {
 /* Cards de UBS */
 
 .ubs-card {
-  background-color: #f1dd77;
+  background-color: #fdfdfd ;
   border-radius: 8px;
   padding: 25px;
   max-width: 600px;
   margin: 20px auto;
   text-align: left;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.ubs-card:hover {
+  transform: translateY(-4px);
 }
 
 .ubs-card h2 {
-  color: #1565c0;
-  font-size: 16px;
+  color: #2a5d9f;
+  font-size: 18px;
   margin: 15px 5px 10px;
   white-space: nowrap;
 }
 
 .ubs-card p {
+  color: #555;
   font-size: 14px;
   margin: 20px 5px 15px;
 }
 
 .btn-saiba-mais {
-  background-color: #1b5ca5;
+  background-color: #2a5d9f;
   color: #fff;
   border: none;
   padding: 8px 20px;
@@ -166,6 +174,11 @@ h1 {
   font-size: 14px;
   margin-top: 5px;
   cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-saiba-mais:hover {
+  background-color: #1e4a87;
 }
 
 @media (max-width: 768px) {
