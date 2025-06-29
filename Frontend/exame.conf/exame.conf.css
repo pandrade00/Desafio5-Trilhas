@@ -23,7 +23,7 @@ header {
 
 .logo img {
   padding-left: 20px;
-  height: 78,14px;
+  height: 78, 14px;
   width: 279px;
 }
 
@@ -94,20 +94,20 @@ h1 {
 .card h2 {
   color: #1565c0;
   margin-top: 98px;
-  margin-bottom: 27px; 
+  margin-bottom: 27px;
   font-size: 40px;
   font-family: 'ChampagneBold', sans-serif;
   padding-left: 74px;
 }
 
 .card p {
-  margin: 0; 
+  margin: 0;
   font-family: 'ChampagneBold', sans-serif;
   font-size: 32px;
   padding-left: 98px;
 
-  & + p {
-    margin-top: 8px; 
+  &+p {
+    margin-top: 8px;
   }
 }
 
@@ -119,8 +119,8 @@ h1 {
   cursor: pointer;
   font-weight: bold;
   color: white;
-  width: 251px;       
-  height: 76px;      
+  width: 251px;
+  height: 76px;
   display: inline-block;
   box-sizing: border-box;
 }
@@ -220,4 +220,33 @@ h1 {
     height: 60px;
     font-size: 24px;
   }
+}
+
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn:active {
+  transform: translateY(1px) !important;
+  box-shadow: none !important;
+}
+
+.btn.editar {
+  background-color: #4fc3f7;
+}
+
+.btn.editar:hover {
+  background-color: #42b5f5;
+}
+
+.btn.continuar {
+  background-color: #0d47a1;
+}
+
+.btn.continuar:hover {
+  background-color: #0b3d91;
 }
