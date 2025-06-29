@@ -199,20 +199,22 @@ body {
 /* Responsividade */
 @media (max-width: 768px) {
   .cabecalho {
-    flex-direction: row ;
-    align-items: center ;
-    padding: 10px 20px;
+    flex-direction: row;
+    gap: 10px;
+    padding: 20px;
   }
 
   .menu {
-    margin-top: 10px;
-    width: 100%;
-    text-align: center;
+    justify-content: center;
+  }
+
+  .menu a {
+    font-size: 20px;
   }
 
   .icone-alerta {
     position: absolute;
-    top: 10px;
+    top: 20px;
     right: 20px;
   }
 
