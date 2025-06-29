@@ -8,34 +8,61 @@
 
 body {
   margin: 0;
-  font-family: "Raleway", sans-serif;
+  font-family: 'ChampagneBold', 'Raleway', sans-serif;
   background: #1976d2;
   color: #333;
 }
 
-header {
-  background-color: #f0d859;
+.cabecalho {
+  background-color: #2196F3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  flex-wrap: wrap;
+}
+
+.logo {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px;
-  flex-wrap: wrap;
-}
-
-.logo img {
-  height: 60px;
-  max-width: 100%;
-}
-
-.menu {
-  display: flex;
   gap: 10px;
-  flex-wrap: wrap;
+}
+
+.logo-icon {
+  background-color: #F0D859; 
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.logo-icon img {
+  width: 50px;
+  height: 44px;
+  margin-top: 12px;
+  margin-left: 15px;
+}
+
+.logo-text h1 {
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 1.4; 
+  color: #EFD759;
+  margin: 0; 
+}
+
+.logo-text p {
+  font-size: 12px;
+  color: #FFFFFF;
+  margin: 0; 
 }
 
 .menu a {
+  margin-left: 25px;
   text-decoration: none;
-  color: #374a52;
+  color: #FFFFFF;
   font-weight: bold;
   font-size: 16px;
 }
@@ -52,7 +79,7 @@ header {
 }
 
 h1 {
-  color: #f0d859;
+  color: white;
   font-size: 36px;
   font-family: "ChampagneBold", sans-serif;
   margin-bottom: 40px;
@@ -79,7 +106,7 @@ select {
   background-repeat: no-repeat;
   background-position: right 15px center;
   background-size: 18px;
-  color: #1b5ca5;
+  color: #424242;
   font-weight: bold;
   cursor: pointer;
   padding-right: 45px;
@@ -106,7 +133,7 @@ select::-ms-expand {
 
   .menu a {
     font-size: 16px;
-    font-family: "ChampagneBold", sans-serif;
+    font-family: 'ChampagneBold', sans-serif;
     padding: 5px 0;
   }
 
