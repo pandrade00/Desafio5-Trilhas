@@ -14,31 +14,63 @@
 
 body {
   margin: 0;
-  font-family: "Raleway", sans-serif;
+  font-family: 'ChampagneBold', 'Raleway', sans-serif;
   background: #1976d2;
   color: #333;
 }
 
 /* Cabeçalho */
 .cabecalho {
-  background-color: #F0D859;
+  background-color: #2196F3;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 10px 80px;
+  align-items: center;
+  padding: 10px 40px;
+  flex-wrap: wrap;
 }
 
-.logo img {
-  height: 78px;
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  background-color: #F0D859; 
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.logo-icon img {
+  width: 50px;
+  height: 44px;
+  margin-top: 12px;
+  margin-left: 15px;
+}
+
+.logo-text h1 {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0; 
+  line-height: 1.4; 
+  color: #EFD759;
+}
+
+.logo-text p {
+  font-size: 12px;
+  color: #FFFFFF;
 }
 
 .menu a {
-  margin: 0 10px;
+  margin-left: 25px;
   text-decoration: none;
-  color: #374A52;
-  font-size: 30px;
-  font-family: 'ChampagneBold', sans-serif;
+  color: #FFFFFF;
   font-weight: bold;
+  font-size: 16px;
 }
 
 .menu a:hover {
@@ -63,43 +95,45 @@ body {
 
 /* Card de Cadastro */
 .card-login {
-  background-color: #f0d859;
+  background-color: #f1dd77;
   border-radius: 10px;
   padding: 40px 30px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  height: 1167px;
-  max-width: 665px;
-  width: 100%;
+  max-width: 400px;
+  width: 50%;
   display: flex;
   flex-direction: column;
   gap: 15px;
-  align-items: center
+  align-items: center;
 }
 
 .card-login h2 {
-  font-size: 70px;
-  color: #1376BC;
-  font-family: 'ChampagneBold', sans-serif;
+  font-size: 35px;
+  color: #424242;
+  font-family: "ChampagneBold", sans-serif;
   margin-bottom: 10px;
   text-align: center;
 }
 
 .card-login label {
-  font-size: 32px;
+  font-size: 16px;
   font-family: 'ChampagneBold', sans-serif;
-  color: #333;
-  width: 100%;
+  color: #424242;
+  width: 95%;
   max-width: 521px;
 }
 
 .card-login input {
-  width: 100%;
-  max-width: 521px;
-  height: 76px;
-  border-radius: 20px;
-  padding: 0 15px;
-  font-size: 16px;
+  padding: 5px;
+  width: 95%;
+  max-width: 400px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  font-size: 18px;
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
 }
+
 
 .card-login select {
   background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
@@ -111,7 +145,7 @@ body {
   padding: 10px;
   border-radius: 20px;
   border: none;
-  font-size: 25px;
+  font-size: 16px;
   font-family: 'ChampagneBold', sans-serif;
   box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
   height: 76px;
@@ -123,46 +157,65 @@ body {
 /* Alinhamento dos selects da data */
 .data-nascimento {
   display: flex;
-  gap: 31px;
-  width: 100%;
-  max-width: 521px;
+  gap: 10px;
+  width: 95%;
+  max-width: 400px;
 }
 
 .data-nascimento select {
   flex: 1;
-  height: 76px;
-  border-radius: 20px;
+  height: 40px;
+  padding: 5px 10px;
+  border-radius: 10px;
   appearance: none;
   background-color: white;
+  color: #757575;
+  appearance: none;
+  font-family: 'ChampagneBold', sans-serif;
   padding-left: 20px;
 }
 
 .data-nascimento select:first-child,
 .data-nascimento select:nth-child(2) {
-  flex: 0 0 124px;
-  width: 124px;
+  flex: 1;
+  min-width: 100px;
 }
 
 .data-nascimento select:last-child {
-  flex: 0 0 200px;
-  width: 200px;
+  flex: 2;
 }
+
+.card-login select#genero {
+  width: 95%;
+  max-width: 400px;
+  height: 40px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: none;
+  font-size: 18px;
+  font-family: 'ChampagneBold', sans-serif;
+  background-color: white;
+  color: #757575;
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+  appearance: none;
+  padding-left: 20px;
+}
+
 
 /* Botão */
 .btn-entrar {
   margin-top: 10px;
-  background-color: #1376BC;
+  background-color: #1376bc;
   color: #fff;
   padding: 12px;
   border: none;
-  border-radius: 20px;
-  font-size: 40px;
-  font-family: 'ChampagneBold', sans-serif;
+  border-radius: 15px;
+  font-size: 18px;
+  font-family: "ChampagneBold", sans-serif;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 100%;
-  max-width: 251px;
-  height: 76px;
+  width: 120%;
+  max-width: 110px;
+  height: 50px;
 }
 
 .btn-entrar:hover {
@@ -171,9 +224,9 @@ body {
 
 /* Rodapé menor */
 .link-menor {
-  font-size: 20px;
+  font-size: 14px;
   font-family: 'ChampagneBold', sans-serif;
-  color: #333;
+  color: #1d57a8;
   text-align: center;
   width: 100%;
   max-width: 521px;
