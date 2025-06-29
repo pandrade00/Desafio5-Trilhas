@@ -242,12 +242,14 @@ label {
   .search-box input {
     font-size: 18px;
     padding-left: 10px;
+    max-width: 700px;
   }
 
   .search-box img {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 26px;
     padding-right: 10px;
+    margin-left: 270px;
   }
 
   .buttons {
@@ -259,8 +261,9 @@ label {
   }
 
   .btn {
-    width: 100%;
+    width: 30%;
     height: 60px;
+    margin-left: 400px;
     font-size: 24px;
   }
 }
