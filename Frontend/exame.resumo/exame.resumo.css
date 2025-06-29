@@ -189,6 +189,7 @@ h1 {
   background-color: #142f4a;
 }
 
+
 @media (max-width: 1024px) {
   header {
     flex-direction: column;
