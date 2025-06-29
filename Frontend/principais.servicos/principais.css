@@ -198,6 +198,12 @@ body {
 
 /* Responsividade */
 @media (max-width: 768px) {
+  .cabecalho {
+    flex-direction: row ;
+    align-items: center ;
+    padding: 10px 20px;
+  }
+
   .menu {
     margin-top: 10px;
     width: 100%;
@@ -205,20 +211,11 @@ body {
   }
 
   .icone-alerta {
-    top: 100px;
+    position: absolute;
+    top: 10px;
     right: 20px;
   }
 
-  .notificacao {
-    flex-direction: column;
-    height: auto;
-    align-items: flex-start;
-  }
-
-  .notificacao button {
-    align-self: flex-end;
-    margin-top: 10px;
-  }
 }
 
 @media (max-width: 480px) {

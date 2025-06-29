@@ -193,15 +193,17 @@ body {
 /* Tablets (768px) */
 @media (max-width: 768px) {
   .cabecalho {
-    flex-direction: column;
-    height: auto;
-    padding: 20px;
+    flex-direction: row;
     gap: 10px;
+    padding: 20px;
   }
 
   .menu {
-    flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .menu a {
+    font-size: 20px;
   }
 
   .box-titulo {
