@@ -1,7 +1,9 @@
 @font-face {
   font-family: "ChampagneBold";
-  src: url("assets/ChampagneLimousinesBold.ttf") format("truetype");
+  src: url("../assets/fonts/Champagne_&_Limousines_Bold.ttf") format("truetype");
   font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
 
 body {
@@ -33,7 +35,8 @@ body {
 
 .menu a {
   text-decoration: none;
-  font-size: 20px;
+  font-size: 30px;
+  font-family: "ChampagneBold", sans-serif;
   color: #374a52;
   font-weight: 500;
 }
@@ -44,11 +47,9 @@ body {
 
 /* Corpo */
 .corpo {
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       rgba(27, 92, 165, 0.85),
-      rgba(77, 165, 216, 0.85)
-    ),
+      rgba(77, 165, 216, 0.85)),
     url("../assets/imagem-de-fundo.png");
   background-size: cover;
   background-position: center;
@@ -93,52 +94,97 @@ body {
   align-items: center;
   text-align: center;
   padding: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  background-color: #e8d04f;
+}
+
+.card:active {
+  transform: translateY(0) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
 }
 
 .card img {
-  width: 64px;
-  margin-bottom: 30px;
+  padding-top: 10px;
+  width: 93px;
 }
 
 .card h3 {
-  font-size: 26px;
+  font-size: 32px;
+  font-family: "ChampagneBold", sans-serif;
   color: #1d57a8;
   margin-bottom: 10px;
 }
 
 .card p {
-  font-size: 16px;
+  font-size: 20px;
+  font-family: "ChampagneBold", sans-serif;
   color: #333;
   padding: 0 10px;
 }
 
 /* Card Especial */
-/*.card-sobre {
+.card-sobre {
   width: 100%;
   max-width: 1260px;
-  background-color: #fff;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
+  margin: 40px auto;
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  gap: 20px;
-  box-sizing: border-box;
-}*/
+  overflow: hidden;
+  animation: pulse 2s infinite alternate;
+  position: relative;
+}
 
-/*.card-sobre img {
+.card-sobre::before {
+  content: "NOVO JOGO!";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #FF5722;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  z-index: 1;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.card-sobre img {
   width: 100%;
-  max-width: 320px;
   height: auto;
-  object-fit: contain;*/
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.card-sobre:hover img {
+  transform: scale(1.02);
+}
+
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.98);
+  }
+
+  100% {
+    transform: scale(1.01);
+  }
 }
 
 .card-sobre-texto {
@@ -161,8 +207,21 @@ body {
 }
 
 /* RESPONSIVIDADE */
+/* Notebooks (1024px) */
+@media (max-width: 1024px) {
+  .cabecalho {
+    padding: 20px 50px;
+  }
+
+  .card {
+    width: 300px;
+    height: 280px;
+  }
+}
+
+/* Tablets (768px) */
 @media (max-width: 768px) {
-.cabecalho {
+  .cabecalho {
     flex-direction: column;
     height: auto;
     padding: 20px;
@@ -183,11 +242,13 @@ body {
     height: auto;
   }
 
-  /*.card-sobre {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }*/
+  .cards {
+    gap: 20px;
+  }
+
+  .card-sobre {
+    max-width: 90%;
+  }
 
   .card-sobre-texto {
     text-align: center;
@@ -206,29 +267,47 @@ body {
     max-width: 240px;
   
 }*/
-
-@media (max-width: 480px) {
-  .box-titulo {
-    font-size: 28px;
+  .card-sobre img {
+    animation: pulse 2s infinite alternate;
   }
 
-  .menu a {
-    font-size: 18px;
+  @keyframes pulse {
+    0% {
+      transform: scale(0.98);
+    }
+
+    100% {
+      transform: scale(2.02);
+    }
   }
 
-  .card h3 {
-    font-size: 20px;
-  }
 
-  .card p {
-    font-size: 14px;
-  }
+  /* Celulares (480px) */
+  @media (max-width: 480px) {
+    .cabecalho {
+      padding: 15px;
+    }
 
-  .card-sobre-texto h3 {
-    font-size: 20px;
-  }
+    .logo img {
+      height: 60px;
+    }
 
-  .card-sobre-texto p {
-    font-size: 14px;
+    .menu a {
+      font-size: 16px;
+    }
+
+    .box-titulo h2 {
+      font-size: 28px;
+    }
+
+    .card {
+      width: 100%;
+      height: auto;
+      padding: 15px;
+    }
+
+    .card-sobre {
+      margin: 20px auto;
+    }
   }
 }
