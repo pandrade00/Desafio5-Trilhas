@@ -4,6 +4,7 @@ import usuariosRoutes from "./usuariosRoutes.js";
 import consultasRoutes from "./consultasRoutes.js";
 import examesRoutes from "./examesRoutes.js";
 import adminsRoutes from "./adminsRoutes.js";
+import relatoriosRoutes from "./relatoriosRoutes.js"
 import { autenticar, permitirRoles } from "../middlewares/index.js";
 
 const routes = (app) => {
@@ -11,12 +12,13 @@ const routes = (app) => {
 
   app.use(express.json());
 
-  router.get("/", (req, res) => res.status(200).send("API Diagnostix - 28/06"));
+  router.get("/", (req, res) => res.status(200).send("API Diagnostix"));
 
   router.use("/usuarios", usuariosRoutes);
   router.use("/leitos", autenticar, leitosRoutes);
   router.use("/consultas", autenticar, consultasRoutes);
   router.use("/exames", autenticar, examesRoutes);
+  router.use("/relatorios", relatoriosRoutes);
   router.use("/admins", autenticar, permitirRoles("admin"), adminsRoutes);
 
   app.use("/", router);
