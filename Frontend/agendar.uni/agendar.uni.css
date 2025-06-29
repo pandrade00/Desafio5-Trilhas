@@ -190,10 +190,14 @@ label {
 }
 
 @media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px 20px;
+  .cabecalho {
+    flex-direction: row;
+    gap: 10px;
+    padding: 20px;
+  }
+
+  .menu {
+    justify-content: center;
   }
 
   .menu a {
@@ -204,16 +208,10 @@ label {
     font-size: 40px;
   }
 
-  .notification-icon {
-    top: 15px;
-    right: 15px;
-    width: 60px;
-    height: 60px;
-  }
-
-  .notification-icon img {
-    width: 30px;
-    height: 30px;
+  .icone-alerta {
+    position: absolute;
+    top: 20px;
+    right: 40px;
   }
 
   .card {

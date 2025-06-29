@@ -198,22 +198,13 @@ label {
 
 @media (max-width: 768px) {
   .cabecalho {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px 20px;
-  }
-
-  .logo img {
-    padding-left: 0;
-    width: 200px;
-    height: auto;
+    flex-direction: row;
+    gap: 10px;
+    padding: 20px;
   }
 
   .menu {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 10px;
+    justify-content: center;
   }
 
   .menu a {
@@ -224,16 +215,10 @@ label {
     font-size: 40px;
   }
 
-  .icone-alerta {
-    width: 65px;
-    height: 65px;
+ .icone-alerta {
+    position: absolute;
     top: 20px;
-    right: 20px;
-  }
-
-  .icone-alerta img {
-    width: 40px;
-    height: 40px;
+    right: 40px;
   }
 
   .card {

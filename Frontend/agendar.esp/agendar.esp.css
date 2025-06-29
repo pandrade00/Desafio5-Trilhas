@@ -189,6 +189,27 @@ label {
 }
 
 @media (max-width: 768px) {
+
+  .cabecalho {
+    flex-direction: row;
+    gap: 10px;
+    padding: 20px;
+  }
+
+  .menu {
+    justify-content: center;
+  }
+
+  .menu a {
+    font-size: 20px;
+  }
+
+  .icone-alerta {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
   h1 {
     font-size: 36px;
   }
@@ -212,27 +233,6 @@ label {
     font-size: 16px;
   }
 
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .menu {
-    justify-content: flex-start;
-  }
-
-  .notification-icon {
-    top: 15px;
-    right: 15px;
-    width: 50px;
-    height: 50px;
-  }
-
-  .notification-icon img {
-    width: 24px;
-    height: 24px;
-  }
 
 }
 
