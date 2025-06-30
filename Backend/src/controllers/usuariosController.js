@@ -178,6 +178,24 @@ class UsuariosController {
       return res.status(500).json({ success: false, error: "Erro ao deletar usuario." });
     }
   }
+
+  static async adminDeletarUsuario(req, res) {
+    try {
+      const id = req.params.id;
+      const usuarioDeletado = await usuario.findByIdAndDelete(id, {
+        projection: { nome: 1, cpf: 1, email: 1, telefone: 1, endereco: 1 }
+      });
+
+      res.status(200).json({
+        success: true,
+        data: usuarioDeletado,
+        message: "Usuário deletado com sucesso."
+      });
+    } catch (err) {
+      console.error("Erro ao deletar usuario:", err);
+      return res.status(500).json({ success: false, error: "Erro ao deletar usuario." });
+    }
+  }
 }
 
 export default UsuariosController;

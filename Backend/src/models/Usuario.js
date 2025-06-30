@@ -6,6 +6,7 @@ const usuarioSchema = new mongoose.Schema({
   nome: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   senha: { type: String, required: true, select: false },
+  cpf: { type: String, required: true, unique: true },
   sus: { type: String },
   telefones: { type: [String], default: [] },
   genero: { type: String },
