@@ -1,6 +1,21 @@
+
+@font-face {
+  font-family: 'ChampagneBold';
+  src: url('../assets/fonts/Champagne_&_Limousines_Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: "Raleway", sans-serif;
+  font-family: 'ChampagneBold', 'Raleway', sans-serif;
   background: linear-gradient(
       to bottom,
       rgba(27, 92, 165, 0.75),
@@ -15,23 +30,61 @@ body {
 }
 
 /* Cabeçalho */
-header {
-  background-color: #f0d859;
+.cabecalho {
+  background-color: #2196F3;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   padding: 10px 40px;
+  flex-wrap: wrap;
 }
 
-.logo img {
-  height: 40px;
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  background-color: #F0D859; 
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.logo-icon img {
+  width: 50px;
+  height: 44px;
+  margin-top: 12px;
+  margin-left: 15px;
+}
+
+.logo-text h1 {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0; 
+  line-height: 1.4; 
+  color: #EFD759;
+}
+
+.logo-text p {
+  font-size: 12px;
+  color: #FFFFFF;
 }
 
 .menu a {
-  margin: 0 10px;
+  margin-left: 25px;
   text-decoration: none;
-  color: #374A52;
+  color: #FFFFFF;
   font-weight: bold;
+  font-size: 16px;
+}
+
+.menu a:hover {
+  color: #1d57a8;
 }
 
 /* Container */
@@ -42,39 +95,28 @@ header {
 }
 
 h1 {
-  color: #f0d859;
+  color: white;
   font-size: 36px;
   margin-bottom: 40px;
 }
 
-/* Notificação */
-.notification-icon {
+/* Ícone de notificação flutuante */
+.icone-alerta {
   position: absolute;
   top: 40px;
-  right: 40px;
+  right: 95px;
   z-index: 2;
 }
 
-.notification-icon .circle {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  background-color: #f0d859;
-  border-radius: 50%;
-  top: -10px;
-  left: -10px;
-  z-index: 0;
-}
-
-.notification-icon img {
-  width: 30px;
+.icone-alerta img {
   position: relative;
+  width: 50px;
   z-index: 1;
 }
 
 /* Cartões */
 .card {
-  background: #F0D859;
+  background: #f5eda5;
   border-radius: 8px;
   padding: 20px;
   max-width: 600px;
@@ -85,6 +127,7 @@ h1 {
 }
 
 .card .date {
+  color: black;
   font-weight: bold;
   margin-bottom: 10px;
   font-size: 14px;
@@ -92,7 +135,7 @@ h1 {
 
 .card h2 {
   font-size: 18px;
-  color: #1b5ca5;
+  color: #1d57a8;
   margin: 0 0 5px;
 }
 
@@ -103,7 +146,7 @@ h1 {
 .card p {
   margin: 0 0 15px;
   font-size: 14px;
-  color: #333;
+  color: #424242;
 }
 
 .btn {
@@ -114,7 +157,7 @@ h1 {
   border: none;
   font-size: 14px;
   font-weight: 600;
-  font-family: "Raleway", sans-serif;
+  font-family: 'ChampagneBold', 'Raleway', sans-serif;
   width: 120px;
   height: 40px;
   border-radius: 13px;
@@ -123,7 +166,7 @@ h1 {
 
 /* Botões com cores específicas */
 .btn.disponivel {
-  background-color: #1b5ca5;
+  background-color: #1B5CA5;
   color: white;
 }
 
@@ -132,11 +175,13 @@ h1 {
   color: white;
 }
 
-/* Texto colorido do status */
-/*.disponivel {
-  color: green;
+
+@media (max-width: 480px) {
+
+.icone-alerta {
+    position: absolute;
+    top: 10px;
+    right: 20px;
 }
 
-.pendente {
-  color: red;
-}*/
+}

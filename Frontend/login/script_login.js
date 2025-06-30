@@ -9,7 +9,27 @@ document.addEventListener("DOMContentLoaded", () => {
     return regexEmail.test(email);
   }
 
-  btnEntrar.addEventListener("click", () => {
+  // Função para simular login (substitua pelo fetch real quando o backend estiver pronto)
+  async function fazerLogin(email, senha) {
+
+    try {
+      const response = await fetch('https://desafio5-trilhas-production.up.railway.app/usuarios/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, senha })
+      });
+      
+      return await response.json();
+    } catch (error) {
+      console.error("Erro na requisição:", error);
+      return { success: false, message: "Erro na conexão" };
+    }
+
+  }
+
+  btnEntrar.addEventListener("click", async () => {
     const email = emailInput.value.trim();
     const senha = senhaInput.value.trim();
 
@@ -26,27 +46,29 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const usuarioSalvo = JSON.parse(localStorage.getItem("usuario"));
+    try {
+      // Faz a requisição de login (simulada ou real)
+      const resultado = await fazerLogin(email, senha);
 
-    if (
-      usuarioSalvo &&
-      usuarioSalvo.email === email &&
-      usuarioSalvo.senha === senha
-    ) {
-      alert("Login realizado com sucesso!");
-      // Redirecione para a área logada
-      // window.location.href = "dashboard.html";
-    } else {
-      alert("Email ou senha incorretos!");
+      if (resultado.success) {
+        // Armazena os dados do usuário
+        localStorage.setItem('token', resultado.token);
+        localStorage.setItem('userName', resultado.nome || 'Usuário'); // Adicione esta linha
+
+        // Redireciona para a home
+        window.location.href = "../home/home.html";
+      } else {
+        alert(resultado.message || "Email ou senha incorretos!");
+      }
+    } catch (error) {
+      alert("Ocorreu um erro durante o login. Por favor, tente novamente.");
+      console.error(error);
     }
   });
 
-  // Redirecionamento para cadastro 
-  const linkCadastro = document.querySelector('a[href="#"]:contains("Cadastre-se")');
-  if (linkCadastro) {
-    linkCadastro.addEventListener("click", (e) => {
-      e.preventDefault();
-      window.location.href = "cadastro.html";
-    });
-  }
+  // Redirecionamento para cadastro
+  document.querySelector('a[href="../cadastro/cadastro.html"]').addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.href = "../cadastro/cadastro.html";
+  });
 });

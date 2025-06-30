@@ -26,32 +26,90 @@ function validarEmail(email) {
   return regexEmail.test(email);
 }
 
-// Evento de clique no botão
-document.querySelector(".btn-entrar").addEventListener("click", function (e) {
-  e.preventDefault();
+document.addEventListener('DOMContentLoaded', function () {
+  // Máscara para o SUS (15 dígitos com espaços: XXX XXXX XXXX XXXX)
+  VMasker(document.getElementById("sus")).maskPattern("999 9999 9999 9999");
 
-  const nome = document.getElementById("nome").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const senha = document.getElementById("senha").value;
-  const dia = document.getElementById("dia").value;
-  const mes = document.getElementById("mes").value;
-  const ano = document.getElementById("ano").value;
-  const genero = document.getElementById("genero").value;
+  // Máscara para o celular ((XX) XXXXX-XXXX)
+  VMasker(document.getElementById("numero")).maskPattern("(99) 99999-9999");
 
-  if (!nome || !email || !senha || !dia || !mes || !ano || !genero) {
-    alert("Preencha todos os campos.");
-    return;
-  }
+  document.querySelector(".btn-entrar").addEventListener("click", async function (e) {
+    e.preventDefault();
 
-  if (!validarEmail(email)) {
-    alert("Insira um e-mail válido.");
-    return;
-  }
+    const nome = document.getElementById("nome").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const sus = document.getElementById("sus").value;
+    const senha = document.getElementById("senha").value;
+    const numero = document.getElementById("numero").value;
+    const dia = document.getElementById("dia").value;
+    const mes = document.getElementById("mes").value;
+    const ano = document.getElementById("ano").value;
+    const genero = document.getElementById("genero").value;
 
-  if (senha.length < 6) {
-    alert("A senha deve ter pelo menos 6 caracteres.");
-    return;
-  }
+    if (!nome || !email || !sus || !senha || !numero || !dia || !mes || !ano || !genero) {
+      alert("Preencha todos os campos.");
+      return;
+    }
 
-  alert("Cadastro realizado com sucesso!");
+    if (!validarEmail(email)) {
+      alert("Insira um e-mail válido.");
+      return;
+    }
+
+    if (senha.length < 6) {
+      alert("A senha deve ter pelo menos 6 caracteres.");
+      return;
+    }
+
+    const usuario = {
+      nome,
+      email,
+      sus: sus.replace(/\s/g, ''), // Remove espaços do SUS e usa como CPF
+      senha,
+      telefones: [numero], // Envia como array
+      dataNascimento: new Date(`${ano}-${mes}-${dia}`), // Formato ISO
+      genero
+    };
+
+    try {
+      console.log("Dados sendo enviados:", usuario);
+
+      const response = await fetch('https://desafio5-trilhas-production.up.railway.app/usuarios', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(usuario)
+      });
+
+      const responseData = await response.json();
+      console.log("Resposta do servidor:", responseData);
+
+      if (!response.ok) {
+        const errorMsg = responseData.message || `Erro ${response.status}: ${response.statusText}`;
+        throw new Error(errorMsg);
+      }
+
+      if (responseData.token) {
+        localStorage.setItem('token', responseData.token);
+      }
+      document.getElementById('popupSucesso').classList.add('active');
+    } catch (error) {
+      console.error("Erro completo:", error);
+      alert(`Erro durante o cadastro: ${error.message}`);
+    }
+  });
+
+  // Redirecionar para login ao clicar no botão
+  document.getElementById('btnIrParaLogin').addEventListener('click', function () {
+    window.location.href = '../login/login.html';
+  });
+
+  // Fechar popup ao clicar fora
+  document.getElementById('popupSucesso').addEventListener('click', function (e) {
+    if (e.target === this) {
+      this.classList.remove('active');
+      window.location.href = '../login/login.html';
+    }
+  });
 });

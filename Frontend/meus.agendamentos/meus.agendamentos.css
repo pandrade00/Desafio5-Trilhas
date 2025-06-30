@@ -1,3 +1,12 @@
+
+@font-face {
+  font-family: 'ChampagneBold';
+  src: url('../assets/fonts/Champagne_&_Limousines_Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,21 +14,52 @@
 }
 
 body {
-  font-family: "Raleway", sans-serif;
+  font-family: 'ChampagneBold', 'Raleway', sans-serif;
 }
 
 /* Cabeçalho */
 .cabecalho {
-  background-color: #f0d859;
-  height: 120px;
+  background-color: #2196F3;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 40px;
+  padding: 10px 40px;
+  flex-wrap: wrap;
 }
 
-.logo img {
-  height: 78px;
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  background-color: #F0D859; 
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.logo-icon img {
+  width: 62px;
+  height: 43px;
+  margin-top: 12px;
+  margin-left: 15px;
+}
+
+.logo-text h1 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #EFD759;
+  line-height: 1;
+}
+
+.logo-text p {
+  font-size: 12px;
+  color: #FFFFFF;
 }
 
 .menu {
@@ -28,10 +68,11 @@ body {
 }
 
 .menu a {
+  margin-left: 25px;
   text-decoration: none;
-  font-size: 20px;
-  color: #374a52;
-  font-weight: 500;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .menu a:hover {
@@ -62,33 +103,27 @@ body {
 .corpo h1 {
   font-size: 48px;
   font-weight: bold;
-  color: #efd759;
+  color: white;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
 }
 
-/* Ícone de notificação */
-.notification-icon {
+/* Ícone de notificação flutuante */
+.icone-alerta {
   position: absolute;
-  top: 20px;
-  right: 30px;
-  background-color: #f0d859;
-  border-radius: 50%;
-  width: 75px;
-  height: 75px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  top: 40px;
+  right: 95px;
+  z-index: 2;
 }
 
-.notification-icon img {
-  width: 36px;
-  height: 36px;
+.icone-alerta img {
+  position: absolute;
+  width: 50px;
+  z-index: 1;
 }
 
 /* Cartões */
 .card {
-  background-color: #f0d859;
+  background-color: #f5eda5;
   width: 100%;
   max-width: 800px;
   padding: 25px;
@@ -98,6 +133,7 @@ body {
 }
 
 .card .date {
+  color: black;
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 10px;
@@ -105,13 +141,14 @@ body {
 
 .card h2 {
   font-size: 20px;
+  font-weight: bold;
   color: #1d57a8;
   margin-bottom: 6px;
 }
 
 .card p {
   font-size: 16px;
-  color: #333;
+  color: #424242;
 }
 
 /* Status */
@@ -121,19 +158,20 @@ body {
   right: 20px;
   padding: 6px 16px;
   border-radius: 14px;
-  color: #fff;
+  color: white;
   font-weight: bold;
   font-size: 14px;
-  font-family: "Raleway", sans-serif;
+  font-family: 'ChampagneBold', 'Raleway', sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
   min-width: 100px;
   height: 32px;
+  cursor: pointer;
 }
 
 .cancelada {
-  background-color: #e57373;
+  background-color: #e63c3c;
 }
 
 .realizada {
@@ -141,20 +179,23 @@ body {
 }
 
 .ausente {
-  background-color: #374a52;
+  background-color: #5a5d5e;
 }
 
 /* Responsivo */
 @media (max-width: 768px) {
   .cabecalho {
-    flex-direction: column;
-    height: auto;
-    padding: 20px;
+    flex-direction: row;
     gap: 10px;
+    padding: 20px;
   }
 
   .menu {
     justify-content: center;
+  }
+
+  .menu a {
+    font-size: 20px;
   }
 
   .corpo h1 {

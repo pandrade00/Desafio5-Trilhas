@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Diagnóstix</title>
   <link rel="stylesheet" href="home.css" />
 </head>
@@ -11,16 +11,21 @@
 <body>
   <!-- Cabeçalho -->
   <header class="cabecalho">
-    <div class="logo">
-      <img src="../assets/logo-diagnostix.png" class="icone" alt="Logo Diagnóstix" />
-    </div>
-
-    <nav class="menu">
-      <a href="#">Fale Conosco</a>
-      <a href="#">Login</a>
-      <a href="#">Cadastro</a>
-    </nav>
-  </header>
+      <div class="logo">
+        <div class="logo-icon">
+          <img src="../assets/lupa-branca.png" alt="lupa" />
+        </div>
+        <div class="logo-text">
+          <h1><span>D</span>iagn<span>ó</span>stix</h1>
+          <p>Entender para cuidar</p>
+        </div>
+      </div>
+      <nav class="menu">
+        <a href="../home/home.html">Home</a>
+        <a href="../faq/faq.html">Fale Conosco</a>
+        <a href="../login/login.html">Login</a>
+      </nav>
+    </header>
 
   <!-- Corpo da Página -->
   <section class="corpo">
@@ -38,21 +43,23 @@
       </div>
       <div class="card">
         <img src="../assets/calendario.png" alt="Consultas" />
-        <h3>Marcar Consulta</h3>
+        <h3>Consultas</h3>
         <p>Agende ou monitore sua consulta agora mesmo</p>
       </div>
       <div class="card">
         <img src="../assets/injecao.png" alt="Dados Saúde" />
-        <h3>Campanhas de Saúde</h3>
+        <h3>Dados Saúde</h3>
         <p>Encontre informações sobre a saúde no MA</p>
       </div>
     </div>
 
     <!-- Card sobre o jogo/ texto inventado, verificar com UX qual sexto será -->
+    <!-- Colocar o link tambem ao clicar no banner :) -->
     <div class="card-sobre">
-      <img src="../assets/game.png" alt="Game">
+      <img src="../assets/Banner-game.png" alt="Game">
     </div>
   </section>
+  <script src="home.js"></script>
 </body>
 
 </html>

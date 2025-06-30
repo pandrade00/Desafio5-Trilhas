@@ -1,4 +1,3 @@
-
 @font-face {
   font-family: 'ChampagneBold';
   src: url('../assets/fonts/Champagne_&_Limousines_Bold.ttf') format('truetype');
@@ -15,12 +14,10 @@
 
 body {
   font-family: 'ChampagneBold', 'Raleway', sans-serif;
-  background: linear-gradient(
-      to bottom,
-      rgba(27, 92, 165, 0.75),  
-      rgba(77, 165, 216, 0.75)  
-    ),
-    url("../assets/imagem-de-fundo.png"); 
+  background: linear-gradient(to bottom,
+      rgba(27, 92, 165, 0.75),
+      rgba(77, 165, 216, 0.75)),
+    url("../assets/imagem-de-fundo.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -44,7 +41,7 @@ body {
 }
 
 .logo-icon {
-  background-color: #F0D859; 
+  background-color: #F0D859;
   width: 48px;
   height: 48px;
   display: flex;
@@ -98,24 +95,13 @@ body {
 .icone-alerta {
   position: absolute;
   top: 40px;
-  right: 65px;
+  right: 95px;
   z-index: 2;
 }
 
-.circulo-amarelo {
-  width: 50px;
-  height: 50px;
-  background-color: #f0d859;
-  border-radius: 50%;
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  z-index: 0;
-}
-
 .icone-alerta img {
-  width: 30px;
   position: relative;
+  width: 50px;
   z-index: 1;
 }
 
@@ -183,11 +169,19 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  cursor: pointer;
 }
 
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  background-color: #f5f9ff;
+  border: 1px solid #0D47A1;
+}
+
+.card:active {
+  transform: scale(0.98) !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important;
 }
 
 .card img {
@@ -204,27 +198,26 @@ body {
 
 /* Responsividade */
 @media (max-width: 768px) {
+  .cabecalho {
+    flex-direction: row;
+    gap: 10px;
+    padding: 20px;
+  }
+
   .menu {
-    margin-top: 10px;
-    width: 100%;
-    text-align: center;
+    justify-content: center;
+  }
+
+  .menu a {
+    font-size: 20px;
   }
 
   .icone-alerta {
-    top: 100px;
+    position: absolute;
+    top: 20px;
     right: 20px;
   }
 
-  .notificacao {
-    flex-direction: column;
-    height: auto;
-    align-items: flex-start;
-  }
-
-  .notificacao button {
-    align-self: flex-end;
-    margin-top: 10px;
-  }
 }
 
 @media (max-width: 480px) {
