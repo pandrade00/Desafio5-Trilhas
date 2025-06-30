@@ -13,7 +13,19 @@
 }
 
 body {
+  margin: 0;
   font-family: 'ChampagneBold', 'Raleway', sans-serif;
+  background: linear-gradient(
+      to bottom,
+      rgba(27, 92, 165, 0.75),
+      rgba(77, 165, 216, 0.75)
+    ),
+    url("../assets/imagem-de-fundo.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  color: #333;
 }
 
 /* Cabeçalho */
