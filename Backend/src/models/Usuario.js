@@ -6,12 +6,13 @@ const usuarioSchema = new mongoose.Schema({
   nome: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   senha: { type: String, required: true, select: false },
+  sus: { type: String, required: true },
+  telefones: { type: [String], default: [] },
   genero: { type: String },
-  telefones: { type: Array, default: [] },
-  dataNascimento: { type: String },
+  dataNascimento: { type: Date },
   refreshTokenHash: { type: String },
-  endereco: enderecoSchema
-}, { versionKey: false });
+  endereco: enderecoSchema,
+}, { versionKey: false, timestamps: true });
 
 const usuario = mongoose.model("usuarios", usuarioSchema);
 
