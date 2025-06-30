@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const inputExame = document.getElementById('exame');
-    const lupaBtn = document.querySelector('.input-wrapper img');
+    const inputExame = document.querySelector('.search-box input');
+    const lupaBtn = document.querySelector('.search-box button');
     const btnContinuar = document.querySelector('.btn.continuar');
 
     inputExame.placeholder = "Eletrocardiograma (ECG)";

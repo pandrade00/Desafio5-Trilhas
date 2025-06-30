@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const inputEspecialidade = document.getElementById('especialidade');
+    const inputEspecialidade = document.querySelector('.search-box input');
     const btnContinuar = document.querySelector('.btn.continuar');
     const lupaBtn = document.querySelector('.search-box button');
 
