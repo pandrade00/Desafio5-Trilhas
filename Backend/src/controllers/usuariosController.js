@@ -57,7 +57,8 @@ class UsuariosController {
       if (sus) match["sus"] = criarRegex(sus);
 
       const resultados = await usuario.aggregate([
-        { $match: match }
+        { $match: match },
+        { $project: { senha: 0 } }
       ]);
 
       res.status(200).json({
