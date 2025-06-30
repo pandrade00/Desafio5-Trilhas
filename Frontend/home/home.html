@@ -23,7 +23,9 @@
     <nav class="menu">
       <a href="../home/home.html">Home</a>
       <a href="../faq/faq.html">Fale Conosco</a>
-      <a href="../login/login.html">Login</a>
+      <span id="auth-section">
+        <a href="../login/login.html" id="login-link">Login</a>
+      </span>
     </nav>
   </header>
 
@@ -61,6 +63,16 @@
       </a>
     </div>
   </section>
+  <div class="popup-overlay" id="loginPopup">
+    <div class="popup-content">
+      <h3>Login Necessário</h3>
+      <p>Você precisa fazer login para acessar este recurso</p>
+      <div class="popup-buttons">
+        <button class="popup-btn popup-btn-cancel">Cancelar</button>
+        <button class="popup-btn popup-btn-login">Fazer Login</button>
+      </div>
+    </div>
+  </div>
   <script src="home.js"></script>
 </body>
 

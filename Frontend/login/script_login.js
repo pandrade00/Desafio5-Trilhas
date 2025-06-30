@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         body: JSON.stringify({ email, senha })
       });
-      
+
       return await response.json();
     } catch (error) {
       console.error("Erro na requisição:", error);
@@ -52,8 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (resultado.success) {
         // Armazena os dados do usuário
-        localStorage.setItem('token', resultado.token);
-        localStorage.setItem('userName', resultado.nome || 'Usuário'); // Adicione esta linha
+        localStorage.setItem('token', resultado.accessToken);
+        localStorage.setItem('userName', resultado.usuario.nome);
 
         // Redireciona para a home
         window.location.href = "../home/home.html";
