@@ -28,7 +28,7 @@ function validarEmail(email) {
 
 document.addEventListener('DOMContentLoaded', function () {
   // Máscara para o SUS (15 dígitos com espaços: XXX XXXX XXXX XXXX)
-  VMasker(document.getElementById("sus")).maskPattern("999 9999 9999 9999");
+  VMasker(document.getElementById("cpf")).maskPattern("999.999.999-99");
 
   // Máscara para o celular ((XX) XXXXX-XXXX)
   VMasker(document.getElementById("numero")).maskPattern("(99) 99999-9999");
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const nome = document.getElementById("nome").value.trim();
     const email = document.getElementById("email").value.trim();
-    const sus = document.getElementById("sus").value;
+    const cpf = document.getElementById("cpf").value;
     const senha = document.getElementById("senha").value;
     const numero = document.getElementById("numero").value;
     const dia = document.getElementById("dia").value;
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const ano = document.getElementById("ano").value;
     const genero = document.getElementById("genero").value;
 
-    if (!nome || !email || !sus || !senha || !numero || !dia || !mes || !ano || !genero) {
+    if (!nome || !email || !cpf || !senha || !numero || !dia || !mes || !ano || !genero) {
       alert("Preencha todos os campos.");
       return;
     }
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const usuario = {
       nome,
       email,
-      cpf: sus.replace(/\s/g, ''), // Remove espaços do SUS e usa como CPF
+      cpf,
       senha,
       telefones: [numero], // Envia como array
       dataNascimento: new Date(`${ano}-${mes}-${dia}`), // Formato ISO

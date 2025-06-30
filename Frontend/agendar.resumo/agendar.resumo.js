@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
         modal.innerHTML = `
             <div style="background: white; padding: 30px; border-radius: 10px; max-width: 500px; text-align: center;">
                 <h2 style="color: #0d47a1; margin-bottom: 20px;">Agendamento de consulta finalizado</h2>
-                <p style="font-size: 18px; margin-bottom: 30px;">Para ver seus agendamentos cheque em "Meus Agendamentos" na página principal</p>
+                <p style="font-size: 18px; margin-bottom: 30px;">Para ver seus agendamentos cheque em "Meus Agendamentos" na página principal ou cheque o seu telefone ou email!</p>
                 <button id="modal-ok" style="background: #0d47a1; color: white; border: none; padding: 10px 20px; 
                     border-radius: 5px; font-size: 16px; cursor: pointer;">OK</button>
             </div>

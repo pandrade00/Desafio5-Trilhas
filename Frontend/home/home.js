@@ -1,12 +1,41 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Verifica se há um nome de usuário salvo
-  const userName = localStorage.getItem('userName');
+  // Verifica se há um token (usuário logado)
+  const token = localStorage.getItem('token');
   const titulo = document.querySelector('.box-titulo h2');
-  
-  // Se existir um nome, personaliza a mensagem
-  if (userName) {
-    titulo.textContent = `Bem-vindo, ${userName}`;
+
+  if (token) {
+    // Se estiver logado, busca o nome do usuário
+    fetch('https://desafio5-trilhas-production.up.railway.app/usuario', {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          titulo.textContent = `Bem-vindo, ${data.data.nome}`;
+          localStorage.setItem('userName', data.data.nome);
+        }
+      })
+      .catch(error => {
+        console.error("Erro ao buscar dados do usuário:", error);
+        // Usa o nome salvo localmente se a requisição falhar
+        const userName = localStorage.getItem('userName');
+        if (userName) {
+          titulo.textContent = `Bem-vindo, ${userName}`;
+        }
+      });
   }
+
+  document.querySelector('.card-sobre').addEventListener('click', (e) => {
+    // Evita que o link seja acionado se clicar em algo que não seja a imagem
+    if (e.target.tagName === 'IMG') {
+      console.log('Usuário clicou no banner do jogo');
+
+      // Opcional: abrir em uma nova janela com configurações específicas
+      window.open('https://felipe-bispo.itch.io/diagnstix', '_blank', 'noopener,noreferrer');
+    }
+  });
 
   // Seu código existente dos cards
   document.querySelectorAll('.card').forEach(card => {

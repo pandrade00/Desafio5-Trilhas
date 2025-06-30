@@ -29,7 +29,7 @@ body {
 }
 
 .logo-icon {
-  background-color: #F0D859; 
+  background-color: #F0D859;
   width: 48px;
   height: 48px;
   display: flex;
@@ -157,6 +157,30 @@ body {
   padding: 0 10px;
 }
 
+.card-sobre {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 20px;
+}
+
+.card-sobre img {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-sobre img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.card-sobre a {
+  text-decoration: none;
+  display: block;
+}
 
 /* .card-sobre-texto {
   flex: 1;
@@ -215,12 +239,12 @@ body {
     height: auto;
   }
 
-  .card-sobre img{
+  .card-sobre img {
     width: 620px;
   }
 
 }
-  
+
 
 
 @media (max-width: 480px) {

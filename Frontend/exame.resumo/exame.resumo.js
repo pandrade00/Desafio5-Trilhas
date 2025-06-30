@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         modalOverlay.innerHTML = `
             <div class="modal-content">
                 <h2>Agendamento de exame finalizado</h2>
-                <p>Para ver seus agendamentos cheque em "Meus Agendamentos" na página principal</p>
+                <p>Para ver seus agendamentos cheque em "Meus Agendamentos" na página principal ou cheque o seu telefone ou email!</p>
                 <button id="modal-ok">OK</button>
             </div>
         `;
