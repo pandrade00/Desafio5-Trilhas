@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 
 <head>
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-masker@1.2.0/lib/vanilla-masker.min.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Diagnóstix - Cadastro</title>
@@ -11,21 +12,21 @@
 <body>
   <!-- Cabeçalho -->
   <header class="cabecalho">
-      <div class="logo">
-        <div class="logo-icon">
-          <img src="../assets/lupa-branca.png" alt="lupa" />
-        </div>
-        <div class="logo-text">
-          <h1>Diagnóstix</h1>
-          <p>Entender para cuidar</p>
-        </div>
+    <div class="logo">
+      <div class="logo-icon">
+        <img src="../assets/lupa-branca.png" alt="lupa" />
       </div>
-      <nav class="menu">
-        <a href="../home/home.html">Home</a>
-        <a href="../faq/faq.html">Fale Conosco</a>
-        <a href="../login/login.html">Login</a>
-      </nav>
-    </header>
+      <div class="logo-text">
+        <h1>Diagnóstix</h1>
+        <p>Entender para cuidar</p>
+      </div>
+    </div>
+    <nav class="menu">
+      <a href="../home/home.html">Home</a>
+      <a href="../faq/faq.html">Fale Conosco</a>
+      <a href="../login/login.html">Login</a>
+    </nav>
+  </header>
 
   <!-- Corpo -->
   <section class="corpo">
@@ -35,8 +36,14 @@
       <label for="nome">Nome Completo</label>
       <input type="text" id="nome" required />
 
-      <label for="email">Celular ou e-mail</label>
+      <label for="sus">SUS</label>
+      <input type="text" id="sus" required />
+
+      <label for="email">E-mail</label>
       <input type="email" id="email" required />
+
+      <label for="celular">Celular</label>
+      <input type="text" id="numero" required />
 
       <label for="senha">Senha</label>
       <input type="password" id="senha" required />
@@ -82,6 +89,13 @@
       </p>
     </div>
   </section>
+  <div class="popup-overlay" id="popupSucesso">
+    <div class="popup-content">
+      <h3>Cadastro finalizado!</h3>
+      <p>Agora você pode acessar o Diagnóstix</p>
+      <button class="popup-btn" id="btnIrParaLogin">Ir para Login</button>
+    </div>
+  </div>
 
   <script src="cadastro.js"></script>
 </body>

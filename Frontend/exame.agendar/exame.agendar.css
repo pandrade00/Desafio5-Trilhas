@@ -118,6 +118,7 @@ h1 {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: left;
   box-sizing: border-box;
+  position: relative;
 }
 
 label {
@@ -168,12 +169,10 @@ label {
 
 
 .buttons {
-  margin-top: 30px;
-  justify-content: center;
-  gap: 34px;
-  display: flex;
-  justify-content: flex-end;
-  gap: 34px;
+  position: absolute;
+  bottom: 30px;
+  right: 20px; 
+  margin-top: 0; 
 }
 
 .btn {
@@ -194,6 +193,8 @@ label {
   background-color: #0d47a1;
   font-size: 20px;
   font-family: 'ChampagneBold', sans-serif;
+  margin-left: 0;
+  width: auto; 
 }
 
 @media (max-width: 768px) {
@@ -261,9 +262,9 @@ label {
   }
 
   .btn {
-    width: 30%;
+    width: 100%;
     height: 60px;
-    margin-left: 400px;
+    margin-left: 0;
     font-size: 24px;
   }
 }
