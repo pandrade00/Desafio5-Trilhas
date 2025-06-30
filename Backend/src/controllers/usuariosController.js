@@ -43,7 +43,7 @@ class UsuariosController {
 
   static async buscarUsuarios(req, res) {
     try {
-      const { nome, cpf, email, telefone } = req.query;
+      const { nome, email, telefones, sus } = req.query;
 
       if (!nome && !cpf && !email && !telefone) {
         return res.status(400).json({ success: false, error: "Requisitos da query ausentes." });
@@ -52,9 +52,9 @@ class UsuariosController {
       const criarRegex = (valor) => new RegExp(valor, "i");
       const match = {};
       if (nome) match["nome"] = criarRegex(nome);
-      if (cpf) match["cpf"] = criarRegex(cpf);
       if (email) match["email"] = criarRegex(email);
-      if (telefone) match["telefone"] = criarRegex(telefone);
+      if (telefones) match["telefones"] = criarRegex(telefones);
+      if (sus) match["sus"] = criarRegex(sus);
 
       const resultados = await usuario.aggregate([
         { $match: match },
@@ -123,7 +123,6 @@ class UsuariosController {
       }
 
       const { usuario, accessToken, refreshToken: refreshTokenCriado } = await renovarToken(refreshToken);
-
 
       res.status(200).json({
         success: true,

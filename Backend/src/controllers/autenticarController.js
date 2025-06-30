@@ -6,7 +6,7 @@ async function cadastroUsuario(dadosUsuario) {
   const novoUsuario = dadosUsuario;
 
   const usuarioExistente = await usuario.findOne({ email: novoUsuario.email });
-  if (usuarioExistente) { throw new Error("Usuário já cadastrado com este CPF"); }
+  if (usuarioExistente) { throw new Error("Usuário já cadastrado com este email."); }
 
   const senhaHash = await bcrypt.hash(novoUsuario.senha, 10);
   novoUsuario.senha = senhaHash;

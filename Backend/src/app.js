@@ -4,11 +4,11 @@ import cors from "cors";
 
 const app = express();
 
-routes(app);
-
 app.use(cors({
-origin: ["http://localhost:5173", "https://front.vercel.app"],
-credentials: true
+origin: "*",
+credentials: false
 }));
+
+routes(app);
 
 export default app;
