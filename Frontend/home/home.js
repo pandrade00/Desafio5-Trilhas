@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
       let url;
       if (title.includes('Buscar')) url = '../buscar.ubs/buscar.ubs.html';
       else if (title.includes('Consultas')) url = '../principais.servicos/principais.html';
-      else if (title.includes('Dados')) url = '#';
+      else if (title.includes('Dados')) url = '../dashboard/dados-saude.html';
 
       if (url) {
         window.location.href = url;

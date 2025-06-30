@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados de Saúde - Diagnóstix</title>
+    <link rel="stylesheet" href="../home.css"> <!-- Reutilize o CSS existente -->
+    <style>
+        .dashboard-options {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .dashboard-option {
+            width: 300px;
+            padding: 20px;
+            background-color: #fae996;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .dashboard-option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+            background-color: #e8d04f;
+        }
+        
+        .dashboard-option h3 {
+            color: #1d57a8;
+            margin-bottom: 10px;
+        }
+        
+        .dashboard-iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        .dashboard-iframe.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <div class="logo-icon">
+                <img src="../assets/lupa-branca.png" alt="lupa" />
+            </div>
+            <div class="logo-text">
+                <h1><span>D</span>iagn<span>ó</span>stix</h1>
+                <p>Entender para cuidar</p>
+            </div>
+        </div>
+        <nav class="menu">
+            <a href="../home/home.html">Home</a>
+            <a href="../faq/faq.html">Fale Conosco</a>
+            <span id="auth-section">
+                <a href="../login/login.html" id="login-link">Login</a>
+            </span>
+        </nav>
+    </header>
+
+    <section class="corpo">
+        <div class="box-titulo">
+            <h2>Dados de Saúde do Maranhão</h2>
+        </div>
+
+        <div class="dashboard-options" id="dashboardOptions">
+            <div class="dashboard-option" data-dashboard="cobertura">
+                <h3>Cobertura da APS no MA</h3>
+                <p>Visualize dados sobre a cobertura da Atenção Primária em Saúde no Maranhão</p>
+            </div>
+            <div class="dashboard-option" data-dashboard="equipe">
+                <h3>Equipe 21</h3>
+                <p>Dados sobre a equipe 21 de saúde no estado</p>
+            </div>
+        </div>
+
+        <div class="dashboard-iframe" id="coberturaIframe">
+            <iframe title="Cobertura da Atenção Primária em Saúde no MA" 
+                    src="https://app.powerbi.com/view?r=eyJrIjoiNGZiMGZlNDUtZDZhNS00Y2U2LThjODQtYzgwNDRlODg5MjE1IiwidCI6ImIzYzAwMzk5LTEwNjEtNGEyOS04NWE2LWQxNWEyMzljM2FkNSJ9" 
+                    frameborder="0" 
+                    allowFullScreen="true"></iframe>
+        </div>
+
+        <div class="dashboard-iframe" id="equipeIframe">
+            <iframe title="Equipe 21" 
+                    src="https://app.powerbi.com/view?r=eyJrIjoiMjAwNTMyYzItMDc5Yi00MmYzLWFkNTUtODBhNDRhNWIzNWI3IiwidCI6ImIzYzAwMzk5LTEwNjEtNGEyOS04NWE2LWQxNWEyMzljM2FkNSJ9" 
+                    frameborder="0" 
+                    allowFullScreen="true"></iframe>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const options = document.querySelectorAll('.dashboard-option');
+            const coberturaIframe = document.getElementById('coberturaIframe');
+            const equipeIframe = document.getElementById('equipeIframe');
+            
+            options.forEach(option => {
+                option.addEventListener('click', () => {
+                    // Esconde todas as iframes
+                    document.querySelectorAll('.dashboard-iframe').forEach(iframe => {
+                        iframe.classList.remove('active');
+                    });
+                    
+                    // Mostra a iframe selecionada
+                    const dashboard = option.getAttribute('data-dashboard');
+                    if (dashboard === 'cobertura') {
+                        coberturaIframe.classList.add('active');
+                    } else if (dashboard === 'equipe') {
+                        equipeIframe.classList.add('active');
+                    }
+                    
+                    // Opcional: Rolagem suave até a iframe
+                    document.querySelector('.dashboard-iframe.active').scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Verificação de login (similar à home)
+            const token = localStorage.getItem('token');
+            const authSection = document.getElementById('auth-section');
+            
+            if (token) {
+                const userName = localStorage.getItem('userName');
+                authSection.innerHTML = `
+                    <span style="color:white">${userName}</span>
+                    <button id="logout-btn">Sair</button>
+                `;
+                document.getElementById('logout-btn').addEventListener('click', () => {
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('userName');
+                    window.location.href = '../login/login.html';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
