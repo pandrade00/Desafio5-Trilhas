@@ -1,5 +1,5 @@
 import usuario from "../models/Usuario.js";
-import { cadastroUsuario, atualizarSenha, logarUsuario } from "./autenticarController.js";
+import { cadastroUsuario, atualizarSenha, logarUsuario, renovarToken } from "./autenticarController.js";
 
 class UsuariosController {
 
@@ -19,7 +19,7 @@ class UsuariosController {
 
   static async buscarUsuarioPorId(req, res) {
     try {
-      const id = req.params.id;
+      const id = req.usuario.id;
 
       if (!id) {
         return res.status(400).json({ success: false, error: "ID do usuário ausente." });
@@ -43,7 +43,7 @@ class UsuariosController {
 
   static async buscarUsuarios(req, res) {
     try {
-      const { nome, cpf, email, telefone } = req.query;
+      const { nome, email, telefones, sus } = req.query;
 
       if (!nome && !cpf && !email && !telefone) {
         return res.status(400).json({ success: false, error: "Requisitos da query ausentes." });
@@ -52,9 +52,9 @@ class UsuariosController {
       const criarRegex = (valor) => new RegExp(valor, "i");
       const match = {};
       if (nome) match["nome"] = criarRegex(nome);
-      if (cpf) match["cpf"] = criarRegex(cpf);
       if (email) match["email"] = criarRegex(email);
-      if (telefone) match["telefone"] = criarRegex(telefone);
+      if (telefones) match["telefones"] = criarRegex(telefones);
+      if (sus) match["sus"] = criarRegex(sus);
 
       const resultados = await usuario.aggregate([
         { $match: match },
@@ -96,17 +96,17 @@ class UsuariosController {
         return res.status(400).json({ success: false, error: "Email e senha são obrigatórios." });
       }
 
-      const { usuario, token } = await logarUsuario(email, senha);
+      const { usuario, accessToken, refreshToken } = await logarUsuario(email, senha);
 
-      res.status(201).json({
+      res.status(200).json({
         success: true,
         usuario: {
-          id: usuario.id,
           nome: usuario.nome,
           email: usuario.email,
           role: usuario.role
         },
-        acessToken: token
+        accessToken,
+        refreshToken
       });
     } catch (err) {
       console.error("Erro ao logar usuario:", err);
@@ -114,9 +114,34 @@ class UsuariosController {
     }
   }
 
+  static async renovarUsuario(req, res) {
+    try {
+      const { refreshToken } = req.body;
+
+      if (!refreshToken) {
+        res.status(401).json({ success: false, error: "Refresh token não fornecido." });
+      }
+
+      const { usuario, accessToken, refreshToken: refreshTokenCriado } = await renovarToken(refreshToken);
+
+      res.status(200).json({
+        success: true,
+        usuario: {
+          nome: usuario.nome,
+          email: usuario.email,
+          role: usuario.role
+        },
+        accessToken,
+        refreshToken: refreshTokenCriado
+      });
+    } catch (err) {
+
+    }
+  }
+
   static async atualizarUsuario(req, res) {
     try {
-      const id = req.params.id;
+      const id = req.usuario.id;
 
       if (req.body.senha) {
         await atualizarSenha(req.body.senha, id);
@@ -137,7 +162,7 @@ class UsuariosController {
 
   static async deletarUsuario(req, res) {
     try {
-      const id = req.params.id;
+      const id = req.usuario.id;
       const usuarioDeletado = await usuario.findByIdAndDelete(id, {
         projection: { nome: 1, cpf: 1, email: 1, telefone: 1, endereco: 1 }
       });

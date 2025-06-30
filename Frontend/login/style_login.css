@@ -67,6 +67,12 @@ body {
   gap: 20px;
 }
 
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
 .menu a {
   margin-left: 25px;
   text-decoration: none;
