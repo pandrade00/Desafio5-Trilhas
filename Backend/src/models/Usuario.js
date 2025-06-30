@@ -2,13 +2,13 @@ import mongoose from "mongoose";
 import { enderecoSchema } from "./Endereco.js";
 
 const usuarioSchema = new mongoose.Schema({
-  nome: { type: String, required: true },
   role: { type: String, enum: ["admin", "usuario"], default: "usuario" },
-  cpf: { type: String, unique: true },
+  nome: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   senha: { type: String, required: true, select: false },
+  genero: { type: String },
   telefones: { type: Array, default: [] },
-  dataNascimento: { type: Date },
+  dataNascimento: { type: String },
   refreshTokenHash: { type: String },
   endereco: enderecoSchema
 }, { versionKey: false });
