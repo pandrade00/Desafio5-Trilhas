@@ -1,6 +1,7 @@
 window.onload = function () {
   const diaSelect = document.getElementById("dia");
   const anoSelect = document.getElementById("ano");
+  let enderecoUser = {};
 
   // Dias de 1 a 31
   for (let i = 1; i <= 31; i++) {
@@ -33,6 +34,54 @@ document.addEventListener('DOMContentLoaded', function () {
   // Máscara para o celular ((XX) XXXXX-XXXX)
   VMasker(document.getElementById("numero")).maskPattern("(99) 99999-9999");
 
+  VMasker(document.getElementById("cep")).maskPattern("99999-999");
+
+  async function consultarCEP(cep) {
+    try {
+      const cepNumerico = cep.replace(/\D/g, '');
+      if (cepNumerico.length !== 8) return null;
+
+      const response = await fetch(`https://viacep.com.br/ws/${cepNumerico}/json/`);
+      const data = await response.json();
+
+      if (data.erro || !data) {
+        throw new Error('CEP não encontrado');
+      }
+
+      const dataEndereco = {
+        Estado: data.uf || '',
+        Bairro: data.bairro || '',
+        Cidade: data.localidade || '',
+        Rua: data.logradouro || '',
+        Cep: cep
+      }
+      return dataEndereco;
+    } catch (error) {
+      console.error("Erro ao consultar CEP:", error);
+      return null;
+    }
+  }
+
+  // Adicione este evento para quando o CEP for preenchido
+  document.getElementById('cep').addEventListener('blur', async function () {
+    const cep = this.value;
+    if (cep.length < 9) return; // Verifica se o CEP está completo (com máscara)
+
+    const loading = document.createElement('div');
+    loading.innerHTML = '<div class="loading-cep"></div>';
+    this.parentNode.appendChild(loading);
+
+    try {
+      enderecoUser = await consultarCEP(cep);
+
+    } catch (error) {
+      console.error(error);
+      alert('Erro ao buscar CEP. Tente novamente mais tarde.');
+    } finally {
+      this.parentNode.removeChild(loading);
+    }
+  });
+
   document.querySelector(".btn-entrar").addEventListener("click", async function (e) {
     e.preventDefault();
 
@@ -41,12 +90,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const cpf = document.getElementById("cpf").value;
     const senha = document.getElementById("senha").value;
     const numero = document.getElementById("numero").value;
+    const cep = document.getElementById("cep").value;
     const dia = document.getElementById("dia").value;
     const mes = document.getElementById("mes").value;
     const ano = document.getElementById("ano").value;
     const genero = document.getElementById("genero").value;
 
-    if (!nome || !email || !cpf || !senha || !numero || !dia || !mes || !ano || !genero) {
+    if (!nome || !email || !cpf || !senha || !numero || !cep || !dia || !mes || !ano || !genero) {
       alert("Preencha todos os campos.");
       return;
     }
@@ -64,12 +114,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const usuario = {
       nome,
       email,
-      cpf,
+      cpf: cpf.replace(/\D/g, ''),
       senha,
-      telefones: [numero], // Envia como array
-      dataNascimento: new Date(`${ano}-${mes}-${dia}`), // Formato ISO
+      endereco: {
+        ...enderecoUser,
+        cep: cep.replace(/\D/g, '')
+      },
+      telefones: [numero.replace(/\D/g, '')],
+      dataNascimento: `${ano}-${mes}-${dia}`,
       genero
     };
+    console.log(usuario)
 
     try {
       console.log("Dados sendo enviados:", usuario);
