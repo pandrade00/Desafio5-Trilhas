@@ -185,7 +185,7 @@ label {
 
 .buttons {
   display: flex;
-  justify-content: center;
+  justify-content: end;
   gap: 20px;
   flex-wrap: wrap;
 }

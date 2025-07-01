@@ -1,13 +1,25 @@
 document.addEventListener('DOMContentLoaded', function() {
     const exameSelecionado = localStorage.getItem('exameSelecionado');
     
-    const unidades = document.querySelectorAll('.unidade');
+    // Mapeamento das unidades com seus detalhes completos
+    const unidades = {
+        "Hospital de Urgência e Emergência Dr. Clementino Moura - Socorrão II": {
+            nome: "Hospital de Urgência e Emergência Dr. Clementino Moura - Socorrão II",
+            endereco: "R. Santa Helena, 3685 - Cidade Operária, São Luís - MA, 65058-442"
+        },
+        "Clinica La Ravardiere LTDA": {
+            nome: "Clinica La Ravardiere LTDA",
+            endereco: "Alameda Mearim, 1 - Olho D'agua, São Luís - MA, 65065-470"
+        }
+    };
+
+    const unidadesElements = document.querySelectorAll('.unidade');
     const btnContinuar = document.querySelector('.btn.continuar');
     let unidadeSelecionada = document.querySelector('.unidade.selected');
     
-    unidades.forEach(unidade => {
+    unidadesElements.forEach(unidade => {
         unidade.addEventListener('click', function() {
-            unidades.forEach(u => u.classList.remove('selected'));
+            unidadesElements.forEach(u => u.classList.remove('selected'));
             
             this.classList.add('selected');
             unidadeSelecionada = this;
@@ -27,9 +39,10 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        // Armazena a unidade selecionada no localStorage
+        // Armazena todos os dados da unidade no localStorage
         const nomeUnidade = unidadeSelecionada.querySelector('strong').textContent;
-        localStorage.setItem('unidadeSelecionada', nomeUnidade);
+        const unidadeData = unidades[nomeUnidade];
+        localStorage.setItem('unidadeSelecionada', JSON.stringify(unidadeData));
         
         window.location.href = '../exame.hora/exame.hora.html';
     });

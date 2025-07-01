@@ -9,9 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return regexEmail.test(email);
   }
 
-  // Função para simular login (substitua pelo fetch real quando o backend estiver pronto)
   async function fazerLogin(email, senha) {
-
     try {
       const response = await fetch('https://desafio5-trilhas-production.up.railway.app/usuarios/login', {
         method: 'POST',
@@ -20,13 +18,26 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         body: JSON.stringify({ email, senha })
       });
-      
-      return await response.json();
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        return {
+          success: false,
+          message: data.message || "Email ou senha incorretos!"
+        };
+      }
+
+      return {
+        success: true,
+        accessToken: data.accessToken,
+        refreshToken: data.refreshToken,
+        usuario: data.usuario
+      };
     } catch (error) {
       console.error("Erro na requisição:", error);
       return { success: false, message: "Erro na conexão" };
     }
-
   }
 
   btnEntrar.addEventListener("click", async () => {
@@ -47,13 +58,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     try {
-      // Faz a requisição de login (simulada ou real)
       const resultado = await fazerLogin(email, senha);
 
       if (resultado.success) {
-        // Armazena os dados do usuário
-        localStorage.setItem('token', resultado.token);
-        localStorage.setItem('userName', resultado.nome || 'Usuário'); // Adicione esta linha
+        // Armazena os tokens e dados do usuário
+        localStorage.setItem('accessToken', resultado.accessToken);
+        localStorage.setItem('refreshToken', resultado.refreshToken);
+        localStorage.setItem('userName', resultado.usuario.nome);
 
         // Redireciona para a home
         window.location.href = "../home/home.html";

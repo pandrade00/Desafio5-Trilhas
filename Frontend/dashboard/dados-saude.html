@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados de Saúde - Diagnóstix</title>
+    <link href="dados-saude.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <div class="logo-icon">
+                <img src="../assets/lupa-branca.png" alt="lupa" />
+            </div>
+            <div class="logo-text">
+                <h1>Diagnóstix</h1>
+                <p>Entender para cuidar</p>
+            </div>
+        </div>
+        <nav class="menu">
+            <a href="../home/home.html">Home</a>
+            <a href="../faq/faq.html">Fale Conosco</a>
+            <span id="auth-section">
+                <a href="../login/login.html" id="login-link">Login</a>
+            </span>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Dados de Saúde do Maranhão</h1>
+
+        <div class="dashboard-options" id="dashboardOptions">
+            <div class="dashboard-option" data-dashboard="cobertura">
+                <h3>Cobertura da APS no MA</h3>
+                <p>Visualize dados sobre a cobertura da Atenção Primária em Saúde no Maranhão</p>
+            </div>
+            <div class="dashboard-option" data-dashboard="equipe">
+                <h3>Cobertura Vacinal da Influeza no Maranhão</h3>
+                <p>Dados sobre a cobertura vacinal da Influeza no estado do Maranhão</p>
+            </div>
+            <div class="dashboard-option" data-dashboard="dengue">
+                <h3>Dengue no MA</h3>
+                <p>Dados sobre casos de dengue no Maranhão</p>
+            </div>
+        </div>
+
+        <div class="dashboards-container">
+            <div class="dashboard-iframe active" id="coberturaIframe">
+                <iframe title="Cobertura da APS no MA"
+                    src="https://app.powerbi.com/view?r=eyJrIjoiNGZiMGZlNDUtZDZhNS00Y2U2LThjODQtYzgwNDRlODg5MjE1IiwidCI6ImIzYzAwMzk5LTEwNjEtNGEyOS04NWE2LWQxNWEyMzljM2FkNSJ9&autoAuth=true&ctid=b3c00399-1061-4a29-85a6-d15a239c3ad5&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLWJyYXppbC1zb3V0aC1yZWRpcmVjdC5hbmFseXNpcy53aW5kb3dzLm5ldC8ifQ%3D%3D"
+                    frameborder="0" allowFullScreen="true"></iframe>
+            </div>
+
+            <div class="dashboard-iframe" id="equipeIframe">
+                <iframe title="Equipe 21"
+                    src="https://app.powerbi.com/view?r=eyJrIjoiMjAwNTMyYzItMDc5Yi00MmYzLWFkNTUtODBhNDRhNWIzNWI3IiwidCI6ImIzYzAwMzk5LTEwNjEtNGEyOS04NWE2LWQxNWEyMzljM2FkNSJ9&autoAuth=true&ctid=b3c00399-1061-4a29-85a6-d15a239c3ad5&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLWJyYXppbC1zb3V0aC1yZWRpcmVjdC5hbmFseXNpcy53aW5kb3dzLm5ldC8ifQ%3D%3D"
+                    frameborder="0" allowFullScreen="true"></iframe>
+            </div>
+
+            <div class="dashboard-iframe" id="dengueIframe">
+                <iframe title="Dengue Maranhão EQUIPE 21"
+                    src="https://app.powerbi.com/view?r=eyJrIjoiODE2M2UxMmMtNWZmOC00ZmExLTk5MDEtNWM1OTgxZTU2ZDUyIiwidCI6ImIzYzAwMzk5LTEwNjEtNGEyOS04NWE2LWQxNWEyMzljM2FkNSJ9"
+                    frameborder="0" allowFullScreen="true"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script src="dados-saude.js"></script>
+</body>
+
+</html>

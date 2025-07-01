@@ -1,0 +1,337 @@
+@font-face {
+  font-family: 'ChampagneBold';
+  src: url('../assets/fonts/Champagne_&_Limousines_Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'ChampagneBold', 'Raleway', sans-serif;
+  background: #1976d2;
+  color: #333;
+}
+
+.cabecalho {
+  background-color: #2196F3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  background-color: #F0D859;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.logo-icon img {
+  width: 50px;
+  height: 44px;
+  margin-top: 12px;
+  margin-left: 15px;
+}
+
+.logo-text h1 {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+  line-height: 1.4;
+  color: #EFD759;
+}
+
+.logo-text p {
+  font-size: 12px;
+  color: #FFFFFF;
+}
+
+.menu a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.menu a:hover {
+  color: #1d57a8;
+}
+
+.container {
+  padding: 60px 20px;
+  text-align: center;
+  min-height: 100vh;
+  background: #1976d2;
+  background: linear-gradient(to bottom,
+      rgba(27, 92, 165, 0.85),
+      rgba(77, 165, 216, 0.85)),
+    url("../assets/imagem-de-fundo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+h1 {
+  color: white;
+  font-size: 50px;
+  font-family: 'ChampagneBold', sans-serif;
+  margin-bottom: 40px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 900px;
+  box-sizing: border-box;
+}
+
+.search-box input {
+  border: none;
+  flex: 1;
+  font-size: 18px;
+  background: transparent;
+  outline: none;
+  padding-left: 10px;
+  color: #2e2e2e;
+}
+
+.search-box button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.search-box img {
+  width: 25px;
+  height: 25px;
+  padding-left: 10px;
+}
+
+.search-button {
+  width: 7%;
+}
+
+.search-button img {
+  width: 70%;
+}
+
+@media (max-width: 768px) {
+  .cabecalho {
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 20px;
+  }
+
+  .logo-icon img {
+    height: 40px;
+  }
+
+  .menu a {
+    font-size: 20px;
+    margin: 5px 5px;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  .hosp-card {
+    padding: 20px;
+  }
+
+  .hosp-card h2 {
+    font-size: 18px;
+  }
+
+  .hosp-card p {
+    font-size: 14px;
+  }
+
+  .btn-saiba-mais {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .search-box {
+    flex-direction: row;
+    width: 500px;
+    margin-left: 100px;
+    height: auto;
+    padding: 10px;
+  }
+
+  .search-box input {
+    font-size: 20px;
+    padding: 8px;
+  }
+
+  .search-box img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .container {
+    padding: 40px 15px;
+  }
+
+  .search-box input::placeholder {
+    font-size: 20px;
+  }
+
+  .autocomplete-items div {
+    font-size: 18px;
+  }
+}
+
+.results-container {
+  max-width: 800px;
+  max-height: 70vh;
+  margin: 40px auto 0;
+  overflow-y: auto;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE e Edge antigo */
+}
+
+.results-container::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari e Opera */
+}
+
+.hosp-card {
+  background-color: #f0d859;
+  border-radius: 8px;
+  padding: 25px;
+  margin: 20px 0;
+  text-align: left;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hosp-card h2 {
+  color: #1565c0;
+  font-size: 24px;
+  margin: 0 0 10px;
+}
+
+.hosp-card p {
+  font-size: 16px;
+  margin: 10px 0 15px;
+}
+
+.btn-saiba-mais {
+  background-color: #1b5ca5;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-saiba-mais:hover {
+  background-color: #0d47a1;
+}
+
+#results-container {
+  display: none;
+}
+
+.has-results #results-container {
+  display: block;
+}
+
+.autocomplete {
+  position: relative;
+  width: 100%;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 300px;
+  overflow-y: auto;
+  background-color: white;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.autocomplete-items div {
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+  font-size: 28px;
+  font-family: 'ChampagneBold', sans-serif;
+  color: #333;
+  line-height: 1.2;
+}
+
+.autocomplete-items div:hover {
+  background-color: #e9e9e9;
+}
+
+.autocomplete-active {
+  background-color: #1b5ca5 !important;
+  color: white !important;
+}
+
+.autocomplete-match {
+  font-weight: bold;
+  color: #1b5ca5;
+}
+
+.autocomplete-rest {
+  color: #333;
+}
+
+.autocomplete-item {
+  display: flex;
+  align-items: center;
+  min-height: 50px;
+}
