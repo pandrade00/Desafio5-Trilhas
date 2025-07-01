@@ -1,3 +1,5 @@
+import { isTokenValid, userData, refreshToken } from "../req-api/index.js";
+
 document.addEventListener('DOMContentLoaded', async function () {
     const btnContinuar = document.querySelector('.btn.continuar');
     const btnEditar = document.querySelector('.btn.editar');
@@ -58,67 +60,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     btnEditar.addEventListener('click', () => {
         window.location.href = '../editar-perfil/editar-perfil.html';
     });
-
-    async function userData() {
-        const accessToken = localStorage.getItem('accessToken');
-
-        const response = await fetch('https://desafio5-trilhas-production.up.railway.app/usuarios/usuario', {
-            headers: {
-                'Authorization': accessToken
-            }
-        });
-
-        const responseJson = await response.json();
-
-        if (!response.ok || !responseJson.success) {
-            const error = responseJson.error || 'Erro desconhecido';
-            throw new Error(error);
-        }
-
-        return responseJson.data;
-    }
-
-    async function refreshToken() {
-        let refreshToken = localStorage.getItem('refreshToken');
-
-        if (!refreshToken || !isTokenValid(refreshToken)) {
-            throw new Error('Refresh token não encontrado ou expirado, faça login novamente.');
-            //window.location.href = '../login/login.html';
-        }
-
-        const refreshResponse = await fetch('https://desafio5-trilhas-production.up.railway.app/usuarios/refresh-token', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ refreshToken })
-        });
-
-        if (refreshResponse.ok) {
-            const response = await refreshResponse.json();
-
-            const accessToken = response.accessToken;
-            refreshToken = response.refreshToken;
-
-            localStorage.setItem('accessToken', accessToken);
-            localStorage.setItem('refreshToken', refreshToken);
-        } else {
-            const errorData = await refreshResponse.json().catch(() => ({}));
-            console.error('Falha ao renovar token:', errorData);
-            throw new Error('Falha ao renovar token: ' + (errorData.message || refreshResponse.statusText));
-        }
-    }
-
-    function isTokenValid(token) {
-        try {
-            const decoded = jwt_decode(token); // pega o payload do token
-            const currentTime = Math.floor(Date.now() / 1000); // tempo atual em segundos
-            return decoded.exp > currentTime; // compara com o tempo de expiração
-        } catch (err) {
-            // se o token estiver malformado ou inválido
-            return false;
-        }
-    }
 
     // Inicialização
     await populateUserData();
