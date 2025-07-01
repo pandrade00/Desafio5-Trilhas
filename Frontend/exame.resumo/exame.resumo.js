@@ -1,21 +1,26 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Recupera os dados do localStorage
     const exame = localStorage.getItem('exameSelecionado');
-    const unidade = localStorage.getItem('unidadeSelecionada');
+    const unidadeData = JSON.parse(localStorage.getItem('unidadeSelecionada'));
     const data = localStorage.getItem('dataExameSelecionada');
     const horario = localStorage.getItem('horarioExameSelecionado');
     
-    // Atualizar os dados na página
+    // Seleciona todos os parágrafos de informação
+    const infoParagrafos = document.querySelectorAll('.info p');
+    
+    // Atualiza os dados na página
     if(exame) {
-        document.querySelector('.info p:nth-of-type(1)').innerHTML = `<strong>Exame:</strong> ${exame}`;
+        infoParagrafos[0].innerHTML = `<strong>Exame:</strong> ${exame}`;
     }
-    if(unidade) {
-        document.querySelector('.info p:nth-of-type(2)').innerHTML = `<strong>Unidade:</strong> ${unidade}`;
+    if(unidadeData) {
+        infoParagrafos[1].innerHTML = `<strong>Unidade:</strong> ${unidadeData.nome}`;
+        infoParagrafos[2].innerHTML = `<strong>Endereço:</strong> ${unidadeData.endereco}`;
     }
     if(data) {
-        document.querySelector('.info p:nth-of-type(3)').innerHTML = `<strong>Data:</strong> ${data}`;
+        infoParagrafos[3].innerHTML = `<strong>Data:</strong> ${data}`;
     }
     if(horario) {
-        document.querySelector('.info p:nth-of-type(4)').innerHTML = `<strong>Horário:</strong> ${horario}`;
+        infoParagrafos[4].innerHTML = `<strong>Horário:</strong> ${horario}`;
     }
 
     // Configurar botão Voltar
