@@ -20,19 +20,19 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       const data = await response.json();
-      
+
       if (!response.ok) {
-        return { 
-          success: false, 
-          message: data.message || "Email ou senha incorretos!" 
+        return {
+          success: false,
+          message: data.message || "Email ou senha incorretos!"
         };
       }
 
-      return { 
-        success: true, 
-        accessToken: data.accessToken, 
+      return {
+        success: true,
+        accessToken: data.accessToken,
         refreshToken: data.refreshToken,
-        usuario: data.usuario 
+        usuario: data.usuario
       };
     } catch (error) {
       console.error("Erro na requisição:", error);
@@ -62,6 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (resultado.success) {
         // Armazena os tokens e dados do usuário
+        localStorage.setItem('token', resultado.accessToken);
         localStorage.setItem('accessToken', resultado.accessToken);
         localStorage.setItem('refreshToken', resultado.refreshToken);
         localStorage.setItem('userName', resultado.usuario.nome);
