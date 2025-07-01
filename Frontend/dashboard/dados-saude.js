@@ -11,7 +11,7 @@ function resizeIframes() {
 document.addEventListener("DOMContentLoaded", () => {
     // Mostra a primeira iframe por padrão
     document.getElementById('coberturaIframe').classList.add('active');
-    
+
     // Redimensiona os iframes
     resizeIframes();
 
@@ -23,18 +23,18 @@ document.addEventListener("DOMContentLoaded", () => {
             document.querySelectorAll('.dashboard-iframe').forEach(iframe => {
                 iframe.classList.remove('active');
             });
-            
+
             // Adiciona a classe active na iframe selecionada
             const dashboard = option.getAttribute('data-dashboard');
             const targetIframe = document.getElementById(`${dashboard}Iframe`);
             targetIframe.classList.add('active');
-            
+
             // Força um redimensionamento
             setTimeout(() => {
                 const iframe = targetIframe.querySelector('iframe');
                 iframe.style.height = targetIframe.offsetHeight + 'px';
             }, 100);
-            
+
             // Rolagem suave
             targetIframe.scrollIntoView({
                 behavior: 'smooth',
@@ -46,18 +46,21 @@ document.addEventListener("DOMContentLoaded", () => {
     // Verificação de login
     const accessToken = localStorage.getItem('accessToken');
     const authSection = document.getElementById('auth-section');
-    
+    const fazerLogout = () => {
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('userName');
+        window.location.href = '../login/login.html';
+    };
+
     if (accessToken) {
         const userName = localStorage.getItem('userName');
         authSection.innerHTML = `
-            <span style="color:white">${userName}</span>
-            <button id="logout-btn">Sair</button>
-        `;
-        document.getElementById('logout-btn').addEventListener('click', () => {
-            localStorage.removeItem('accessToken');
-            localStorage.removeItem('userName');
-            window.location.href = '../login/login.html';
-        });
+        <span>${userName}</span>
+        <button id="logout-btn">Sair</button>
+    `;
+        document.getElementById('logout-btn').addEventListener('click', fazerLogout);
+    } else {
+        authSection.innerHTML = '<a href="../login/login.html">Login</a>';
     }
 });
 
