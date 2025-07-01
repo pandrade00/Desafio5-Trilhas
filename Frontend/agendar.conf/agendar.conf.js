@@ -20,16 +20,15 @@ document.addEventListener('DOMContentLoaded', async function () {
         if (!isTokenValid(accessToken)) {
             await refreshToken();
         }
-        console.log("Oi");
-        return await userData();
+
+        const user = await userData();
+        return user;
     }
 
     // Preenche os dados do usuário
     async function populateUserData() {
-        const userData = await fetchUserData();
-
-        if (userData && userData.success) {
-            const user = userData.data;
+        try {
+            const user = await fetchUserData();
 
             // Formatação dos dados
             const dob = new Date(user.dataNascimento);
@@ -45,9 +44,9 @@ document.addEventListener('DOMContentLoaded', async function () {
                 cardElements[3].innerHTML = `<strong>Contato:</strong> ${phone}`;
                 cardElements[4].innerHTML = `<strong>Email:</strong> ${user.email}`;
             }
-        } else {
-            alert('Erro ao carregar dados do usuário. Por favor, faça login novamente.');
-            //window.location.href = '../login/login.html';
+        } catch (err) {
+            console.error(err);
+            alert("Por favor, faça login novamente.");
         }
     }
 
@@ -65,13 +64,18 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         const response = await fetch('https://desafio5-trilhas-production.up.railway.app/usuarios/usuario', {
             headers: {
-                'Authorization': `Bearer ${accessToken}`
+                'Authorization': accessToken
             }
         });
 
-        const user = await response.json();
+        const responseJson = await response.json();
 
-        return user;
+        if (!response.ok || !responseJson.success) {
+            const error = responseJson.error || 'Erro desconhecido';
+            throw new Error(error);
+        }
+
+        return responseJson.data;
     }
 
     async function refreshToken() {
@@ -93,10 +97,8 @@ document.addEventListener('DOMContentLoaded', async function () {
         if (refreshResponse.ok) {
             const response = await refreshResponse.json();
 
-            const accessToken = response.acessToken;
+            const accessToken = response.accessToken;
             refreshToken = response.refreshToken;
-
-            console.log(`Novos tokens recebidos: ${accessToken} e ${refreshToken}`);
 
             localStorage.setItem('accessToken', accessToken);
             localStorage.setItem('refreshToken', refreshToken);
@@ -105,7 +107,6 @@ document.addEventListener('DOMContentLoaded', async function () {
             console.error('Falha ao renovar token:', errorData);
             throw new Error('Falha ao renovar token: ' + (errorData.message || refreshResponse.statusText));
         }
-        console.log("Ola");
     }
 
     function isTokenValid(token) {
