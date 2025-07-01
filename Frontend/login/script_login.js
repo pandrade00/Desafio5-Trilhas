@@ -62,7 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (resultado.success) {
         // Armazena os tokens e dados do usuário
-        localStorage.setItem('token', resultado.accessToken);
         localStorage.setItem('accessToken', resultado.accessToken);
         localStorage.setItem('refreshToken', resultado.refreshToken);
         localStorage.setItem('userName', resultado.usuario.nome);

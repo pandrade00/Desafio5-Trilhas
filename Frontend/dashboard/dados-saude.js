@@ -44,17 +44,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Verificação de login
-    const token = localStorage.getItem('token');
+    const accessToken = localStorage.getItem('accessToken');
     const authSection = document.getElementById('auth-section');
     
-    if (token) {
+    if (accessToken) {
         const userName = localStorage.getItem('userName');
         authSection.innerHTML = `
             <span style="color:white">${userName}</span>
             <button id="logout-btn">Sair</button>
         `;
         document.getElementById('logout-btn').addEventListener('click', () => {
-            localStorage.removeItem('token');
+            localStorage.removeItem('accessToken');
             localStorage.removeItem('userName');
             window.location.href = '../login/login.html';
         });

@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Verifica se há um token (usuário logado)
-  const token = localStorage.getItem('token');
+  const accessToken = localStorage.getItem('accessToken');
   const titulo = document.querySelector('.box-titulo h2');
   const userName = localStorage.getItem('userName');
   const authSection = document.getElementById('auth-section');
 
   const fazerLogout = () => {
-    localStorage.removeItem('token');
+    localStorage.removeItem('accessToken');
     localStorage.removeItem('userName');
     window.location.href = '../login/login.html';
   };
@@ -29,13 +29,13 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // Verifica login
-  if (token) {
+  if (accessToken) {
     if (userName) {
       atualizarUI(true);
     } else {
       // Busca dados do usuário se tiver token mas não o nome
       fetch('https://desafio5-trilhas-production.up.railway.app/usuarios/usuario', {
-        headers: { 'Authorization': `Bearer ${token}` }
+        headers: { 'Authorization': `Bearer ${accessToken}` }
       })
         .then(response => {
           if (!response.ok) throw new Error(`Erro ${response.status}`);
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Cards - requerem login
   document.querySelectorAll('.card').forEach(card => {
     card.addEventListener('click', (e) => {
-      if (!localStorage.getItem('token')) {
+      if (!localStorage.getItem('accessToken')) {
         e.preventDefault();
         showLoginPopup();
         return;
@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const title = card.querySelector('h3').textContent;
       let url;
-      if (title.includes('Buscar')) url = '../buscar.ubs/buscar.ubs.html';
+      if (title.includes('Buscar')) url = '../buscar.hospital/buscar.hosp.html';
       else if (title.includes('Consultas')) url = '../principais.servicos/principais.html';
       else if (title.includes('Dados')) url = '../dashboard/dados-saude.html';
 

@@ -90,8 +90,8 @@ document.addEventListener('DOMContentLoaded', function () {
         throw new Error(errorMsg);
       }
 
-      if (responseData.token) {
-        localStorage.setItem('token', responseData.token);
+      if (responseData.accessToken) {
+        localStorage.setItem('accessToken', responseData.accessToken);
       }
       document.getElementById('popupSucesso').classList.add('active');
     } catch (error) {
