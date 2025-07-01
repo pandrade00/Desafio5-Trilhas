@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     const btnContinuar = document.querySelector('.btn.continuar');
     const btnEditar = document.querySelector('.btn.editar');
     const token = localStorage.getItem('token');
-    
+
     // Verifica se os botões existem
     if (!btnContinuar || !btnEditar) {
         console.error('Botões não encontrados no DOM');
@@ -26,12 +26,14 @@ document.addEventListener('DOMContentLoaded', async function () {
             });
 
             // Se token expirou, tenta renovar
-            if (response.status === 401) {
+            
+            if (!isTokenValid(token)) {
                 console.log('Token expirado, tentando renovar...');
                 const refreshToken = localStorage.getItem('refreshToken');
-                
-                if (!refreshToken) {
-                    throw new Error('Refresh token não encontrado');
+
+                if (!refreshToken || !isTokenValid(refreshToken)) {
+                    throw new Error('Refresh token não encontrado ou expirado');
+                    //window.location.href = '../login/login.html';
                 }
 
                 console.log('Enviando refresh token:', refreshToken);
@@ -44,14 +46,14 @@ document.addEventListener('DOMContentLoaded', async function () {
                 });
 
                 console.log('Resposta do refresh:', refreshResponse);
-                
+
                 if (refreshResponse.ok) {
                     const tokens = await refreshResponse.json();
                     console.log('Novos tokens recebidos:', tokens);
-                    
+
                     localStorage.setItem('token', tokens.accessToken);
                     localStorage.setItem('refreshToken', tokens.refreshToken);
-                    
+
                     console.log('Tentando novamente com novo token:', tokens.accessToken);
                     // Tenta novamente com o novo token
                     response = await fetch('https://desafio5-trilhas-production.up.railway.app/usuarios/usuario', {
@@ -88,10 +90,10 @@ document.addEventListener('DOMContentLoaded', async function () {
     // Preenche os dados do usuário
     async function populateUserData() {
         const userData = await fetchUserData();
-        
+
         if (userData && userData.success) {
             const user = userData.data;
-            
+
             // Formatação dos dados
             const dob = new Date(user.dataNascimento);
             const formattedDob = `${dob.getDate().toString().padStart(2, '0')}/${(dob.getMonth() + 1).toString().padStart(2, '0')}/${dob.getFullYear()}`;
@@ -124,3 +126,14 @@ document.addEventListener('DOMContentLoaded', async function () {
     // Inicialização
     await populateUserData();
 });
+
+function isTokenValid(token) {
+    try {
+        const decoded = jwt_decode(token); // pega o payload do token
+        const currentTime = Math.floor(Date.now() / 1000); // tempo atual em segundos
+        return decoded.exp > currentTime; // compara com o tempo de expiração
+    } catch (err) {
+        // se o token estiver malformado ou inválido
+        return false;
+    }
+}
