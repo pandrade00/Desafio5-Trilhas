@@ -64,7 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// Redimensiona quando a janela é redimensionada
 window.addEventListener('resize', () => {
     document.querySelectorAll('.dashboard-iframe.active iframe').forEach(iframe => {
         iframe.style.height = iframe.parentElement.offsetHeight + 'px';

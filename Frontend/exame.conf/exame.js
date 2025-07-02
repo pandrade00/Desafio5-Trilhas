@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', async function () {
         return;
     }
 
-    // Função para buscar dados do usuário com tratamento de token expirado
     async function fetchUserData() {
         if (!isTokenValid(accessToken)) {
             await refreshToken();

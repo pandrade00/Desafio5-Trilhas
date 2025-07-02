@@ -3,12 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function formatarData(dataString) {
         if (!dataString) return 'Data não informada';
         
-        // Se já estiver no formato DD/MM/AAAA, retorna direto
         if (dataString.match(/\d{2}\/\d{2}\/\d{4}/)) {
             return dataString;
         }
         
-        // Tenta converter de outros formatos
         const data = new Date(dataString);
         if (isNaN(data.getTime())) {
             return 'Data inválida';
@@ -28,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const container = document.querySelector('.corpo');
     
-    // Ordenar agendamentos por data (mais recente primeiro)
     agendamentos.sort((a, b) => {
         const dataA = a.dataAgendamento ? new Date(a.dataAgendamento) : new Date(0);
         const dataB = b.dataAgendamento ? new Date(b.dataAgendamento) : new Date(0);
@@ -63,7 +60,6 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="status ${statusClass}">${statusText}</div>
         `;
         
-        // Adicionar o card ao container
         container.appendChild(card);
     });
     
@@ -75,6 +71,6 @@ document.addEventListener('DOMContentLoaded', function() {
         container.appendChild(mensagem);
     }
 
-    // Debug: Mostrar no console o que está no localStorage
+    // Debug: Mostrar no console o que está no localStorage :0 (headchache)
     console.log('Agendamentos no localStorage:', agendamentos);
 });

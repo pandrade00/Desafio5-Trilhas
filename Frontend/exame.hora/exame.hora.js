@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
             dataSelecionada = this.closest('.dia-bloco').querySelector('strong').textContent;
             horarioSelecionado = this.textContent;
             
-            // Efeito visual
             this.style.transform = 'scale(1.05)';
             setTimeout(() => {
                 this.style.transform = 'scale(1)';
@@ -33,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        // Armazena no localStorage
         localStorage.setItem('dataExameSelecionada', dataSelecionada);
         localStorage.setItem('horarioExameSelecionado', horarioSelecionado);
         

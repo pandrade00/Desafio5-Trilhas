@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Atualiza a UI com base no estado de login
   const atualizarUI = (logado) => {
     if (logado) {
-      // Mostra botão de logout
       authSection.innerHTML = `
         <span style="color:white">${userName}</span>
         <button id="logout-btn">Sair</button>
@@ -22,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById('logout-btn').addEventListener('click', fazerLogout);
       titulo.textContent = `Bem-vindo, ${userName}`;
     } else {
-      // Mostra link de login
       authSection.innerHTML = '<a href="../login/login.html">Login</a>';
       titulo.textContent = 'Bem-Vindo ao Diagnóstix';
     }

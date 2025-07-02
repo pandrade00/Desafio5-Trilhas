@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector('p:nth-of-type(5)').innerHTML = `<strong>Horário:</strong> ${hora}`;
     }
 
-    // Adicione um novo parágrafo para o endereço no HTML do resumo
     const btnVoltar = document.querySelector('.btn.voltar');
     btnVoltar.addEventListener('click', function () {
         window.location.href = '../agendar.hora/agendar.hora.html';

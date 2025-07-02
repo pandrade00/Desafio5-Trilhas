@@ -3,7 +3,6 @@ window.onload = function () {
   const anoSelect = document.getElementById("ano");
   let enderecoUser = {};
 
-  // Dias de 1 a 31
   for (let i = 1; i <= 31; i++) {
     const option = document.createElement("option");
     option.value = i;
@@ -11,7 +10,6 @@ window.onload = function () {
     diaSelect.appendChild(option);
   }
 
-  // Anos de 1950 até o ano atual
   const anoAtual = new Date().getFullYear();
   for (let i = 1950; i <= anoAtual; i++) {
     const option = document.createElement("option");
@@ -62,7 +60,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Adicione este evento para quando o CEP for preenchido
   document.getElementById('cep').addEventListener('blur', async function () {
     const cep = this.value;
     if (cep.length < 9) return; // Verifica se o CEP está completo (com máscara)

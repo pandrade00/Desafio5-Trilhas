@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Recupera os dados do localStorage
     const exame = localStorage.getItem('exameSelecionado');
     const unidadeData = JSON.parse(localStorage.getItem('unidadeSelecionada'));
     const data = localStorage.getItem('dataExameSelecionada');
@@ -47,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.appendChild(modalOverlay);
 
         document.getElementById('modal-ok').addEventListener('click', function () {
-            // Salvar o agendamento no localStorage
             const agendamentos = JSON.parse(localStorage.getItem('meusAgendamentos')) || [];
 
             agendamentos.push({
