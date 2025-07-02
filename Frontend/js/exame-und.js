@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const unidadeData = unidades[nomeUnidade];
         localStorage.setItem('unidadeSelecionada', JSON.stringify(unidadeData));
         
-        window.location.href = '../exame.hora/exame.hora.html';
+        window.location.href = '../public/exame-hora.html';
     });
 
     // Efeitos visuais do botão

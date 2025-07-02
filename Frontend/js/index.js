@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const fazerLogout = () => {
     localStorage.removeItem('accessToken');
     localStorage.removeItem('userName');
-    window.location.href = '../login/login.html';
+    window.location.href = '../public/login.html';
   };
 
   // Atualiza a UI com base no estado de login
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById('logout-btn').addEventListener('click', fazerLogout);
       titulo.textContent = `Bem-vindo, ${userName}`;
     } else {
-      authSection.innerHTML = '<a href="../login/login.html">Login</a>';
+      authSection.innerHTML = '<a href="../public/login.html">Login</a>';
       titulo.textContent = 'Bem-Vindo ao Diagnóstix';
     }
   };
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Configura botões do popup
   document.querySelector('.popup-btn-login').addEventListener('click', () => {
     hideLoginPopup();
-    window.location.href = '../login/login.html';
+    window.location.href = '../public/login.html';
   });
 
   document.querySelector('.popup-btn-cancel').addEventListener('click', hideLoginPopup);
@@ -89,9 +89,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const title = card.querySelector('h3').textContent;
       let url;
-      if (title.includes('Buscar')) url = '../buscar.hospital/buscar.hosp.html';
-      else if (title.includes('Consultas')) url = '../principais.servicos/principais.html';
-      else if (title.includes('Dados')) url = '../dashboard/dados-saude.html';
+      if (title.includes('Buscar')) url = '../public/buscar-hosp.html';
+      else if (title.includes('Consultas')) url = '../public/principais.html';
+      else if (title.includes('Dados')) url = '../public/dados-saude.html';
 
       if (url) {
         window.location.href = url;

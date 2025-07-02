@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        window.location.href = "../agendar.uni/agendar.uni.html";
+        window.location.href = "../public/agendar-uni.html";
     });
 
     const btnEffects = function () {

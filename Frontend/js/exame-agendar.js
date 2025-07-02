@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         localStorage.setItem('exameSelecionado', inputExame.value);
 
-        window.location.href = '../exame.und/exame.und.html';
+        window.location.href = '../public/exame-und.html';
     });
 
     // Efeitos visuais do botão

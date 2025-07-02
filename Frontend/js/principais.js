@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const fazerLogout = () => {
         localStorage.removeItem('accessToken');
         localStorage.removeItem('userName');
-        window.location.href = '../login/login.html';
+        window.location.href = '../public/login.html';
     };
 
     if (accessToken) {
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
     `;
         document.getElementById('logout-btn').addEventListener('click', fazerLogout);
     } else {
-        authSection.innerHTML = '<a href="../login/login.html">Login</a>';
+        authSection.innerHTML = '<a href="../public/login.html">Login</a>';
     }
     // Carregar agendamentos do localStorage
     let agendamentos = [];
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Mudar o botão para "Ver Todos"
         notificacaoBotao.textContent = 'Ver Todos';
         notificacaoBotao.addEventListener('click', () => {
-            window.location.href = '../meus.agendamentos/meus.agendamentos.html';
+            window.location.href = '../public/meus-agendamentos.html';
         });
     } else {
         notificacaoTitulo.textContent = 'Bem-vindo ao Diagnóstix';
@@ -99,16 +99,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
             switch (service) {
                 case 'Agendar Consulta':
-                    url = '../agendar.conf/agendar.conf.html';
+                    url = '../public/agendar-conf.html';
                     break;
                 case 'Meus Agendamentos':
-                    url = '../meus.agendamentos/meus.agendamentos.html';
+                    url = '../public/meus-agendamentos.html';
                     break;
                 case 'Agendar Exames':
-                    url = '../exame.conf/exame.conf.html';
+                    url = '../public/exame-conf.html';
                     break;
                 case 'Resultados de Exames':
-                    url = '../resultado.de.exames/resultado.html';
+                    url = '../public/resultado.html';
                     break;
                 default:
                     url = '#';

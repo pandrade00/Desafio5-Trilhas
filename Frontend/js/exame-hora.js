@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('dataExameSelecionada', dataSelecionada);
         localStorage.setItem('horarioExameSelecionado', horarioSelecionado);
         
-        window.location.href = '../exame.resumo/exame.resumo.html';
+        window.location.href = '../public/exame-resumo.html';
     });
     
     // Efeitos visuais do botão

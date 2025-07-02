@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('dataSelecionada', selectedDate);
         localStorage.setItem('horaSelecionada', selectedTime);
 
-        window.location.href = '../agendar.resumo/agendar.resumo.html';
+        window.location.href = '../public/agendar-resumo.html';
     });
 
     // Efeitos visuais do botão

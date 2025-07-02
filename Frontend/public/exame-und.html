@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resumo do Agendamento</title>
-  <link href="exame.resumo.css" rel="stylesheet" />
+  <title>Agendar Exame</title>
+  <link href="../css/exame-und.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -20,9 +20,9 @@
       </div>
     </div>
     <nav class="menu">
-      <a href="../index/index.html">Home</a>
-      <a href="../faq/faq.html">Fale Conosco</a>
-      <a href="../login/login.html">Login</a>
+      <a href="./index.html">Home</a>
+      <a href="./faq.html">Fale Conosco</a>
+      <a href="./login.html">Login</a>
     </nav>
   </header>
 
@@ -35,23 +35,24 @@
     </div>
 
     <div class="card">
-      <h2>Resumo do Agendamento:</h2>
+      <p class="label">Selecione a Unidade:</p>
 
-      <div class="info">
-        <p><strong>Exame:</strong> </p>
-        <p><strong>Unidade:</strong> </p>
-        <p><strong>Endereço:</strong> </p>
-        <p><strong>Data:</strong> </p>
-        <p><strong>Horário:</strong> </p>
+      <div class="unidade selected">
+        <strong>Hospital de Urgência e Emergência Dr. Clementino Moura - Socorrão II</strong>
+        <p>R. Santa Helena, 3685 - Cidade Operária, São Luís - MA, 65058-442</p>
+      </div>
+
+      <div class="unidade">
+        <strong>Clinica La Ravardiere LTDA</strong>
+        <p>Alameda Mearim, 1 - Olho D'agua, São Luís - MA, 65065-470</p>
       </div>
 
       <div class="buttons">
-        <button class="btn voltar">Voltar</button>
-        <button class="btn confirmar">Confirmar</button>
+        <button class="btn continuar">Continuar</button>
       </div>
     </div>
   </main>
-  <script src="exame.resumo.js"></script>
+  <script src="../js/exame-und.js"></script>
 </body>
 
 </html>
