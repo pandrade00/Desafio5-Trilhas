@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
         document.getElementById('logout-btn').addEventListener('click', fazerLogout);
     } else {
-        authSection.innerHTML = '<a href="../login/login.html">Login</a>';
+        authSection.innerHTML = '<a href="../public/login.html">Login</a>';
     }
 });
 
