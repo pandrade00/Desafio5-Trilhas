@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        // Armazena todos os dados da unidade no localStorage
         const nomeUnidade = unidadeSelecionada.querySelector('strong').textContent;
         const unidadeData = unidades[nomeUnidade];
         localStorage.setItem('unidadeSelecionada', JSON.stringify(unidadeData));

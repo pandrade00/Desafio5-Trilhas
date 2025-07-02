@@ -11,4 +11,3 @@ const relatorioJogoSchema = new mongoose.Schema({
 const relatorioJogo = mongoose.model("exames", relatorioJogoSchema);
 
 export default relatorioJogo;
-// Preparar rotas de tratamento dos dados (em json) enviados pelo jogo

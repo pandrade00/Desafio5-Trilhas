@@ -20,7 +20,7 @@ async function conectaNaDatabase() {
     return db;
   } catch (erro) {
     console.error("❌ Erro ao tentar conectar ao banco:", erro);
-    process.exit(1); // Finaliza o processo se falhar
+    process.exit(1);
   }
 };
 

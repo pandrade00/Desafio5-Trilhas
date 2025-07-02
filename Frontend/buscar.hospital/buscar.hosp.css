@@ -64,6 +64,36 @@ body {
   color: #FFFFFF;
 }
 
+#logout-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 15px;
+  font-family: 'ChampagneBold', sans-serif;
+}
+
+#logout-btn:hover {
+  background-color: #c0392b;
+}
+
+#auth-section {
+  margin-left: auto;
+}
+
+#auth-section span {
+  color: white;
+  font-weight: bold;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 .menu a {
   margin-left: 25px;
   text-decoration: none;

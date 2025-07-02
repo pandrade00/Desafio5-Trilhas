@@ -21,12 +21,35 @@ body {
 }
 
 .cabecalho {
-    background-color: #2196F3;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 40px;
     flex-wrap: wrap;
+}
+
+#logout-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 15px;
+    font-family: 'ChampagneBold', sans-serif;
+}
+
+#logout-btn:hover {
+    background-color: #c0392b;
+}
+
+#auth-section {
+    margin-left: auto;
+}
+
+#auth-section span {
+    color: white;
+    font-weight: bold;
 }
 
 .logo {
@@ -63,6 +86,17 @@ body {
 .logo-text p {
     font-size: 12px;
     color: #FFFFFF;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.menu-links {
+    display: flex;
+    gap: 20px;
 }
 
 .menu a {

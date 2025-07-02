@@ -66,8 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem('refreshToken', resultado.refreshToken);
         localStorage.setItem('userName', resultado.usuario.nome);
 
-        // Redireciona para a home
-        window.location.href = "../home/home.html";
+        window.location.href = "../index/index.html";
       } else {
         alert(resultado.message || "Email ou senha incorretos!");
       }

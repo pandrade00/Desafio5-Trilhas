@@ -1,65 +1,31 @@
 import { searchHospitals } from "../req-api/index.js";
 
 document.addEventListener('DOMContentLoaded', function () {
+
+    const accessToken = localStorage.getItem('accessToken');
+    const authSection = document.getElementById('auth-section');
+    const fazerLogout = () => {
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('userName');
+        window.location.href = '../login/login.html';
+    };
+
+    if (accessToken) {
+        const userName = localStorage.getItem('userName');
+        authSection.innerHTML = `
+        <span>${userName}</span>
+        <button id="logout-btn">Sair</button>
+    `;
+        document.getElementById('logout-btn').addEventListener('click', fazerLogout);
+    } else {
+        authSection.innerHTML = '<a href="../login/login.html">Login</a>';
+    }
     const hosp = [];
 
     const searchInput = document.getElementById('hosp-search');
     const searchButton = document.getElementById('search-button');
     const resultsContainer = document.getElementById('results-container');
     const container = document.querySelector('.container');
-
-    /* ========== FUNÇÃO DE AUTCOMPLETE ==========
-    function setupAutocomplete() {
-        searchInput.addEventListener('input', function () {
-            const val = this.value.trim().toLowerCase();
-            const autocompleteList = document.getElementById('autocomplete-list');
-
-            if (autocompleteList) autocompleteList.innerHTML = '';
-
-            if (!val) return;
-
-            const suggestions = [];
-            hosp.forEach(hosp => {
-                if (hosp.name.toLowerCase().includes(val)) {
-                    suggestions.push(hosp.Hospital);
-                }
-                hosp.services.forEach(service => {
-                    if (service.toLowerCase().includes(val)) {
-                        suggestions.push(`${service} - ${hosp.Hospital}`);
-                    }
-                });
-            });
-
-            const uniqueSuggestions = [...new Set(suggestions)].slice(0, 5);
-
-            if (uniqueSuggestions.length > 0) {
-                uniqueSuggestions.forEach(suggestion => {
-                    const item = document.createElement('div');
-                    item.className = 'autocomplete-item';
-                    item.innerHTML = `
-         <span class="autocomplete-match">${suggestion.substring(0, val.length)}</span>
-         <span class="autocomplete-rest">${suggestion.substring(val.length)}</span>
-     `;
-                    item.innerHTML = `<strong>${suggestion.substring(0, val.length)}</strong>${suggestion.substring(val.length)}`;
-
-                    item.addEventListener('click', function () {
-                        searchInput.value = suggestion.split(' - ')[0];
-                         if (autocompleteList) autocompleteList.innerHTML = '';
-                        performSearch();
-                    });
-
-                    if (autocompleteList) autocompleteList.appendChild(item);
-                });
-            }
-        });
-
-        document.addEventListener('click', function (e) {
-            if (e.target !== searchInput) {
-                const autocompleteList = document.getElementById('autocomplete-list');
-                if (autocompleteList) autocompleteList.innerHTML = '';
-            }
-        });
-    }*/
 
     // ========== FUNÇÃO PARA RENDERIZAR RESULTADOS ==========
     function renderResults(results) {
@@ -141,11 +107,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function treatText(text) {
         return text
-            .normalize("NFD") 
-            .replace(/[\u0300-\u036f]/g, "") 
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
             .replace(/[\uFFFD]/g, "u")
-            .replace(/[_-]/g, " ") 
-            .replace(/[^\x00-\x7F]/g, "")        
+            .replace(/[_-]/g, " ")
+            .replace(/[^\x00-\x7F]/g, "")
             .toLowerCase()
             .trim();
     }
