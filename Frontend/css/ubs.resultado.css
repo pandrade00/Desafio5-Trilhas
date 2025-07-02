@@ -1,0 +1,257 @@
+
+@font-face {
+  font-family: 'ChampagneBold';
+  src: url('../assets/fonts/Champagne_&_Limousines_Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'ChampagneBold', 'Raleway', sans-serif;
+  background: linear-gradient(
+      to bottom,
+      rgba(27, 92, 165, 0.75),
+      rgba(77, 165, 216, 0.75)
+    ),
+    url("../assets/imagem-de-fundo.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  color: #333;
+}
+
+/* Cabeçalho */
+.cabecalho {
+  background-color: #2196F3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  background-color: #F0D859; 
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.logo-icon img {
+  width: 50px;
+  height: 44px;
+  margin-top: 12px;
+  margin-left: 15px;
+}
+
+.logo-text h1 {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0; 
+  line-height: 1.4; 
+  color: #EFD759;
+  margin-left: -12px;
+}
+
+.logo-text p {
+  font-size: 12px;
+  color: #FFFFFF;
+}
+
+.menu a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.menu a:hover {
+  color: #1d57a8;
+}
+
+.container {
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
+}
+
+h1 {
+  color: white;
+  font-size: 32px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+  margin: 0 auto 40px;
+  background-color: #fffde7;
+  border-radius: 10px;
+  padding: 5px 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-box input {
+  flex: 1;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  outline: none;
+  background-color: transparent;
+  color: #333;
+}
+
+.search-box button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.search-box img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Cards de UBS */
+
+.ubs-card {
+  background-color: #fdfdfd ;
+  border-radius: 8px;
+  padding: 25px;
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: left;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.ubs-card:hover {
+  transform: translateY(-4px);
+}
+
+.ubs-card h2 {
+  color: #2a5d9f;
+  font-size: 18px;
+  margin: 15px 5px 10px;
+  white-space: nowrap;
+}
+
+.ubs-card p {
+  color: #555;
+  font-size: 14px;
+  margin: 20px 5px 15px;
+}
+
+.btn-saiba-mais {
+  background-color: #2a5d9f;
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin-top: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-saiba-mais:hover {
+  background-color: #1e4a87;
+}
+
+@media (max-width: 768px) {
+  .cabecalho {
+    flex-direction: row;
+    gap: 10px;
+    padding: 20px;
+  }
+
+  .menu {
+    justify-content: center;
+  }
+
+  .menu a {
+    font-size: 20px;
+  }
+
+
+  h1 {
+    font-size: 28px;
+    padding: 0 10px;
+  }
+
+  .search-box {
+    flex-direction: column;
+    gap: 10px;
+    max-width: 90%;
+    padding: 10px;
+  }
+
+  .search-box input {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .ubs-card {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .ubs-card h2 {
+    font-size: 16px;
+    white-space: normal;
+  }
+
+  .btn-saiba-mais {
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  .search-box input {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .ubs-card h2 {
+    font-size: 15px;
+  }
+
+  .ubs-card p {
+    font-size: 13px;
+  }
+
+  .btn-saiba-mais {
+    font-size: 13px;
+    padding: 8px;
+  }
+}

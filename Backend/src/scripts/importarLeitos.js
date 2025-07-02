@@ -22,7 +22,6 @@ const importarCSV = async () => {
     }))
     .on('data', (data) => {
       if (data.UF === 'MA') {
-        // Mapeia para o schema simplificado
         resultados.push({
           Hospital: data.NOME_ESTABELECIMENTO,
           Tipo: data.DS_TIPO_UNIDADE,
@@ -46,7 +45,6 @@ const importarCSV = async () => {
       try {
         console.log(`Lidos ${resultados.length} registros`);
 
-        // Remover duplicatas com base em Hospital + Cidade
         const unicos = Array.from(
           new Map(
             resultados.map(item => [item.Hospital + item.Endereco.Cidade + item.Endereco.Bairro, item])

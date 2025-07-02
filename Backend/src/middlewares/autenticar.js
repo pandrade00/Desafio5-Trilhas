@@ -6,10 +6,10 @@ function autenticar(req, res, next) {
   if (!token) { return res.status(401).json({ erro: "Token não fornecido" }); }
 
   try {
-    const payload = jwt.verify(token, process.env.JWT_SECRET); //Payload vai ser o objeto { id: usuario._id, role(tipo de usuario): usuario.role,  iat: ..., exp: ...}, ele é uma parte do token JWT
+    const payload = jwt.verify(token, process.env.JWT_SECRET);
     req.usuario = payload;
     
-    next(); //Dentro do contexto que a função autenticar for chamada, o next executa a função seguinte à ela
+    next();
   } catch (err) {
     console.error(err);
     res.status(401).json({ erro: "Token inválido ou expirado" });

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Agendar Exame</title>
+  <link href="exame.hora.css" rel="stylesheet"/>
+</head>
+<body>
+  <header class="cabecalho">
+      <div class="logo">
+        <div class="logo-icon">
+          <img src="../assets/lupa-branca.png" alt="lupa" />
+        </div>
+        <div class="logo-text">
+          <h1>Diagnóstix</h1>
+          <p>Entender para cuidar</p>
+        </div>
+      </div>
+      <nav class="menu">
+        <a href="../index/index.html">Home</a>
+        <a href="../faq/faq.html">Fale Conosco</a>
+        <a href="../login/login.html">Login</a>
+      </nav>
+    </header>
+
+  <main class="container">
+    <h1>Agendar Exame</h1>
+
+    <div class="icone-alerta">
+        <div class="circulo-amarelo"></div>
+        <img src="../assets/sino-de-notificacao.png" alt="Alerta" />
+      </div>
+
+    <div class="card">
+      <p class="label">Selecione a data/hora:</p>
+
+      <div class="dia-bloco">
+        <strong>26/06/2025 (Sexta - Feira)</strong>
+        <div class="horarios">
+          <button>12:00</button>
+          <button class="selecionado">13:00</button>
+          <button>13:40</button>
+          <button>15:00</button>
+          <button>17:20</button>
+        </div>
+      </div>
+
+      <div class="dia-bloco">
+        <strong>27/06/2025 (Sábado)</strong>
+        <div class="horarios">
+          <button>12:00</button>
+          <button>13:00</button>
+          <button>13:40</button>
+          <button>15:00</button>
+          <button>17:20</button>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button class="btn continuar">Continuar</button>
+      </div>
+    </div>
+  </main>
+  <script src="exame.hora.js"></script>
+</body>
+</html>

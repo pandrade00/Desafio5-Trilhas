@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Diagnóstix</title>
+  <link rel="stylesheet" href="../css/index.css" />
+</head>
+
+<body>
+  <!-- Cabeçalho -->
+  <header class="cabecalho">
+      <div class="logo">
+        <div class="logo-icon">
+          <img src="../assets/lupa-branca.png" alt="lupa" />
+        </div>
+        <div class="logo-text">
+          <h1>Diagnóstix</h1>
+          <p>Entender para cuidar</p>
+        </div>
+      </div>
+    </div>
+    <nav class="menu">
+      <a href="../index/index.css">Home</a>
+      <a href="../faq/faq.html">Fale Conosco</a>
+      <span id="auth-section">
+        <a href="../login/login.html" id="login-link">Login</a>
+      </span>
+    </nav>
+  </header>
+
+  <!-- Corpo da Página -->
+  <section class="corpo">
+    <!-- Título -->
+    <div class="box-titulo">
+      <h2>Bem-Vindo ao Diagnóstix</h2>
+    </div>
+
+    <!-- Cards principais -->
+    <div class="cards">
+      <div class="card">
+        <img src="../assets/lupa-azul.png" alt="Buscar Hospital" />
+        <h3>Buscar Hospital</h3>
+        <p>Encontre qualquer hospital do estado</p>
+      </div>
+      <div class="card">
+        <img src="../assets/calendario.png" alt="Consultas" />
+        <h3>Consultas</h3>
+        <p>Agende ou monitore sua consulta agora mesmo</p>
+      </div>
+      <div class="card">
+        <img src="../assets/injecao.png" alt="Dados Saúde" />
+        <h3>Dados Saúde</h3>
+        <p>Encontre informações sobre a saúde no MA</p>
+      </div>
+    </div>
+
+    <!-- Card sobre o jogo/ texto inventado, verificar com UX qual sexto será -->
+    <!-- Colocar o link tambem ao clicar no banner :) -->
+    <div class="card-sobre">
+      <a href="https://felipe-bispo.itch.io/diagnstix" target="_blank" rel="noopener noreferrer">
+        <img src="../assets/Banner-game.png" alt="Game Diagnóstix">
+      </a>
+    </div>
+  </section>
+  <div class="popup-overlay" id="loginPopup">
+    <div class="popup-content">
+      <h3>Login Necessário</h3>
+      <p>Você precisa fazer login para acessar este recurso</p>
+      <div class="popup-buttons">
+        <button class="popup-btn popup-btn-cancel">Cancelar</button>
+        <button class="popup-btn popup-btn-login">Fazer Login</button>
+      </div>
+    </div>
+  </div>
+  <script src="index.js"></script>
+</body>
+
+</html>

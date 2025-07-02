@@ -3,7 +3,9 @@ import leitosRoutes from "./leitosRoutes.js";
 import usuariosRoutes from "./usuariosRoutes.js";
 import consultasRoutes from "./consultasRoutes.js";
 import examesRoutes from "./examesRoutes.js";
-import searchRoutes from "./searchRoutes.js";
+import adminsRoutes from "./adminsRoutes.js";
+import relatoriosRoutes from "./relatoriosRoutes.js"
+import { autenticar, permitirRoles } from "../middlewares/index.js";
 
 const routes = (app) => {
   const router = express.Router();
@@ -12,11 +14,12 @@ const routes = (app) => {
 
   router.get("/", (req, res) => res.status(200).send("API Diagnostix"));
 
-  router.use("/leitos", leitosRoutes);
   router.use("/usuarios", usuariosRoutes);
-  router.use("/consultas", consultasRoutes);
-  router.use("/exames", examesRoutes);
-  router.use("/search", searchRoutes);
+  router.use("/leitos", autenticar, leitosRoutes);
+  router.use("/consultas", autenticar, consultasRoutes);
+  router.use("/exames", autenticar, examesRoutes);
+  router.use("/relatorios", relatoriosRoutes);
+  router.use("/admins", autenticar, permitirRoles("admin"), adminsRoutes);
 
   app.use("/", router);
 };

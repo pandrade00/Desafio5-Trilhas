@@ -1,0 +1,299 @@
+/* exame.resumo.css - Versão ajustada */
+@font-face {
+  font-family: 'ChampagneBold';
+  src: url('../assets/fonts/Champagne_&_Limousines_Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "ChampagneBold", "Raleway", sans-serif;
+  background: #1976d2;
+  color: #333;
+}
+
+.cabecalho {
+  background-color: #2196F3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  background-color: #F0D859;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.logo-icon img {
+  width: 50px;
+  height: 44px;
+  margin-top: 12px;
+  margin-left: 15px;
+}
+
+.logo-text h1 {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+  line-height: 1.4;
+  color: #EFD759;
+}
+
+.logo-text p {
+  font-size: 12px;
+  color: #FFFFFF;
+}
+
+.menu a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.menu a:hover {
+  color: #1d57a8;
+}
+
+.container {
+  padding: 40px 20px;
+  text-align: center;
+  background: linear-gradient(to bottom,
+      rgba(27, 92, 165, 0.85),
+      rgba(77, 165, 216, 0.85)),
+    url("../assets/imagem-de-fundo.png") no-repeat center;
+  background-size: cover;
+  min-height: 100vh;
+  position: relative;
+}
+
+h1 {
+  color: white;
+  font-size: 50px;
+  margin-bottom: 30px;
+}
+
+/* Ícone de notificação flutuante */
+.icone-alerta {
+  position: absolute;
+  top: 40px;
+  right: 95px;
+  z-index: 2;
+}
+
+.icone-alerta img {
+  position: relative;
+  width: 50px;
+  z-index: 1;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 40px 30px 100px;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.card h2 {
+  font-size: 24px;
+  margin-left: 19px;
+  margin-bottom: 20px;
+}
+
+.card p {
+  font-size: 18px;
+  margin-left: 20px;
+  margin-top: 2px;
+}
+
+.label {
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  margin-left: 19px;
+  margin-bottom: 20px;
+}
+
+.info p {
+  font-size: 18px;
+  margin-left: 20px;
+  margin-top: 2px;
+}
+
+.buttons {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 10px 25px;
+  font-size: 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+  width: 150px;
+  height: 45px;
+  margin-top: 50px;
+  font-family: "ChampagneBold", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn.voltar {
+  background-color: #3e78b2;
+}
+
+.btn.voltar:hover {
+  background-color: #33649a;
+}
+
+.btn.confirmar {
+  background-color: #1c3f60;
+}
+
+.btn.confirmar:hover {
+  background-color: #142f4a;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .cabecalho {
+    flex-direction: row;
+    gap: 10px;
+    padding: 20px;
+  }
+
+  .menu {
+    justify-content: center;
+  }
+
+  .menu a {
+    font-size: 20px;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  .card {
+    padding: 30px 20px 120px;
+  }
+
+  .card p,
+  .info p {
+    font-size: 18px;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+
+  .buttons {
+    position: static;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 250px;
+    font-size: 20px;
+  }
+
+  .icone-alerta {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+  color: #0d47a1;
+  margin-bottom: 20px;
+}
+
+.modal-content p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.modal-content button {
+  background-color: #0d47a1;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.modal-content button:hover {
+  background-color: #0b3d91;
+}

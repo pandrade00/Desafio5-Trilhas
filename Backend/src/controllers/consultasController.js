@@ -22,7 +22,7 @@ class ConsultasController {
 
   static async buscarConsultasDoUsuario(req, res) {
     try {
-      const usuarioId = req.params.usuarioId;
+      const usuarioId = req.usuario.id;
 
       if (!usuarioId) {
         return res.status(400).json({ success: false, error: "ID do usuário ausente." });
@@ -66,13 +66,13 @@ class ConsultasController {
       return res.status(500).json({ success: false, error: "Erro ao buscar consulta." });
     }
   }
-  
+
   static async cadastrarConsulta(req, res) {
     try {
       const novaConsulta = req.body;
 
       const consultaExistente = await consulta.findOne({
-        usuarioId: novaConsulta.usuarioId,
+        usuarioId: req.usuario.id,
         data: novaConsulta.data,
         hora: novaConsulta.hora
       });
@@ -98,8 +98,10 @@ class ConsultasController {
 
   static async atualizarConsulta(req, res) {
     try {
-      const id = req.params.id;
-      await consulta.findByIdAndUpdate(id, req.body);
+      const id = req.usuario.id;
+
+      const consultaEncontrada = await consulta.find({ usuarioId: id });
+      await consulta.findByIdAndUpdate(consultaEncontrada._id, req.body);
 
       res.status(200).json({
         success: true,
@@ -113,8 +115,10 @@ class ConsultasController {
 
   static async deletarConsulta(req, res) {
     try {
-      const id = req.params.id;
-      const consultaDeletada = await consulta.findByIdAndDelete(id, {
+      const id = req.usuario.id;
+
+      const consultaEncontrada = await consulta.find({ usuarioId: id });
+      const consultaDeletada = await consulta.findByIdAndDelete(consultaEncontrada._id, {
         projection: { usuarioId: 1, data: 1, hora: 1, status: 1 }
       });
 

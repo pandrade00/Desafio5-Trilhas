@@ -46,7 +46,7 @@ class ExamesController {
 
   static async buscarExamesDoUsuario(req, res) {
     try {
-      const usuarioId = req.params.usuarioId;
+      const usuarioId = req.usuario.id;
 
       if (!usuarioId) {
         return res.status(400).json({ success: false, error: "ID do usuário ausente." });
@@ -72,7 +72,7 @@ class ExamesController {
       const novoExame = req.body;
 
       const exameExistente = await exame.findOne({
-        usuarioId: novoExame.usuarioId,
+        usuarioId: req.usuario.id,
         tipo: novoExame.tipo,
         data: novoExame.data,
         local: novoExame.local,
@@ -100,8 +100,10 @@ class ExamesController {
 
   static async atualizarExame(req, res) {
     try {
-      const id = req.params.id;
-      await exame.findByIdAndUpdate(id, req.body);
+      const id = req.usuario.id;
+
+      const exameEncontrado = await exame.find({ usuarioId: id });
+      await exame.findByIdAndUpdate(exameEncontrado._id, req.body);
 
       res.status(200).json({
         success: true,
@@ -115,8 +117,10 @@ class ExamesController {
 
   static async deletarExame(req, res) {
     try {
-      const id = req.params.id;
-      const exameDeletado = await exame.findByIdAndDelete(id, {
+      const id = req.usuario.id;
+
+      const exameEncontrado = await exame.find({ usuarioId: id });
+      const exameDeletado = await exame.findByIdAndDelete(exameEncontrado._id, {
         projection: { usuarioId: 1, data: 1, local: 1, status: 1 }
       });
 

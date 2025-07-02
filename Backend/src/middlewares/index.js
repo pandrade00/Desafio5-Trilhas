@@ -1,9 +1,7 @@
 import autenticar from "./autenticar.js";
 import permitirRoles from "./permitirRoles.js";
 
-const middlewares = {
+export {
     autenticar,
-    permitirRoles
-}
-
-export default middlewares;
+    permitirRoles,
+};

@@ -3,9 +3,8 @@ import LeitosController from "../controllers/leitosController.js";
 
 const routes = express.Router();
 
-routes.get("/", LeitosController.listarLeitos);
-routes.post("/", LeitosController.cadastrarLeito);
-routes.put("/:id", LeitosController.atualizarLeito);
-routes.delete("/:id", LeitosController.deletarLeito);
+routes.get("/busca", LeitosController.buscarLeitos);
+routes.get("/busca-id/:id", LeitosController.buscarLeitoPorId);
 
+routes.get("/", LeitosController.listarLeitos);
 export default routes;
