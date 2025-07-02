@@ -1,0 +1,275 @@
+@font-face {
+  font-family: "ChampagneBold";
+  src: url("../assets/fonts/Champagne_&_Limousines_Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'ChampagneBold', 'Raleway', sans-serif;
+}
+
+/* Cabeçalho */
+.cabecalho {
+  background-color: #2196F3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  background-color: #F0D859;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.logo-icon img {
+  width: 50px;
+  height: 44px;
+  margin-top: 12px;
+  margin-left: 15px;
+}
+
+.logo-text h1 {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+  line-height: 1.4;
+  color: #EFD759;
+}
+
+.logo-text p {
+  font-size: 12px;
+  color: #FFFFFF;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.menu a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.menu a:hover {
+  color: #1d57a8;
+}
+
+/* Corpo com fundo */
+.corpo {
+  background: linear-gradient(to bottom,
+      rgba(27, 92, 165, 0.85),
+      rgba(77, 165, 216, 0.85)),
+    url("../assets/imagem-de-fundo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 120px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* Card Login */
+.card-login {
+  background-color: #f1dd77;
+  border-radius: 10px;
+  padding: 40px 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.card-login h2 {
+  font-size: 35px;
+  color: #424242;
+  font-family: "ChampagneBold", sans-serif;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.card-login label {
+  font-size: 16px;
+  font-family: 'ChampagneBold', sans-serif;
+  color: #424242;
+  width: 95%;
+  max-width: 521px;
+}
+
+.card-login input {
+  padding: 5px;
+  width: 95%;
+  max-width: 400px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  font-size: 18px;
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+.card-login p {
+  text-align: center;
+  width: 100%;
+  max-width: 521px;
+  margin-top: 10px;
+  font-size: 14px;
+  font-family: "ChampagneBold", sans-serif;
+}
+
+.btn-entrar {
+  margin-top: 10px;
+  background-color: #1376bc;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 15px;
+  font-size: 20px;
+  font-family: "ChampagneBold", sans-serif;
+  cursor: pointer;
+  width: 100%;
+  max-width: 110px;
+  height: 50px;
+}
+
+.btn-entrar:hover {
+  background-color: #17488a;
+}
+
+.link-menor {
+  font-size: 12px;
+  font-family: "ChampagneBold", sans-serif;
+  color: #1d57a8;
+  text-align: right;
+  width: 95%;
+  max-width: 500px;
+  margin-top: -10px;
+}
+
+.link-menor a {
+  color: #1d57a8;
+  text-decoration: none;
+}
+
+.link-menor a:hover {
+  text-decoration: underline;
+}
+
+/* RESPONSIVIDADE */
+
+/* Tablets */
+@media (max-width: 768px) {
+
+  .cabecalho {
+    flex-direction: row;
+    gap: 10px;
+    padding: 20px;
+  }
+
+  .menu {
+    justify-content: center;
+  }
+
+  .menu a {
+    font-size: 20px;
+  }
+
+  .card-login {
+    padding: 30px 20px;
+  }
+
+  .card-login h2 {
+    font-size: 32px;
+  }
+
+  .card-login label,
+  .card-login p,
+  .link-menor {
+    font-size: 14px;
+  }
+
+  .btn-entrar {
+    font-size: 18px;
+  }
+}
+
+/* Celulares */
+@media (max-width: 480px) {
+  .cabecalho {
+    flex-direction: column;
+    height: auto;
+    gap: 10px;
+    padding: 20px;
+  }
+
+  .menu {
+    justify-content: center;
+  }
+
+  .menu a {
+    font-size: 20px;
+  }
+
+  .corpo {
+    padding: 20px;
+  }
+
+  .card-login {
+    padding: 25px 15px;
+    height: auto;
+  }
+
+  .card-login h2 {
+    font-size: 36px;
+  }
+
+  .card-login label,
+  .card-login p,
+  .link-menor {
+    font-size: 18px;
+  }
+
+  .card-login input {
+    height: 60px;
+    font-size: 16px;
+  }
+
+  .btn-entrar {
+    height: 60px;
+    font-size: 22px;
+  }
+}

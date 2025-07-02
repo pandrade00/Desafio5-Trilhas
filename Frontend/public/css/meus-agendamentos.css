@@ -1,0 +1,252 @@
+
+@font-face {
+  font-family: 'ChampagneBold';
+  src: url('../assets/fonts/Champagne_&_Limousines_Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'ChampagneBold', 'Raleway', sans-serif;
+}
+
+/* Cabeçalho */
+.cabecalho {
+  background-color: #2196F3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  background-color: #F0D859; 
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.logo-icon img {
+  width: 62px;
+  height: 43px;
+  margin-top: 12px;
+  margin-left: 15px;
+}
+
+.logo-text h1 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #EFD759;
+  line-height: 1;
+}
+
+.logo-text p {
+  font-size: 12px;
+  color: #FFFFFF;
+}
+
+.menu {
+  display: flex;
+  gap: 30px;
+}
+
+.menu a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.menu a:hover {
+  color: #1d57a8;
+}
+
+/* Corpo */
+.corpo {
+  background: linear-gradient(
+      to bottom,
+      rgba(27, 92, 165, 0.85),
+      rgba(77, 165, 216, 0.85)
+    ),
+    url("../assets/imagem-de-fundo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 120px);
+  padding: 40px 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Título */
+.corpo h1 {
+  font-size: 48px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* Ícone de notificação flutuante */
+.icone-alerta {
+  position: absolute;
+  top: 40px;
+  right: 95px;
+  z-index: 2;
+}
+
+.icone-alerta img {
+  position: absolute;
+  width: 50px;
+  z-index: 1;
+}
+
+/* Cartões */
+.card {
+  background-color: #f5eda5;
+  width: 100%;
+  max-width: 800px;
+  padding: 25px;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card .date {
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1d57a8;
+  margin-bottom: 6px;
+}
+
+.card p {
+  font-size: 16px;
+  color: #424242;
+}
+
+/* Status */
+.status {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 6px 16px;
+  border-radius: 14px;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  font-family: 'ChampagneBold', 'Raleway', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.cancelada {
+  background-color: #e63c3c;
+}
+
+.realizada {
+  background-color: #06b615;
+}
+
+.ausente {
+  background-color: #0071f3;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .cabecalho {
+    flex-direction: row;
+    gap: 10px;
+    padding: 20px;
+  }
+
+  .menu {
+    justify-content: center;
+  }
+
+  .menu a {
+    font-size: 20px;
+  }
+
+  .corpo h1 {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .notification-icon {
+    top: 140px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .notification-icon img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .card h2 {
+    font-size: 18px;
+  }
+
+  .card p {
+    font-size: 14px;
+  }
+
+  .status {
+    font-size: 13px;
+    padding: 5px 12px;
+    height: 28px;
+    min-width: 90px;
+  }
+}
+
+@media (max-width: 480px) {
+  .corpo h1 {
+    font-size: 28px;
+  }
+
+  .menu a {
+    font-size: 16px;
+  }
+
+  .status {
+    font-size: 12px;
+    min-width: 80px;
+    height: 26px;
+  }
+}
