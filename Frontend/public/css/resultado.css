@@ -111,6 +111,17 @@ h1 {
   z-index: 1;
 }
 
+#logout-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 15px;
+  font-family: 'ChampagneBold', sans-serif;
+}
+
 /* Cartões */
 .card {
   background: #f5eda5;

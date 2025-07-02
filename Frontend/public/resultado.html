@@ -5,14 +5,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Resultados de Exames</title>
-  <link rel="stylesheet" href="../css/resultado.css" />
+  <link rel="stylesheet" href="./css/resultado.css" />
 </head>
 
 <body>
   <header class="cabecalho">
     <div class="logo">
       <div class="logo-icon">
-        <img src="../assets/lupa-branca.png" alt="lupa" />
+        <img src="./assets/lupa-branca.png" alt="lupa" />
       </div>
       <div class="logo-text">
         <h1>Diagnóstix</h1>
@@ -22,7 +22,9 @@
     <nav class="menu">
       <a href="./index.html">Home</a>
       <a href="./faq.html">Fale Conosco</a>
-      <a href="./login.html">Login</a>
+      <span id="auth-section">
+        <a href="./login.html" id="login-link">Login</a>
+      </span>
     </nav>
   </header>
 
@@ -31,7 +33,7 @@
 
     <div class="icone-alerta">
       <div class="circulo-amarelo"></div>
-      <img src="../assets/sino-de-notificacao.png" alt="Alerta" />
+      <img src="./assets/sino-de-notificacao.png" alt="Alerta" />
     </div>
 
     <div class="card">
@@ -61,7 +63,7 @@
       <button class="btn disponivel">Baixar PDF</button>
     </div>
   </div>
-  <script src="../js/resultado.js"></script>
+  <script src="./js/resultado.js"></script>
 </body>
 
 </html>
