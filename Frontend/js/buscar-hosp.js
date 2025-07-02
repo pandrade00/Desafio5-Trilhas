@@ -1,4 +1,4 @@
-import { searchHospitals } from "../req-api/index.js";
+import { searchHospitals } from "../js/req-api/index.js";
 
 document.addEventListener('DOMContentLoaded', function () {
 

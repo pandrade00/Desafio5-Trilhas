@@ -1,4 +1,4 @@
-import { isTokenValid, userData, refreshToken } from "../req-api/index.js";
+import { isTokenValid, userData, refreshToken } from "../js/req-api/index.js";
 
 document.addEventListener('DOMContentLoaded', async function () {
     const btnContinuar = document.querySelector('.btn.continuar');
@@ -58,7 +58,8 @@ document.addEventListener('DOMContentLoaded', async function () {
     });
 
     btnEditar.addEventListener('click', () => {
-        window.location.href = '../public/editar-perfil.html';
+        //window.location.href = '../public/editar-perfil.html';
+        alert("Função não desenvolvida.");
     });
 
     // Inicialização

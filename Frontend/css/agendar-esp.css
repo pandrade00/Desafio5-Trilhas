@@ -15,11 +15,9 @@
 body {
   margin: 0;
   font-family: 'ChampagneBold', 'Raleway', sans-serif;
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       rgba(27, 92, 165, 0.75),
-      rgba(77, 165, 216, 0.75)
-    ),
+      rgba(77, 165, 216, 0.75)),
     url("../assets/imagem-de-fundo.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -45,7 +43,7 @@ body {
 }
 
 .logo-icon {
-  background-color: #F0D859; 
+  background-color: #F0D859;
   width: 48px;
   height: 48px;
   display: flex;
@@ -64,8 +62,8 @@ body {
 .logo-text h1 {
   font-size: 22px;
   font-weight: bold;
-  margin: 0; 
-  line-height: 1.4; 
+  margin: 0;
+  line-height: 1.4;
   color: #EFD759;
 }
 
@@ -258,22 +256,22 @@ label {
   }
 }
 
-  .btn.continuar {
-    background-color: #0d47a1;
-    color: white;
-    padding: 12px 30px;
-    font-size: 20px;
-    transition: all 0.3s ease;
-    margin-top: 20px;
-  }
+.btn.continuar {
+  background-color: #0d47a1;
+  color: white;
+  padding: 12px 30px;
+  font-size: 20px;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
 
-  .btn.continuar:hover {
-    background-color: #0b3d91;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
+.btn.continuar:hover {
+  background-color: #0b3d91;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
-  .btn.continuar:active {
-    transform: translateY(1px);
-    box-shadow: none;
-  }
+.btn.continuar:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}

@@ -53,7 +53,8 @@ document.addEventListener('DOMContentLoaded', async function () {
     });
 
     btnEditar.addEventListener('click', () => {
-        window.location.href = '../public/editar-perfil.html';
+        //window.location.href = '../public/editar-perfil.html';
+        alert("Função não desenvolvida.");
     });
 
     async function userData() {

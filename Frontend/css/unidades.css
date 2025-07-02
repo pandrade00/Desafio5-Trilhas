@@ -33,7 +33,7 @@ body {
 }
 
 .logo-icon {
-  background-color: #F0D859; 
+  background-color: #F0D859;
   width: 48px;
   height: 48px;
   display: flex;
@@ -52,8 +52,8 @@ body {
 .logo-text h1 {
   font-size: 22px;
   font-weight: bold;
-  margin: 0; 
-  line-height: 1.4; 
+  margin: 0;
+  line-height: 1.4;
   color: #EFD759;
 }
 
@@ -76,11 +76,9 @@ body {
 
 /* Fundo principal, colocar imagem de fundo*/
 .conteudo {
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       rgba(27, 92, 165, 0.9),
-      rgba(77, 165, 216, 0.9)
-    ),
+      rgba(77, 165, 216, 0.9)),
     url("assets/imagem-de-fundo.png");
   background-size: cover;
   background-position: center;

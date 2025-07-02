@@ -35,7 +35,7 @@ body {
 }
 
 .logo-icon {
-  background-color: #F0D859; 
+  background-color: #F0D859;
   width: 48px;
   height: 48px;
   display: flex;
@@ -54,8 +54,8 @@ body {
 .logo-text h1 {
   font-size: 22px;
   font-weight: bold;
-  margin: 0; 
-  line-height: 1.4; 
+  margin: 0;
+  line-height: 1.4;
   color: #EFD759;
 }
 

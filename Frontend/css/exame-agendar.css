@@ -171,8 +171,8 @@ label {
 .buttons {
   position: absolute;
   bottom: 30px;
-  right: 20px; 
-  margin-top: 0; 
+  right: 20px;
+  margin-top: 0;
 }
 
 .btn {
@@ -194,7 +194,7 @@ label {
   font-size: 20px;
   font-family: 'ChampagneBold', sans-serif;
   margin-left: 0;
-  width: auto; 
+  width: auto;
 }
 
 @media (max-width: 768px) {

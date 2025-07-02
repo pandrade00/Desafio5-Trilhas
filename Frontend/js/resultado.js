@@ -1,8 +1,8 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Simular notificações
     const notificationIcon = document.querySelector('.notification-icon');
     if (notificationIcon) {
-        notificationIcon.addEventListener('click', function() {
+        notificationIcon.addEventListener('click', function () {
             alert('Você não tem novas notificações.');
         });
     }
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function generateSimulatedPDF(examName, date) {
         return new Promise((resolve) => {
             const pdfBlob = new Blob(
-                [`Resultado do Exame: ${examName}\nData da Coleta: ${date}\n\nEste é um PDF simulado para demonstração.`], 
+                [`Resultado do Exame: ${examName}\nData da Coleta: ${date}\n\nEste é um PDF simulado para demonstração.`],
                 { type: 'application/pdf' }
             );
             resolve(URL.createObjectURL(pdfBlob));
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Configurar botões de download
     const downloadButtons = document.querySelectorAll('.btn.disponivel');
     downloadButtons.forEach(button => {
-        button.addEventListener('click', async function() {
+        button.addEventListener('click', async function () {
             button.textContent = 'Preparando...';
             button.style.opacity = '0.7';
             button.disabled = true;
@@ -34,10 +34,10 @@ document.addEventListener('DOMContentLoaded', function() {
             try {
                 // Simular tempo de processamento
                 await new Promise(resolve => setTimeout(resolve, 1000));
-                
+
                 // Gerar PDF simulado
                 const pdfUrl = await generateSimulatedPDF(examName, date);
-                
+
                 // Criar link para download
                 const a = document.createElement('a');
                 a.href = pdfUrl;
@@ -45,10 +45,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.body.appendChild(a);
                 a.click();
                 document.body.removeChild(a);
-                
+
                 // Liberar memória
                 setTimeout(() => URL.revokeObjectURL(pdfUrl), 100);
-                
+
                 // Feedback visual
                 button.textContent = 'Baixado!';
                 setTimeout(() => {
@@ -71,19 +71,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // Adicionar efeitos de hover nos botões
     const buttons = document.querySelectorAll('.btn');
     buttons.forEach(button => {
-        button.addEventListener('mouseover', function() {
+        button.addEventListener('mouseover', function () {
             if (!this.disabled) {
                 this.style.transform = 'translateY(-2px)';
                 this.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
             }
         });
-        
-        button.addEventListener('mouseout', function() {
+
+        button.addEventListener('mouseout', function () {
             this.style.transform = 'translateY(0)';
             this.style.boxShadow = 'none';
         });
-        
-        button.addEventListener('mousedown', function() {
+
+        button.addEventListener('mousedown', function () {
             if (!this.disabled) {
                 this.style.transform = 'translateY(1px)';
             }
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
         card.style.opacity = '0';
         card.style.transform = 'translateY(20px)';
         card.style.transition = `all 0.3s ease ${index * 0.3}s`;
-        
+
         setTimeout(() => {
             card.style.opacity = '1';
             card.style.transform = 'translateY(0)';
