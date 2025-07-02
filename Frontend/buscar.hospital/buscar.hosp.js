@@ -1,6 +1,25 @@
 import { searchHospitals } from "../req-api/index.js";
 
 document.addEventListener('DOMContentLoaded', function () {
+
+    const accessToken = localStorage.getItem('accessToken');
+    const authSection = document.getElementById('auth-section');
+    const fazerLogout = () => {
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('userName');
+        window.location.href = '../login/login.html';
+    };
+
+    if (accessToken) {
+        const userName = localStorage.getItem('userName');
+        authSection.innerHTML = `
+        <span>${userName}</span>
+        <button id="logout-btn">Sair</button>
+    `;
+        document.getElementById('logout-btn').addEventListener('click', fazerLogout);
+    } else {
+        authSection.innerHTML = '<a href="../login/login.html">Login</a>';
+    }
     const hosp = [];
 
     const searchInput = document.getElementById('hosp-search');
@@ -141,11 +160,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function treatText(text) {
         return text
-            .normalize("NFD") 
-            .replace(/[\u0300-\u036f]/g, "") 
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
             .replace(/[\uFFFD]/g, "u")
-            .replace(/[_-]/g, " ") 
-            .replace(/[^\x00-\x7F]/g, "")        
+            .replace(/[_-]/g, " ")
+            .replace(/[^\x00-\x7F]/g, "")
             .toLowerCase()
             .trim();
     }

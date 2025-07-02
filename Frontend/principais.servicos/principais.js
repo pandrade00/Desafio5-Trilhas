@@ -1,4 +1,23 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
+
+    const accessToken = localStorage.getItem('accessToken');
+    const authSection = document.getElementById('auth-section');
+    const fazerLogout = () => {
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('userName');
+        window.location.href = '../login/login.html';
+    };
+
+    if (accessToken) {
+        const userName = localStorage.getItem('userName');
+        authSection.innerHTML = `
+        <span>${userName}</span>
+        <button id="logout-btn">Sair</button>
+    `;
+        document.getElementById('logout-btn').addEventListener('click', fazerLogout);
+    } else {
+        authSection.innerHTML = '<a href="../login/login.html">Login</a>';
+    }
     // Carregar agendamentos do localStorage
     let agendamentos = [];
     try {
@@ -24,32 +43,32 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Último agendamento feito
         const ultimoAgendamento = agendamentos[0];
-        
+
         // Próximo agendamento (futuro mais próximo)
         const hoje = new Date();
         const agendamentosFuturos = agendamentos.filter(ag => {
             const dataAg = new Date(ag.data);
             return dataAg >= hoje;
         }).sort((a, b) => new Date(a.data) - new Date(b.data));
-        
+
         const proximoAgendamento = agendamentosFuturos[0];
 
         // Atualizar o conteúdo da notificação
         notificacaoTitulo.textContent = 'Seus Agendamentos';
-        
+
         let textoNotificacao = '';
-        
+
         if (ultimoAgendamento) {
             textoNotificacao += `Último: ${ultimoAgendamento.tipo === 'consulta' ? 'Consulta' : 'Exame'} em ${formatarData(ultimoAgendamento.data)}`;
         }
-        
+
         if (proximoAgendamento) {
             if (textoNotificacao) textoNotificacao += '\n';
             textoNotificacao += `Próximo: ${proximoAgendamento.tipo === 'consulta' ? 'Consulta' : 'Exame'} em ${formatarData(proximoAgendamento.data)}`;
         }
-        
+
         notificacaoTexto.textContent = textoNotificacao || 'Nenhum agendamento futuro encontrado';
-        
+
         // Mudar o botão para "Ver Todos"
         notificacaoBotao.textContent = 'Ver Todos';
         notificacaoBotao.addEventListener('click', () => {
@@ -65,10 +84,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function formatarData(dataString) {
         if (!dataString) return 'Data não informada';
         if (dataString.match(/\d{2}\/\d{2}\/\d{4}/)) return dataString;
-        
+
         const data = new Date(dataString);
         if (isNaN(data.getTime())) return 'Data inválida';
-        
+
         return data.toLocaleDateString('pt-BR');
     }
 
@@ -78,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const service = card.querySelector('p').textContent;
             let url;
 
-            switch(service) {
+            switch (service) {
                 case 'Agendar Consulta':
                     url = '../agendar.conf/agendar.conf.html';
                     break;
@@ -95,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     url = '#';
             }
 
-            if(url !== '#') {
+            if (url !== '#') {
                 window.location.href = url;
             }
         });
