@@ -70,7 +70,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     try {
       enderecoUser = await consultarCEP(cep);
-
+      if (!enderecoUser) {
+        alert("Erro ao procupar dados do CEP informado.");
+      }
     } catch (error) {
       console.error(error);
       alert('Erro ao buscar CEP. Tente novamente mais tarde.');
