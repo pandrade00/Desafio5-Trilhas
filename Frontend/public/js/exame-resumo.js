@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Configurar botão Voltar
     const btnVoltar = document.querySelector('.btn.voltar');
     btnVoltar.addEventListener('click', function () {
-        window.location.href = '../public/exame-hora.html';
+        window.location.href = './exame-hora.html';
     });
 
     // Configurar botão Confirmar
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
             localStorage.removeItem('dataExameSelecionada');
             localStorage.removeItem('horarioExameSelecionado');
 
-            window.location.href = '../public/principais.html';
+            window.location.href = './principais.html';
         });
     });
 

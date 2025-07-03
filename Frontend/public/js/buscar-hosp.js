@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const fazerLogout = () => {
         localStorage.removeItem('accessToken');
         localStorage.removeItem('userName');
-        window.location.href = '../public/login.html';
+        window.location.href = './login.html';
     };
 
     if (accessToken) {
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
     `;
         document.getElementById('logout-btn').addEventListener('click', fazerLogout);
     } else {
-        authSection.innerHTML = '<a href="../public/login.html">Login</a>';
+        authSection.innerHTML = '<a href="./login.html">Login</a>';
     }
     const hosp = [];
 

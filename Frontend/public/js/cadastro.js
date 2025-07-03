@@ -154,14 +154,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Redirecionar para login ao clicar no botão
   document.getElementById('btnIrParaLogin').addEventListener('click', function () {
-    window.location.href = '../public/login.html';
+    window.location.href = './login.html';
   });
 
   // Fechar popup ao clicar fora
   document.getElementById('popupSucesso').addEventListener('click', function (e) {
     if (e.target === this) {
       this.classList.remove('active');
-      window.location.href = '../public/login.html';
+      window.location.href = './login.html';
     }
   });
 });

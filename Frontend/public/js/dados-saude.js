@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const fazerLogout = () => {
         localStorage.removeItem('accessToken');
         localStorage.removeItem('userName');
-        window.location.href = '../public/login.html';
+        window.location.href = './login.html';
     };
 
     if (accessToken) {
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
         document.getElementById('logout-btn').addEventListener('click', fazerLogout);
     } else {
-        authSection.innerHTML = '<a href="../public/login.html">Login</a>';
+        authSection.innerHTML = '<a href="./login.html">Login</a>';
     }
 });
 

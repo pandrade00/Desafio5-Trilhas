@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     // Redireciona se não tiver token
     if (!accessToken) {
-        window.location.href = '../public/login.html';
+        window.location.href = './login.html';
         return;
     }
 
@@ -54,11 +54,11 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     // Event listeners
     btnContinuar.addEventListener('click', () => {
-        window.location.href = '../public/agendar-esp.html';
+        window.location.href = './agendar-esp.html';
     });
 
     btnEditar.addEventListener('click', () => {
-        //window.location.href = '../public/editar-perfil.html';
+        //window.location.href = './editar-perfil.html';
         alert("Função não desenvolvida.");
     });
 

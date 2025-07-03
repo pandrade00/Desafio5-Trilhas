@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const unidadeData = unidades[nomeUnidade];
         
         localStorage.setItem('unidadeSelecionada', JSON.stringify(unidadeData));
-        window.location.href = '../public/agendar-hora.html';
+        window.location.href = './agendar-hora.html';
     });
 
     // Efeitos visuais do botão

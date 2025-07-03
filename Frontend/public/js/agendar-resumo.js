@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const btnVoltar = document.querySelector('.btn.voltar');
     btnVoltar.addEventListener('click', function () {
-        window.location.href = '../public/agendar-hora.html';
+        window.location.href = './agendar-hora.html';
     });
 
     const btnConfirmar = document.querySelector('.btn.confirmar');
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
             localStorage.removeItem('dataSelecionada');
             localStorage.removeItem('horaSelecionada');
 
-            window.location.href = '../public/principais.html';
+            window.location.href = './principais.html';
         });
     });
 

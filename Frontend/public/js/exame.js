@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     // Redireciona se não tiver token
     if (!accessToken) {
-        window.location.href = '../public/login.html';
+        window.location.href = './login.html';
         return;
     }
 
@@ -43,17 +43,17 @@ document.addEventListener('DOMContentLoaded', async function () {
         } catch (err) {
             console.error(err);
             alert("Por favor, faça login novamente.");
-            window.location.href = '../public/login.html';
+            window.location.href = './login.html';
         }
     }
 
     // Event listeners
     btnContinuar.addEventListener('click', () => {
-        window.location.href = '../public/exame-agendar.html';
+        window.location.href = './exame-agendar.html';
     });
 
     btnEditar.addEventListener('click', () => {
-        //window.location.href = '../public/editar-perfil.html';
+        //window.location.href = './editar-perfil.html';
         alert("Função não desenvolvida.");
     });
 
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         if (!refreshToken || !isTokenValid(refreshToken)) {
             throw new Error('Refresh token não encontrado ou expirado, faça login novamente.');
-            window.location.href = '../public/login.html';
+            window.location.href = './login.html';
         }
 
         const refreshResponse = await fetch('https://desafio5-trilhas-production.up.railway.app/usuarios/refresh-token', {

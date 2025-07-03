@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem('refreshToken', resultado.refreshToken);
         localStorage.setItem('userName', resultado.usuario.nome);
 
-        window.location.href = "../public/index.html";
+        window.location.href = "./index.html";
       } else {
         alert(resultado.message || "Email ou senha incorretos!");
       }
@@ -77,8 +77,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Redirecionamento para cadastro
-  document.querySelector('a[href="../public/cadastro.html"]').addEventListener("click", (e) => {
+  document.querySelector('a[href="./cadastro.html"]').addEventListener("click", (e) => {
     e.preventDefault();
-    window.location.href = "../public/cadastro.html";
+    window.location.href = "./cadastro.html";
   });
 });

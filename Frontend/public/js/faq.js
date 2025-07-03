@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Verifica se há um token (usuário logado)
   const accessToken = localStorage.getItem('accessToken');
-  const titulo = document.querySelector('.box-titulo h2');
   const userName = localStorage.getItem('userName');
   const authSection = document.getElementById('auth-section');
 
@@ -19,10 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
         <button id="logout-btn">Sair</button>
       `;
       document.getElementById('logout-btn').addEventListener('click', fazerLogout);
-      titulo.textContent = `Bem-vindo, ${userName}`;
     } else {
       authSection.innerHTML = '<a href="./login.html">Login</a>';
-      titulo.textContent = 'Bem-Vindo ao Diagnóstix';
     }
   };
 
@@ -53,49 +50,4 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     atualizarUI(false);
   }
-
-  const loginPopup = document.getElementById('loginPopup');
-  const showLoginPopup = () => {
-    loginPopup.classList.add('active');
-  };
-
-  const hideLoginPopup = () => {
-    loginPopup.classList.remove('active');
-  };
-
-  // Configura botões do popup
-  document.querySelector('.popup-btn-login').addEventListener('click', () => {
-    hideLoginPopup();
-    window.location.href = './login.html';
-  });
-
-  document.querySelector('.popup-btn-cancel').addEventListener('click', hideLoginPopup);
-
-  // Fecha popup ao clicar fora
-  loginPopup.addEventListener('click', (e) => {
-    if (e.target === loginPopup) {
-      hideLoginPopup();
-    }
-  });
-
-  // Cards - requerem login
-  document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', (e) => {
-      if (!localStorage.getItem('accessToken')) {
-        e.preventDefault();
-        showLoginPopup();
-        return;
-      }
-
-      const title = card.querySelector('h3').textContent;
-      let url;
-      if (title.includes('Buscar')) url = './buscar-hosp.html';
-      else if (title.includes('Consultas')) url = './principais.html';
-      else if (title.includes('Dados')) url = './dados-saude.html';
-
-      if (url) {
-        window.location.href = url;
-      }
-    });
-  });
 });
