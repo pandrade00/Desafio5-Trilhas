@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="Frontend/assets/logo-diagnostix.png" alt="Tela inicial" width="300"/>
+  <img src="Frontend/public/assets/logo-diagnostix.png" alt="Tela inicial" width="300"/>
 </p>
 
 O **Diagnóstix** é um sistema que tem como objetivo oferecer **acesso rápido e fácil a saúde pública no Maranhão.** Que também conta com um jogo interativo de triagem de sintomas, onde o usuário pode relatar o que está sentindo e, de forma lúdica, receber informações sobre qual pode ser o possível problema ou qual profissional da saúde procurar.
